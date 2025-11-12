@@ -1,0 +1,51 @@
+@use "interactive-states" as *;
+
+@mixin pagination {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  &-link,
+  &-button {
+    box-sizing: border-box;
+    display: block;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 5px;
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    color: var(--text-grey);
+    text-decoration: none;
+    background-color: var(--white);
+    transition: background-color 0.3s;
+
+    @include hover-focus {
+      outline: none;
+      background-color: var(--grey-middle);
+    }
+
+    @include active {
+      background-color: var(--accent-dark-opacity);
+    }
+
+    &--current {
+      color: var(--white);
+      background-color: var(--accent-dark);
+
+      @include hover-focus {
+        background-color: var(--accent-dark);
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.tabs__tabcontent {
+  display: none;
+  animation: appear 0.3s;
+}
+
+.tabs__tabcontent--active {
+  display: block;
+}

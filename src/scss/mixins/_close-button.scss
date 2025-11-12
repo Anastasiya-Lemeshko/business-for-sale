@@ -1,0 +1,27 @@
+@mixin close-button {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background-color: var(--transparent);
+  border: none;
+  z-index: 1;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    content: "";
+    width: 18px;
+    height: 2px;
+    background-color: var(--white);
+    z-index: 5;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

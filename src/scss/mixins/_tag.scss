@@ -1,0 +1,34 @@
+@use "breakpoint" as *;
+@use "interactive-states" as *;
+
+@mixin tag {
+  display: inline-block;
+  padding: 4px 15px 3px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--bg-primary);
+  background-color: var(--bg-accent);
+  border-radius: 5px;
+
+  @include vp-1366 {
+    padding: 5px 25px;
+    font-size: 18px;
+  }
+}
+
+@mixin tag-dark {
+  @include tag;
+
+  color: var(--white);
+  background-color: var(--bg-primary);
+  transition: background-color 0.3s;
+
+  @include hover-focus {
+    background-color: var(--bg-accent);
+  }
+
+  @include active {
+    background-color: var(--bg-accent-opacity);
+  }
+}

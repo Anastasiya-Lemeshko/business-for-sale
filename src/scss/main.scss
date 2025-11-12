@@ -1,0 +1,22 @@
+// базовые подключения
+@use "index" as *;
+
+// подключения компонентов
+@use "./components/logo-image";
+@use "./components/title";
+@use "./components/button";
+@use "./components/button-swiper";
+@use "./components/button-scroll-top";
+@use "./components/breadcrumbs";
+@use "./components/tabs";
+@use "./components/map";
+@use "./components/multiform";
+
+// подключения секций страницы
+@use "./blocks/header";
+@use "./blocks/footer";
+@use "./blocks/hero";
+@use "./blocks/offers";
+@use "./blocks/team";
+@use "./blocks/calculation";
+@use "./blocks/featured"

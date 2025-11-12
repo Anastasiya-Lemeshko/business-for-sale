@@ -1,0 +1,5 @@
+@use "mixins" as *;
+
+@include font-face("TT Norms", "TTNormsPro-Regular", 400, normal);
+@include font-face("TT Norms", "TTNormsPro-Medium", 500, normal);
+@include font-face("TT Norms", "TTNormsPro-Bold", 700, normal);

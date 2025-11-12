@@ -1,0 +1,45 @@
+@use "mixins" as *;
+
+// index
+
+.index {
+  &__hero {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 64px;
+    }
+  }
+
+  &__offers {
+    margin: 0 0 32px;
+
+    @include vp-1024 {
+      margin: 0 0 66px;
+    }
+  }
+
+  &__team {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 78px;
+    }
+  }
+
+  &__calculation {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 78px;
+    }
+  }
+
+  &__featured {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 76px;
+    }
+  }
+}

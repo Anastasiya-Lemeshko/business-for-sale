@@ -1,0 +1,82 @@
+<header class="header">
+  <div class="container">
+    <nav class="header__wrapper">
+      <div class="header__top">
+        <address class="header__address">
+          <p class="header__address-item header__address-item--additional">Address</p>
+          <p class="header__address-item header__address-item--additional">Work time</p>
+          <div class="header__tel">
+            <a class="header__address-item header__address-item--link" href="tel:+971586386980">+971&nbsp;58&nbsp;638&nbsp;6980</a>
+          </div>
+        </address>
+        <div class="header__user">
+          <a class="header__account" href="#">Sign&nbsp;In</a>
+        </div>
+      </div>
+      <div class="header__bottom">
+        <div class="header__logo">
+          @if (typeof isHomepage !== 'undefined') {
+          <a class="header__logo-img">Logo
+            <!-- <img src="../img/logo.svg" alt="SBRE logo."> -->
+          </a>
+          }
+          @if (typeof isHomepage === 'undefined') {
+          <a class="header__logo-img" href="index.html">Logo
+            <!-- <img src="../img/logo.svg" alt="SBRE logo."> -->
+          </a>
+          }
+        </div>
+        <div class="header__menu">
+          <div class="header__menu-wrapper">
+            <div class="header__menu-logo">Logo
+              <!-- <img src="../img/logo.svg" alt="SBRE logo."> -->
+            </div>
+            <ul class="header__nav">
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Catalog</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Payment</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Blog</a>
+              </li>
+              <li class="header__nav-item">
+                <a class="header__nav-link" href="#">Contacts</a>
+              </li>
+            </ul>
+            <div class="header__menu-address">
+              <a class="header__menu-address-item" href="tel:+971586386980">+971&nbsp;58&nbsp;638&nbsp;6980</a>
+              <a class="header__menu-address-item" href="mailto:info@sandboxdxb.com">info@sandboxdxb.com</a>
+              <p class="header__menu-address-item">DUBAI, <br>UNITED ARAB EMIRATES 103&nbsp;office, Yansoon&nbsp;9, Downtown Dubai</p>
+            </div>
+            <ul class="header__socials">
+              <li class="header__socials-item">
+                <a class="header__socials-link header__socials-link--whatsapp" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Whatsapp.</span>
+                </a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link header__socials-link--tg" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Telegram.</span>
+                </a>
+              </li>
+              <li class="header__socials-item">
+                <a class="header__socials-link header__socials-link--instagram" href="#" target="_blank" rel="noreferrer noopener">
+                  <span class="visually-hidden">Instagram.</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="header__bottom-wrapper">
+          <a class="header__register button" href="#">Register</a>
+          <button class="header__burger" type="button">
+            <span class="visually-hidden">Open menu</span>
+            <span class="header__burger-icon" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>

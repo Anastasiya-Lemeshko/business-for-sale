@@ -1,0 +1,251 @@
+@use "index" as *;
+
+.calculation__header {
+  @include block-header;
+}
+
+.calculation__wrapper {
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+.calculation__form {
+  padding: 18px 20px 20px;
+  color: var(--white);
+  background-color: var(--bg-primary);
+  border-radius: 5px;
+
+  @include vp-1024 {
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include vp-1366 {
+    padding: 33px 30px;
+  }
+}
+
+.calculation__form-group {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.calculation__form-title {
+  margin: 0 0 14px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.2;
+
+  @include vp-768 {
+    margin: 0 0 25px;
+  }
+
+  @include vp-1366 {
+    margin: 0 0 47px;
+    font-weight: 700;
+    font-size: 30px;
+  }
+
+  br {
+    display: none;
+
+    @include vp-1366 {
+      display: block;
+    }
+  }
+}
+
+.calculation__form-list {
+  margin: 0 0 37px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+  }
+
+  @include vp-1366 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &--wide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+}
+
+.calculation__form-item:not(:last-child) {
+  margin: 0 0 10px;
+
+  @include vp-1366 {
+    margin: 0 0 15px;
+  }
+}
+
+.calculation__form-checkbox {
+  @include checkbox-light;
+}
+
+.calculation__form-text {
+  max-width: 400px;
+  margin: 0 0 40px;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--grey);
+}
+
+.calculation__form-inputs {
+  margin: 0 0 20px;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 26px;
+  }
+
+  @include vp-1366 {
+    margin: 0 0 40px;
+    padding: 0 70px 0 0;
+  }
+}
+
+.calculation__form-inputs-item:not(:last-child) {
+  margin: 0 0 10px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+}
+
+.calculation__form-field {
+  @include input;
+
+  input {
+    height: 54px;
+
+    @include vp-768 {
+      height: 100%;
+    }
+  }
+}
+
+.calculation__select {
+  @include select-standard;
+
+  height: 100%;
+}
+
+.calculation__form-footer {
+  @include vp-768 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 50px;
+    margin: auto 0 0;
+  }
+
+  @include vp-1366 {
+    padding: 0 70px 0 7px;
+  }
+}
+
+.calculation__step-count {
+  margin: 0 0 15px;
+  font-weight: 500;
+  font-size: 20px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1366 {
+    font-weight: 700;
+    font-size: 30px;
+  }
+}
+
+.calculation__form-buttons {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+
+  @include vp-1366 {
+    margin: 0 0 6px;
+  }
+}
+
+.calculation__form-button-prev {
+  position: relative;
+  width: 32px;
+  min-height: 30px;
+  padding: 0;
+  background-color: var(--white);
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s;
+  flex-shrink: 0;
+
+  @include vp-1024 {
+    width: 54px;
+    min-height: 50px;
+  }
+
+  @include hover-focus {
+    background-color: var(--grey-light);
+  }
+
+  @include active {
+    background-color: var(--grey-extra-light);
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: "";
+    width: 30px;
+    height: 30px;
+    mask-image: url("../img/sprite.svg#arrow");
+    mask-position: center center;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    background-color: var(--text-basic);
+
+    @include vp-1366 {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+.calculation__form-button {
+  flex-grow: 1;
+  font-weight: 400;
+
+  @include vp-1366 {
+    min-width: 180px;
+    font-size: 18px;
+  }
+}
+
+.calculation__image {
+  display: none;
+  border-radius: 5px;
+  overflow: hidden;
+
+  @include vp-1024 {
+    display: block;
+  }
+
+  img {
+    @include img-cover;
+  }
+}

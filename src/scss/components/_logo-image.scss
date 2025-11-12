@@ -1,0 +1,24 @@
+@use "index" as *;
+
+.logo-image {
+  display: block;
+  width: 50px;
+  height: 16px;
+
+  @include vp-768 {
+    width: 127px;
+    height: 42px;
+  }
+
+  &[href] {
+    @include interactive-opacity;
+  }
+}
+
+.logo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+}

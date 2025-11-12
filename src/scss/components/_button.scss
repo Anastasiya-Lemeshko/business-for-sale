@@ -1,0 +1,34 @@
+@use "index" as *;
+
+.button {
+  @include interactive-button;
+
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 7px 15px 6px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text-basic);
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--bg-accent);
+  cursor: pointer;
+
+  @include vp-1024 {
+    padding: 14px 15px 13px;
+    font-weight: 500;
+    font-size: 18px;
+  }
+
+  &--disabled {
+    background-color: var(--grey-middle);
+    color: var(--grey-extra-light);
+    cursor: default;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,82 @@
+@mixin accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s, max-height 0.4s;
+  opacity: 0;
+
+  &--opened {
+    opacity: 1;
+  }
+}
+
+@mixin accordion-plus {
+  --before-transform: translate(-50%, -50%);
+  --after-transform: translate(-50%, -50%) rotate(90deg);
+  --after-opacity: 1;
+
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: var(--before-transform);
+    content: "";
+    width: 1px;
+    height: 18px;
+    background-color: var(--white);
+    transition: transform 0.3s, background-color 0.3s;
+  }
+
+  &::after {
+    transform: var(--after-transform);
+    opacity: var(--after-opacity);
+  }
+
+  &.accordion-button--active {
+    --before-transform: translate(-50%, -50%) rotate(90deg);
+    --after-transform: translate(-50%, -50%) rotate(180deg);
+    --after-opacity: 0;
+  }
+}
+
+@mixin accordion-plus-span {
+  --before-transform: translate(-50%, -50%);
+  --after-transform: translate(-50%, -50%) rotate(90deg);
+  --after-opacity: 1;
+
+  position: relative;
+
+  span {
+    position: relative;
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background-color: var(--accent-dark);
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: var(--before-transform);
+      content: "";
+      width: 1px;
+      height: 11px;
+      background-color: var(--white);
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    &::after {
+      transform: var(--after-transform);
+      opacity: var(--after-opacity);
+    }
+  }
+
+  &.accordion-button--active {
+    --before-transform: translate(-50%, -50%) rotate(90deg);
+    --after-transform: translate(-50%, -50%) rotate(180deg);
+    --after-opacity: 0;
+  }
+}

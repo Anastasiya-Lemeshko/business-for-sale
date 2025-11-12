@@ -1,0 +1,30 @@
+@use "index" as *;
+
+.title {
+  margin: 0 0 12px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+
+  @include vp-500 {
+    font-size: 25px;
+  }
+
+  @include vp-768 {
+    font-size: 30px;
+  }
+
+  @include vp-1024 {
+    font-size: 45px;
+    line-height: 90%;
+    letter-spacing: -0.03em;
+  }
+
+  @include vp-1366 {
+    margin: 0;
+  }
+
+  @include vp-1640 {
+    font-size: 62px;
+  }
+}

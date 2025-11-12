@@ -1,0 +1,63 @@
+@use "breakpoint" as *;
+
+@mixin burger {
+  --color: var(--black);
+  --middle-color: var(--black);
+  --transform-top: rotate(0);
+  --transform-bottom: rotate(0);
+  --position-top: 5px;
+  --position-bottom: 5px;
+
+  position: relative;
+  width: 28px;
+  height: 28px;
+  color: var(--color);
+  background-color: var(--transparent);
+  border: none;
+  transition: color 0.3s, background-color 0.3s;
+  cursor: pointer;
+
+  &.active {
+    --color: var(--white);
+    --middle-color: var(--transparent);
+    --transform-top: rotate(45deg);
+    --transform-bottom: rotate(-45deg);
+    --position-top: 0;
+    --position-bottom: 0;
+  }
+
+  &-icon {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 1px;
+    background-color: var(--middle-color);
+    transition: background-color 0.3s;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      content: "";
+      width: 28px;
+      height: 1px;
+      background-color: var(--color);
+    }
+
+    &::before {
+      bottom: var(--position-top);
+      transform: var(--transform-top);
+      transition: bottom 0.3s, transform 0.3s, background-color 0.3s;
+    }
+
+    &::after {
+      top: var(--position-bottom);
+      transform: var(--transform-bottom);
+      transition: top 0.3s, transform 0.3s, background-color 0.3s;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@use "index" as *;
+
+.featured__title {
+  margin: 0 0 14px;
+
+  @include vp-1024 {
+    margin: 0 0 27px;
+  }
+}
+
+.featured__swiper-wrapper {
+  display: flex;
+  gap: 10px;
+  margin: 0 0 10px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include vp-1366 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  &.swiper-wrapper {
+    display: flex;
+    gap: unset;
+  }
+
+  @include vp-400 {
+    margin: 0 0 20px;
+  }
+}
+
+.featured__slide {
+  @include slide-layout;
+
+  aspect-ratio: 362 / 217;
+  background-color: var(--grey-middle);
+
+  @include vp-1366 {
+    aspect-ratio: 304 / 217
+  }
+}
+
+.featured__swiper-button-container {
+  @include swiper-button-position;
+
+  &.hidden {
+    display: none;
+  }
+}

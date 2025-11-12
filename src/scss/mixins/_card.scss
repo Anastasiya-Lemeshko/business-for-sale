@@ -1,0 +1,300 @@
+@use "interactive-states" as *;
+@use "img-position" as *;
+@use "links" as *;
+@use "breakpoint" as *;
+
+@mixin card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+
+  &-left,
+  &-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5px;
+  }
+
+  &-right {
+    justify-content: flex-end;
+  }
+}
+
+@mixin card {
+  @include vp-768 {
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  &-image {
+    display: block;
+    width: 100%;
+    height: 352px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+
+    @include vp-500 {
+      aspect-ratio: 500 / 352;
+      height: unset;
+    }
+
+    img {
+      @include img-cover;
+    }
+  }
+
+  &-content {
+    display: grid;
+    padding: 17px 20px 20px;
+    color: var(--grey-middle);
+    background-color: var(--bg-primary);
+    border-radius: 0 0 5px 5px;
+
+    @include vp-1024 {
+      padding: 20px 10px 10px;
+    }
+  }
+
+  &-info {
+    display: grid;
+    grid-template-columns: 1fr minmax(30%, 62%);
+    align-items: start;
+    gap: 20px;
+    margin: 0 0 14px;
+  }
+
+  &-location {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    align-items: center;
+    gap: 10px;
+    margin: 3px 0 0;
+    font-weight: 400;
+    font-size: 20px;
+    text-transform: uppercase;
+
+    @include vp-500 {
+      font-size: 26px;
+    }
+
+    @include vp-768 {
+      gap: 5px;
+      font-size: 20px;
+    }
+
+    @include vp-1024 {
+      font-size: 16px;
+    }
+
+    @include vp-1366 {
+      gap: 10px;
+      font-size: 20px;
+    }
+
+    &::before {
+      grid-area: 1 / 1 / 2 / 2;
+      width: 17px;
+      height: 17px;
+      content: "";
+      mask-image: url("../img/sprite.svg#pin");
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      background-color: var(--white);
+
+      @include vp-500 {
+        width: 22px;
+        height: 22px;
+      }
+
+      @include vp-768 {
+        width: 17px;
+        height: 17px;
+      }
+    }
+  }
+
+  &-title {
+    justify-self: end;
+    width: fit-content;
+    margin: 0;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--white);
+
+    @include vp-500 {
+      font-size: 26px;
+    }
+
+    @include vp-768 {
+      font-size: 18px;
+    }
+  }
+
+  &-description {
+    margin: 0 0 12px;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+
+    @include vp-500 {
+      font-size: 20px;
+    }
+
+    @include vp-768 {
+      font-size: 14px;
+    }
+  }
+
+  &-details {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 12px 9px;
+    margin: 0 0 11px;
+    font-weight: 400;
+    font-size: 20px;
+    letter-spacing: -0.01em;
+
+    @include vp-1024 {
+      font-size: 16px;
+    }
+
+    @include vp-1366 {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &-price {
+    margin: 0 0 35px;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--white);
+
+    @include vp-1024 {
+      margin: 0 0 20px;
+    }
+  }
+
+  &-links {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    margin: auto 9px 0 0;
+  }
+
+  &-link {
+    padding: 4px 15px 4px;
+    font-size: 18px
+  }
+
+  &-social {
+    @include social-link;
+
+    width: 30px;
+    height: 30px;
+
+    @include vp-1024 {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+
+@mixin offer-card {
+  @include card;
+
+  &-image {
+    @include vp-1024 {
+      height: 350px;
+    }
+
+    @include vp-1366 {
+      height: 450px;
+    }
+
+    @include vp-1640 {
+      height: 599px;
+    }
+  }
+
+  &-content {
+    @include vp-1366 {
+      padding: 15px 30px 20px;
+    }
+  }
+
+  &-info {
+    @include vp-1366 {
+      grid-template-columns: 1fr minmax(30%, 62%);
+      margin: 0 0 10px;
+    }
+  }
+
+  &-title {
+    @include vp-1366 {
+      font-size: 20px;
+    }
+
+    @include vp-1640 {
+      font-size: 25px;
+    }
+
+    @include vp-1920 {
+      font-size: 30px;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &-description {
+    @include vp-1024 {
+      display: none;
+    }
+  }
+
+  &-details {
+    @include vp-1366 {
+      grid-template-columns: auto 1fr auto auto;
+      gap: 20px;
+      margin: 0 0 25px;
+      font-size: 14px;
+    }
+
+    @include vp-1640 {
+      font-size: 18px;
+    }
+
+    @include vp-1920 {
+      gap: 38px;
+      font-size: 20px;
+    }
+  }
+
+  &-price {
+    @include vp-1366 {
+      margin: 0 0 13px;
+      font-size: 20px;
+    }
+
+    @include vp-1640 {
+      font-size: 30px;
+    }
+  }
+
+  &-links {
+    gap: 13px;
+    margin: auto 0 0;
+  }
+
+  &-link {
+    @include vp-1024 {
+      padding: 14px 15px;
+    }
+  }
+}

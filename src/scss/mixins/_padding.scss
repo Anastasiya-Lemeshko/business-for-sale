@@ -1,0 +1,9 @@
+@use "breakpoint" as *;
+
+@mixin block-padding {
+  padding: 10px 0 5px;
+
+  @include vp-1024 {
+    padding: 20px 0;
+  }
+}

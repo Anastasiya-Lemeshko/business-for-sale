@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+@include('partials/head.html')
+
+<body class="page__body">
+  @include('partials/header.html', {"isHomepage": true})
+  <main class="page__main index">
+    <div class="index__hero">
+      @include('partials/hero.html')
+    </div>
+    <div class="index__offers">
+      @include('partials/offers.html')
+    </div>
+    <div class="index__team">
+      @include('partials/team.html')
+    </div>
+    <div class="index__calculation">
+      @include('partials/calculation.html')
+    </div>
+    <div class="index__featured">
+      @include('partials/featured.html')
+    </div>
+  </main>
+  <!-- @include('partials/footer.html') -->
+</body>
+
+</html>

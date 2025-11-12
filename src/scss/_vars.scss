@@ -1,0 +1,36 @@
+:root {
+  // base
+  --font-family: "TT Norms", "Arial", sans-serif;
+  --content-width: 1920px;
+  --container-offset: 20px;
+
+  // colors
+  --transparent: rgba(255, 255, 255, 0);
+  --white: #ffffff;
+  --black: #000000;
+  --text-basic: #191919;
+  --text-secondary: #3e3e3e;
+  --text-light: #878787;
+  --bg-primary: #212a42;
+  --bg-accent: #fbaf5a;
+  --bg-accent-opacity: #fbc58a;
+  --grey-extra-light: #f8f8f8;
+  --grey-light: #ececec;
+  --grey: #d4d4d4;
+  --grey-middle: #c5c5c5;
+  --grey-range: #bcbfc6;
+  --error: #c10000;
+}
+
+// Viewports
+// ---------------------------------
+
+$vp-320: 320px;
+$vp-400: 400px;
+$vp-500: 500px;
+$vp-768: 768px;
+$vp-1024: 1024px;
+$vp-1280: 1280px;
+$vp-1366: 1366px;
+$vp-1640: 1640px;
+$vp-1920: 1920px;

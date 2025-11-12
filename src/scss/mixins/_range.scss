@@ -1,0 +1,114 @@
+@use "interactive-states" as *;
+@use "form-elements" as *;
+
+@mixin range {
+  position: relative;
+
+  &-title {
+    margin: 0 0 10px;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--grey);
+  }
+
+  &-current {
+    display: none;
+    position: absolute;
+    width: 100%;
+    top: 28px;
+    transform: translateX(0%);
+    animation: appear 0.3s;
+  }
+
+  &-current-value {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 12px;
+    transform: translateX(-50%);
+    color: var(--bg-accent);
+  }
+
+  &-container {
+    margin: 16px 0 14px;
+  }
+
+  .noUi-target {
+    background: var(--white);
+    height: 2px;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .noUi-connects {
+    height: 2px;
+    background-color: var(--grey-range);
+    border-radius: 0;
+  }
+
+  .noUi-connect {
+    height: 2px;
+    background: var(--text-light);
+  }
+
+  .noUi-handle {
+    border: none;
+    border-radius: 50%;
+    background-color: var(--bg-accent);
+    box-shadow: none;
+    transition: background-color 0.3s;
+    cursor: pointer;
+
+    @include hover-focus {
+      outline: none;
+      background-color: var(--bg-accent-opacity);
+    }
+
+    @include active {
+      background-color: var(--bg-accent);
+    }
+  }
+
+  [disabled] .noUi-connect {
+    background-color: var(--grey);
+  }
+
+  [disabled].noUi-handle,
+  [disabled] .noUi-handle {
+    background-color: var(--grey);
+  }
+
+  .noUi-horizontal .noUi-handle {
+    width: 10px;
+    height: 10px;
+    right: -8px;
+    top: -4px;
+  }
+
+  .noUi-horizontal .noUi-handle-upper {
+    right: 0;
+  }
+
+  .noUi-handle::before,
+  .noUi-handle::after {
+    display: none;
+  }
+
+  .noUi-active {
+    box-shadow: none;
+  }
+
+  &-values {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  &-value {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--white);
+  }
+}

@@ -1,0 +1,14 @@
+.multiform-step {
+  display: none;
+  animation: appear 0.5s;
+
+  &.active {
+    display: grid;
+  }
+}
+
+.multiform-prev.hidden,
+.multiform-next.hidden,
+.multiform-submit.hidden {
+  display: none;
+}

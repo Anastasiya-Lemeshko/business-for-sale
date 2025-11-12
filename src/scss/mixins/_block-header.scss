@@ -1,0 +1,50 @@
+@use "breakpoint" as *;
+
+@mixin block-header {
+  margin: 0 0 36px;
+
+  @include vp-1366 {
+    display: grid;
+    grid-template-columns: 54fr 31fr;
+    gap: 100px;
+    margin: 0 0 32px;
+  }
+
+  @include vp-1920 {
+    gap: 180px;
+  }
+
+  &-description {
+    max-width: 450px;
+
+    @include vp-768 {
+      max-width: 650px;
+    }
+
+    @include vp-1366 {
+      align-self: end;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text-secondary);
+
+      @include vp-768 {
+        font-size: 18px;
+      }
+
+      @include vp-1024 {
+        line-height: 1.24;
+        letter-spacing: 0;
+      }
+    }
+
+    p + p {
+      margin-top: 10px;
+    }
+  }
+}

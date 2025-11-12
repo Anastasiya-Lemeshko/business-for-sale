@@ -1,0 +1,100 @@
+@use "interactive-states" as *;
+@use "breakpoint" as *;
+
+@mixin swiper-button-position {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+
+  @include vp-1024 {
+    gap: 10px;
+  }
+}
+
+@mixin slide-layout {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+}
+
+@mixin slide-container {
+  flex-grow: 1;
+  width: 100%;
+  overflow: hidden;
+}
+
+@mixin swiper-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+@mixin swiper-pagination-button {
+  --button-color: var(--grey);
+
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  padding: 0;
+  width: 100%;
+  height: 5px;
+  background-color: var(--button-color);
+  border: none;
+  z-index: 3;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  @include hover-focus {
+    --button-color: var(--bg-primary);
+
+    outline: none;
+  }
+
+  @include active {
+    --button-color: var(--accent-dark);
+  }
+
+  @include disabled {
+    --button-color: var(--grey-middle);
+
+    opacity: 0.5;
+  }
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    content: "";
+    width: 100%;
+    height: 20px;
+    background-color: var(--transparent);
+    z-index: -1;
+  }
+
+  &--active {
+    --button-color: var(--accent-dark);
+
+    @include hover-focus {
+      --button-color: var(--accent-dark);
+    }
+  }
+}
+
+@mixin swiper-scrollbar {
+  border-radius: 0;
+  background-color: var(--grey);
+  height: 8px;
+  margin: 0 0 10px;
+
+  &-drag {
+    height: 100%;
+    background-color: var(--accent-dark);
+    border-radius: 0;
+    cursor: pointer;
+  }
+}
