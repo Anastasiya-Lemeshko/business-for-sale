@@ -52,6 +52,20 @@
   }
 }
 
+@mixin interactive-link-accent {
+  transition: color 0.3s, opacity 0.3s;
+
+  @include hover-focus {
+    color: var(--bg-accent-opacity);
+    opacity: 1;
+    outline: none;
+  }
+
+  @include active {
+    opacity: 0.7;
+  }
+}
+
 @mixin interactive-link-underline-light {
   --transform: scaleX(0);
 

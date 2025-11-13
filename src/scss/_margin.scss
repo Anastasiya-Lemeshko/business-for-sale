@@ -39,7 +39,24 @@
     margin: 0 0 36px;
 
     @include vp-1024 {
+      margin: 0 0 96px;
+    }
+  }
+
+  &__stories {
+    //margin: 0 0 36px;
+    margin: 0 0 47px;
+
+    @include vp-1024 {
       margin: 0 0 76px;
+    }
+  }
+
+  &__faq {
+    margin: 0 0 36px;
+
+    @include vp-1024 {
+      margin: 0 0 96px;
     }
   }
 }

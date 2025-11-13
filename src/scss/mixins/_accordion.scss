@@ -1,3 +1,5 @@
+@use "breakpoint" as *;
+
 @mixin accordion-content {
   max-height: 0;
   overflow: hidden;
@@ -44,16 +46,26 @@
 @mixin accordion-plus-span {
   --before-transform: translate(-50%, -50%);
   --after-transform: translate(-50%, -50%) rotate(90deg);
-  --after-opacity: 1;
 
   position: relative;
 
   span {
     position: relative;
     display: inline-block;
-    width: 19px;
-    height: 19px;
-    background-color: var(--accent-dark);
+    width: 15px;
+    height: 15px;
+    background-color: var(--bg-accent);
+    border-radius: 2px;
+
+    @include vp-768 {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include vp-1366 {
+      width: 61px;
+      height: 61px;
+    }
 
     &::before,
     &::after {
@@ -64,19 +76,26 @@
       content: "";
       width: 1px;
       height: 11px;
-      background-color: var(--white);
+      background-color: var(--text-basic);
       transition: transform 0.3s, background-color 0.3s;
+
+      @include vp-768 {
+        height: 22px;
+      }
+
+      @include vp-1366 {
+        height: 2px;
+        height: 50px;
+      }
     }
 
     &::after {
       transform: var(--after-transform);
-      opacity: var(--after-opacity);
     }
   }
 
   &.accordion-button--active {
-    --before-transform: translate(-50%, -50%) rotate(90deg);
-    --after-transform: translate(-50%, -50%) rotate(180deg);
-    --after-opacity: 0;
+    --before-transform: translate(-50%, -50%) rotate(45deg);
+    --after-transform: translate(-50%, -50%) rotate(135deg);
   }
 }

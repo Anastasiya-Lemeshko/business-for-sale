@@ -5,6 +5,7 @@ import { setRanges } from './components/_range.js';
 import { setNavigationSwiper } from './components/_navigation-swiper.js';
 import { setMultiform } from './components/_multistep-form.js';
 import { setGridColumnLayout } from './components/_grid-layout-columns.js';
+import { openVisibleFontCardContent, setAccordeonToggles } from './components/_accordion.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -14,4 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setNavigationSwiper();
   setMultiform();
   setGridColumnLayout();
+  openVisibleFontCardContent();
+  setAccordeonToggles();
 });
