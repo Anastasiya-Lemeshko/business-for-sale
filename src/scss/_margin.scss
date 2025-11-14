@@ -56,7 +56,31 @@
     margin: 0 0 36px;
 
     @include vp-1024 {
-      margin: 0 0 96px;
+      margin: 0 0 76px;
+    }
+  }
+
+  &__about {
+    margin: 0 0 33px;
+
+    @include vp-1024 {
+      margin: 0 0 83px;
+    }
+  }
+
+  &__blog-preview {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 76px;
     }
   }
 }

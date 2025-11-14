@@ -9,7 +9,11 @@ export const TABLET_WIDTH = window.matchMedia('(min-width: 768px)');
 export const DESKTOP_WIDTH = window.matchMedia('(min-width: 1366px)');
 
 export const SLIDES_COUNT = {
-  'default': 1,
+  'default': {
+    'mobile': 1,
+    'tablet': 2,
+    'desktop': 3
+  },
   'team': {
     'mobile': 1,
     'tablet': 2,
@@ -19,6 +23,11 @@ export const SLIDES_COUNT = {
     'mobile': 1,
     'tablet': 3,
     'desktop': 6
+  },
+  'blog-preview': {
+    'mobile': 1,
+    'tablet': 2,
+    'desktop': 3
   }
 };
 

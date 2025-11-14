@@ -79,6 +79,43 @@
   }
 }
 
+@mixin input-secondary {
+  @include input;
+
+  --color: var(--text-secondary);
+
+  &:has(input:hover) span,
+  &:has(textarea:hover) span {
+    --color: var(--grey);
+  }
+
+  span {
+    padding: 0 15px;
+    font-size: 14px;
+
+    @include vp-1024 {
+      font-size: 18px;
+    }
+
+    @include hover-focus {
+      --color: var(--grey);
+    }
+  }
+
+  input,
+  textarea {
+    padding: 16px 15px 15px;
+
+    @include vp-1024 {
+      height: 50px;
+    }
+
+    @include vp-1366 {
+      height: 60px;
+    }
+  }
+}
+
 @mixin input-number-reset {
 
   &::-webkit-outer-spin-button,
@@ -154,6 +191,49 @@
 
   @include hover {
     --color: var(--bg-accent);
+  }
+
+  &:has(input:checked) {
+    --tick-display: visible;
+    --tick-opacity: 1;
+  }
+}
+
+@mixin accept {
+  @include checkbox;
+
+  --color: var(--white);
+
+  gap: 4px;
+
+  &::before,
+  &::after {
+    width: 10px;
+    height: 10px;
+    margin: 2px 0 0;
+  }
+
+  &::before {
+    border-radius: 0;
+  }
+
+  span {
+    font-size: 12px;
+    line-height: 1.2;
+    letter-spacing: 0;
+
+    @include vp-1024 {
+      font-size: 14px;
+    }
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible) {
+    --color: var(--grey);
+  }
+
+  @include hover {
+    --color: var(--grey);
   }
 
   &:has(input:checked) {

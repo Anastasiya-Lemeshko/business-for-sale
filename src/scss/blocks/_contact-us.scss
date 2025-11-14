@@ -1,0 +1,158 @@
+@use "index" as *;
+
+.contact-us__wrapper {
+  padding: 17px 20px 20px;
+  color: var(--white);
+  background-color: var(--bg-accent);
+  border-radius: 5px;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+    gap: 20px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: 2fr 3fr;
+    padding: 35px 33px 37px;
+  }
+
+  @include vp-1366 {
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+    min-height: 400px;
+  }
+
+  @include vp-1640 {
+    min-height: 489px;
+  }
+}
+
+.contact-us__title {
+  margin: 0 0 31px;
+}
+
+.contact-us__list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-1366 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-us__item {
+  &:not(:last-child) {
+    margin: 0 0 18px;
+  }
+
+  &--address {
+    @include vp-1366 {
+      grid-area: 1 / 2 / 3 / 3;
+    }
+  }
+}
+
+.contact-us__address {
+  font-style: normal;
+}
+
+.contact-us__contacts-label {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  text-transform: uppercase;
+
+  @include vp-1366 {
+    margin: 0 0 15px;
+    font-size: 20px;
+  }
+
+  &--address {
+    margin: 0 0 6px;
+  }
+}
+
+.contact-us__contacts-text {
+  margin: 0 0 10px;
+  font-weight: 500;
+  font-size: 20px;
+
+  @include vp-1366 {
+    font-size: 25px;
+  }
+
+  @include vp-1640 {
+    font-size: 30px;
+  }
+}
+
+.contact-us__form {
+  @include vp-1366 {
+    align-self: center;
+  }
+}
+
+.contact-us__form-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.contact-us__form-title {
+  margin: 0 0 24px;
+  font-weight: 400;
+  font-size: 20px;
+
+  @include vp-1366 {
+    font-size: 25px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  @include vp-1640 {
+    font-size: 30px;
+  }
+}
+
+.contact-us__form-list {
+  margin: 0 0 12px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.contact-us__form-item {
+  &:not(:last-child) {
+    margin: 0 0 11px;
+  }
+}
+
+.contact-us__field {
+  @include input-secondary;
+}
+
+.contact-us__form-footer {
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 1fr minmax(150px, auto);
+    align-items: start;
+    gap: 20px;
+  }
+
+  @include vp-1640 {
+    grid-template-columns: 1fr minmax(180px, auto);
+  }
+}
+
+.contact-us__accept {
+  @include accept;
+
+  margin: 0 0 20px;
+}
+
+.contact-us__form-button {
+  width: 100%;
+}

@@ -24,6 +24,7 @@ const setNavigationSwiper = () => {
     const sectionClass = getSwiperClass(section);
     const sectionName = getBlockClass(section);
     const swiperButtons = section.querySelector(`.${sectionClass}swiper-button-container`);
+    const slidesCount = SLIDES_COUNT[sectionName] || SLIDES_COUNT.default;
     let swiperContainer = null;
     let autoplayDelay = 7000 + index * 1000;
 
@@ -45,10 +46,10 @@ const setNavigationSwiper = () => {
         direction: 'horizontal',
         speed: 500,
         allowTouchMove: true,
-        slidesPerView: SLIDES_COUNT[sectionName].mobile,
+        slidesPerView: slidesCount.mobile,
         spaceBetween: 10,
         loop: true,
-        autoHeight: SLIDES_COUNT[sectionName].mobile === 1,
+        autoHeight: slidesCount.mobile === 1,
 
         // autoplay: {
         //   delay: autoplayDelay,
@@ -59,13 +60,13 @@ const setNavigationSwiper = () => {
 
         breakpoints: {
           768: {
-            slidesPerView: SLIDES_COUNT[sectionName].tablet,
-            autoHeight: SLIDES_COUNT[sectionName].tablet === 1,
+            slidesPerView: slidesCount.tablet,
+            autoHeight: slidesCount.tablet === 1,
           },
 
           1366: {
-            slidesPerView: SLIDES_COUNT[sectionName].desktop,
-            autoHeight: SLIDES_COUNT[sectionName].desktop === 1,
+            slidesPerView: slidesCount.desktop,
+            autoHeight: slidesCount.desktop === 1,
           },
         },
 
@@ -88,9 +89,9 @@ const setNavigationSwiper = () => {
     };
 
     const checkNavigationSwiper = () => {
-      const isNeedMobile = !TABLET_WIDTH.matches && (getSlidesCount(section) > SLIDES_COUNT[sectionName].mobile);
-      const isNeedTablet = TABLET_WIDTH.matches && !DESKTOP_WIDTH.matches && (getSlidesCount(section) > SLIDES_COUNT[sectionName].tablet);
-      const isNeedDesktop = DESKTOP_WIDTH.matches && (getSlidesCount(section) > SLIDES_COUNT[sectionName].desktop);
+      const isNeedMobile = !TABLET_WIDTH.matches && (getSlidesCount(section) > slidesCount.mobile);
+      const isNeedTablet = TABLET_WIDTH.matches && !DESKTOP_WIDTH.matches && (getSlidesCount(section) > slidesCount.tablet);
+      const isNeedDesktop = DESKTOP_WIDTH.matches && (getSlidesCount(section) > slidesCount.desktop);
 
       if (!swiperContainer && (isNeedMobile || isNeedTablet || isNeedDesktop)) {
         initNavigationSwiper();
