@@ -22,9 +22,19 @@
 }
 
 @mixin card {
+  cursor: pointer;
+
   @include vp-768 {
     display: grid;
     grid-template-rows: auto 1fr;
+  }
+
+  @include hover {
+    --transform: scale(1.05);
+  }
+
+  &:focus-within {
+    --transform: scale(1.05);
   }
 
   &-image {
@@ -41,6 +51,9 @@
 
     img {
       @include img-cover;
+
+      transition: transform 0.4s;
+      transform: var(--transform);
     }
   }
 
@@ -129,6 +142,10 @@
 
     @include vp-768 {
       font-size: 18px;
+    }
+
+    @include focus {
+      outline: none;
     }
   }
 

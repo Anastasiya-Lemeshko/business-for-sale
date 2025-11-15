@@ -198,6 +198,7 @@
   }
 
   @include hover-focus {
+    outline: none;
     background-color: var(--grey-light);
   }
 

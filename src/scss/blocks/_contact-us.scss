@@ -15,7 +15,7 @@
 
   @include vp-1024 {
     grid-template-columns: 2fr 3fr;
-    padding: 35px 33px 37px;
+    padding: 35px 40px 37px 33px;
   }
 
   @include vp-1366 {
@@ -25,6 +25,7 @@
   }
 
   @include vp-1640 {
+    grid-template-columns: 58fr 31fr;
     min-height: 489px;
   }
 }
@@ -41,12 +42,17 @@
   @include vp-1366 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    gap: 0 30px;
   }
 }
 
 .contact-us__item {
   &:not(:last-child) {
     margin: 0 0 18px;
+
+    @include vp-1640 {
+      margin: 0 0 36px;
+    }
   }
 
   &--address {
@@ -73,6 +79,10 @@
 
   &--address {
     margin: 0 0 6px;
+
+    @include vp-1366 {
+      margin: 0 0 17px;
+    }
   }
 }
 
@@ -88,11 +98,19 @@
   @include vp-1640 {
     font-size: 30px;
   }
+
+  &--link {
+    @include interactive-link-underline-light;
+  }
 }
 
 .contact-us__form {
   @include vp-1366 {
     align-self: center;
+  }
+
+  @include vp-1640 {
+    margin: 13px 0 0;
   }
 }
 
@@ -114,6 +132,7 @@
   }
 
   @include vp-1640 {
+    margin: 0 0 28px;
     font-size: 30px;
   }
 }
@@ -122,11 +141,19 @@
   margin: 0 0 12px;
   padding: 0;
   list-style-type: none;
+
+  @include vp-1640 {
+    margin: 0 0 18px;
+  }
 }
 
 .contact-us__form-item {
   &:not(:last-child) {
     margin: 0 0 11px;
+
+    @include vp-1640 {
+      margin: 0 0 18px;
+    }
   }
 }
 

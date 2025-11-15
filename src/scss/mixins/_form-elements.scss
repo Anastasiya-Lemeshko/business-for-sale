@@ -94,7 +94,12 @@
     font-size: 14px;
 
     @include vp-1024 {
+      margin: 3px 0 0;
       font-size: 18px;
+    }
+
+    @include vp-1366 {
+      margin: 6px 0 0;
     }
 
     @include hover-focus {
@@ -203,6 +208,7 @@
   @include checkbox;
 
   --color: var(--white);
+  --bg-checkbox: var(--transparent);
 
   gap: 4px;
 
@@ -215,12 +221,20 @@
 
   &::before {
     border-radius: 0;
+    background-color: var(--bg-checkbox);
+    transition: background-color 0.3s;
+  }
+
+  &::after {
+    background-color: var(--text-light);
   }
 
   span {
     font-size: 12px;
     line-height: 1.2;
     letter-spacing: 0;
+    color: var(--color);
+    transition: color 0.3s;
 
     @include vp-1024 {
       font-size: 14px;
@@ -229,16 +243,17 @@
 
   &:has(input:focus),
   &:has(input:focus-visible) {
-    --color: var(--grey);
+    --color: var(--grey-extra-light);
   }
 
   @include hover {
-    --color: var(--grey);
+    --color: var(--grey-light);
   }
 
   &:has(input:checked) {
     --tick-display: visible;
     --tick-opacity: 1;
+    --bg-checkbox: var(--white);
   }
 }
 

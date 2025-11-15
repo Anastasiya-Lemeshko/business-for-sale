@@ -44,8 +44,7 @@
   }
 
   &__stories {
-    //margin: 0 0 36px;
-    margin: 0 0 47px;
+    margin: 0 0 36px;
 
     @include vp-1024 {
       margin: 0 0 76px;
@@ -77,10 +76,6 @@
   }
 
   &__contact-us {
-    margin: 0 0 40px;
-
-    @include vp-1024 {
-      margin: 0 0 76px;
-    }
+    margin: 0 0 20px;
   }
 }

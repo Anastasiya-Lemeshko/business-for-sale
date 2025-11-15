@@ -20,6 +20,10 @@
     --icon: url("../img/sprite.svg#whatsapp");
   }
 
+  &--instagram {
+    --icon: url("../img/sprite.svg#instagram");
+  }
+
   &::after {
     position: absolute;
     top: 0;

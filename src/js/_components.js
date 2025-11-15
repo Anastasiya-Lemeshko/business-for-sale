@@ -1,5 +1,6 @@
 import { toggleBurgerMenu } from './components/_open-mobile-menu.js';
 import { moveHeader } from './components/_move-nav.js';
+import { moveFooter } from './components/_move-footer.js';
 import { renderCustomSelect } from './components/_custom-select.js';
 import { setRanges } from './components/_range.js';
 import { setNavigationSwiper } from './components/_navigation-swiper.js';
@@ -10,6 +11,7 @@ import { openVisibleFontCardContent, setAccordeonToggles } from './components/_a
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
   moveHeader();
+  moveFooter();
   renderCustomSelect();
   setRanges();
   setNavigationSwiper();

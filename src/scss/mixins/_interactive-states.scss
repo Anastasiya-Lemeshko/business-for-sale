@@ -87,6 +87,8 @@
 
   @include hover-focus {
     --transform: scaleX(1);
+
+    outline: none;
   }
 
   @include active {
@@ -116,6 +118,8 @@
 
   @include hover-focus {
     --transform: scaleX(1);
+
+    outline: none;
   }
 
   @include active {

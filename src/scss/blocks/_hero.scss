@@ -155,7 +155,9 @@
   }
 
   @include hover-focus {
-    --transform: scale(1.1);
+    --transform: scale(1.05);
+
+    outline: none;
   }
 }
 
@@ -197,7 +199,7 @@
   }
 
   img {
-    transition: transform 0.3s;
+    transition: transform 0.4s;
     transform: var(--transform);
   }
 }
@@ -259,7 +261,6 @@
   padding: 20px;
   background-color: var(--bg-primary);
   border-radius: 5px;
-  overflow-x: hidden;
   z-index: 2;
 
   @include vp-768 {
