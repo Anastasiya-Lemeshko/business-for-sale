@@ -162,6 +162,14 @@
 .footer__socials-link {
   @include social-link;
 
+  width: 28px;
+  height: 28px;
+
+  @include vp-400 {
+    width: 42px;
+    height: 42px;
+  }
+
   @include vp-768 {
     width: 28px;
     height: 28px;

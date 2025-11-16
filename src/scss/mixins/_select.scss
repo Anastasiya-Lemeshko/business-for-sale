@@ -37,6 +37,14 @@
       --color: var(--grey);
     }
 
+    @include disabled {
+      --color: var(--grey-middle);
+
+      background-color: var(--grey-light);
+      cursor: default;
+      pointer-events: none;
+    }
+
     &::after {
       grid-area: 1 / 2 / 2 / 3;
       content: "";

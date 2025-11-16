@@ -159,6 +159,10 @@
 
 .contact-us__field {
   @include input-secondary;
+
+  input {
+    width: 100%;
+  }
 }
 
 .contact-us__form-footer {

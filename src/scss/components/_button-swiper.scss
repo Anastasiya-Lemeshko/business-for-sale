@@ -55,6 +55,7 @@
 
   @include disabled {
     --color-arrow: var(--grey-extra-light);
+    --bg-color: var(--grey);
 
     cursor: default;
     pointer-events: none;

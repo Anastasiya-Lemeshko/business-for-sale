@@ -4,7 +4,7 @@
 @mixin input {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
-  --field-color: var(--grey-light);
+  --field-color: var(--white);
   --color: var(--grey-middle);
 
   display: grid;
@@ -49,9 +49,10 @@
   input,
   textarea {
     grid-area: 1 / 1 / 2 / 2;
+    max-width: 100%;
     padding: 16px 15px 15px 20px;
     font-size: 18px;
-    background-color: var(--white);
+    background-color: var(--field-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -72,6 +73,14 @@
   &::placeholder {
     font-weight: 400;
     font-size: 18px;
+  }
+
+  &:has(input:disabled) {
+    --field-color: var(--grey-light);
+    --color: var(--grey-middle);
+
+    pointer-events: none;
+    cursor: default;
   }
 
   &--error {
@@ -99,7 +108,7 @@
     }
 
     @include vp-1366 {
-      margin: 6px 0 0;
+      margin: 4px 0 0;
     }
 
     @include hover-focus {
@@ -370,9 +379,18 @@
     color: var(--bg-primary);
     background-color: var(--color);
     border-radius: 5px;
+    transition: background-color 0.3s;
 
     @include vp-1366 {
       font-size: 18px;
     }
+  }
+
+  &:has(input:disabled) {
+    --color: var(--grey);
+    --bg-primary: var(--text-light);
+
+    pointer-events: none;
+    cursor: default;
   }
 }
