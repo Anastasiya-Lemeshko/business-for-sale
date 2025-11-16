@@ -23,6 +23,7 @@
   font-size: 14px;
   line-height: 1.16;
   color: var(--text-basic);
+  -webkit-tap-highlight-color: transparent;
 
   @include vp-1024 {
     font-size: 18px;

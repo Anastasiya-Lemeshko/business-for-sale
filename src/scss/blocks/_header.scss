@@ -197,6 +197,7 @@
   transition: transform 0.4s, opacity 0.2s;
   transform: scaleY(0);
   opacity: 0;
+  z-index: 100;
 
   @include vp-768 {
     position: relative;
@@ -355,6 +356,8 @@
 
 .header__burger {
   @include burger;
+
+  z-index: 150;
 
   @include vp-768 {
     display: none;
