@@ -55,6 +55,7 @@
     background-color: var(--field-color);
     border: none;
     border-radius: 5px;
+    transition: background-color 0.3s;
     cursor: pointer;
 
     @include vp-1366 {
@@ -130,7 +131,51 @@
   }
 }
 
+@mixin input-grey {
+  @include input;
+
+  --color: var(--text-secondary);
+  --field-color: var(--grey-extra-light);
+
+  &:has(input:hover),
+  &:has(textarea:hover),
+  &:has(span:hover) {
+    --field-color: var(--grey-light);
+  }
+
+  span {
+    margin: 2px 0 0;
+    padding: 0 13px;
+    font-size: 14px;
+
+    @include vp-1024 {
+      margin: 3px 0 0;
+      font-size: 18px;
+    }
+
+    @include vp-1366 {
+      margin: 4px 0 0;
+      padding: 0 26px;
+    }
+  }
+
+  input,
+  textarea {
+    padding: 16px 13px 15px;
+
+    @include vp-1024 {
+      height: 50px;
+    }
+
+    @include vp-1366 {
+      height: 60px;
+      padding: 16px 26px 15px;
+    }
+  }
+}
+
 @mixin input-number-reset {
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;
@@ -234,7 +279,7 @@
   }
 
   &::after {
-    background-color: var(--text-light);
+    background-color: var(--text-basic);
   }
 
   span {

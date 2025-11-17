@@ -79,3 +79,23 @@
     margin: 0 0 20px;
   }
 }
+
+// payment
+
+.payment {
+  &__payment-methods {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 90px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 20px;
+  }
+
+  @include vp-1024 {
+    margin: 0 0 10px;
+  }
+}

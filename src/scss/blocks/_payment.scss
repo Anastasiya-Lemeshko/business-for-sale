@@ -1,0 +1,321 @@
+@use "index" as *;
+
+.payment__header {
+  @include page-header;
+}
+
+.payment__methods {
+  margin: 0 0 35px;
+
+  @include vp-1024 {
+    margin: 0 0 57px;
+  }
+}
+
+.payment__list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include vp-1366 {
+    gap: 20px 10px;
+  }
+}
+
+.payment__item {
+  --color: var(--white);
+  --text-color: var(--grey-extra-light);
+  --bg-color: var(--bg-primary);
+
+  display: flex;
+  flex-direction: column;
+  min-height: 262px;
+  padding: 17px 20px 16px;
+  color: var(--color);
+  background-color: var(--bg-color);
+  border-radius: 5px;
+
+  @include vp-500 {
+    min-height: 300px;
+  }
+
+  @include vp-1024 {
+    min-height: 395px;
+  }
+
+  @include vp-1640 {
+    min-height: 441px;
+    padding: 25px 30px 23px;
+  }
+
+  &:not(:last-of-type) {
+    margin: 0 0 10px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+
+  h3 {
+    margin: 0 0 20px;
+    font-weight: 500;
+    font-size: 18px;
+
+    @include vp-500 {
+      font-size: 20px;
+    }
+
+    @include vp-1024 {
+      font-size: 25px;
+    }
+
+    @include vp-1366 {
+      font-size: 30px;
+      letter-spacing: 0.01em;
+    }
+
+    @include vp-1640 {
+      max-width: 70%;
+    }
+  }
+
+  div {
+    max-width: 450px;
+    margin: auto 5px 0 1px;
+
+    @include vp-1366 {
+      max-width: 540px;
+      margin: auto 0 0;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+    color: var(--text-color);
+
+    @include vp-500 {
+      font-size: 16px;
+    }
+
+    @include vp-768 {
+      font-size: 14px;
+    }
+
+    @include vp-1024 {
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+  }
+
+  p + p {
+    margin-top: 10px;
+  }
+
+  &--light {
+    --color: var(--text-basic);
+    --text-color: var(--text-basic);
+    --bg-color: var(--bg-accent);
+
+    @include vp-1640 {
+      min-height: 500px;
+      padding: 44px 56px 33px 52px;
+    }
+
+    @include vp-1920 {
+      min-height: 544px;
+    }
+
+    h3 {
+      @include vp-1024 {
+        max-width: unset;
+        font-weight: 700;
+        letter-spacing: 0;
+      }
+    }
+
+    div {
+      @include vp-1366 {
+        min-height: 155px;
+      }
+    }
+  }
+}
+
+.payment__list--methods .payment__item:last-of-type {
+  margin: 0 0 36px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1024 {
+    margin: 0 0 20px;
+  }
+}
+
+.payment__form {
+  @include vp-1024 {
+    grid-column: 2 / 4;
+    padding: 8px 11px 0 29px;
+  }
+}
+
+.payment__form-group {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.payment__form-title {
+  margin: 0 0 16px;
+  font-weight: 400;
+  font-size: 20px;
+
+  @include vp-1366 {
+    font-size: 25px;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  @include vp-1640 {
+    margin: 0 0 24px;
+    font-size: 30px;
+  }
+}
+
+.payment__form-text {
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--text-secondary);
+
+  @include vp-1366 {
+    font-size: 16px;
+  }
+
+  @include vp-1640 {
+    max-width: 850px;
+    margin: 0 0 10px;
+    font-size: 18px;
+  }
+}
+
+.payment__form-list {
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+}
+
+.payment__form-item {
+  &:not(:last-child) {
+    margin: 0 0 11px;
+
+    @include vp-1640 {
+      margin: 0 0 18px;
+    }
+  }
+}
+
+.payment__field {
+  @include input-grey;
+
+  input {
+    width: 100%;
+  }
+}
+
+.payment__form-footer {
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 1fr minmax(150px, auto);
+    align-items: start;
+    gap: 20px;
+  }
+
+  @include vp-1640 {
+    grid-template-columns: 1fr minmax(180px, auto);
+  }
+}
+
+.payment__accept {
+  @include accept;
+
+  --color: var(--text-basic);
+
+  gap: 8px;
+  margin: 0 0 19px 3px;
+
+  @include vp-1366 {
+    max-width: 580px;
+    gap: 15px;
+  }
+
+  &:has(input:focus),
+  &:has(input:focus-visible) {
+    --color: var(--text-light);
+  }
+
+  @include hover {
+    --color: var(--text-light);
+  }
+}
+
+.payment__form-button {
+  width: 100%;
+}
+
+.payment__structure {
+  margin: 0 0 15px;
+
+  @include vp-1024 {
+    margin: 0 0 30px;
+  }
+}
+
+.payment__structure-title {
+  margin: 0 0 16px;
+
+  @include vp-1024 {
+    max-width: 1130px;
+    margin: 0 0 30px;
+  }
+}
+
+.payment__structure-content p {
+  max-width: 695px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+
+  @include vp-768 {
+    font-size: 16px;
+  }
+
+  @include vp-1024 {
+    font-size: 18px;
+  }
+}
+
+.payment__support-title {
+  margin: 0 0 14px;
+
+  @include vp-1024 {
+    margin: 0 0 33px;
+  }
+}

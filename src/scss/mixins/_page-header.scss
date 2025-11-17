@@ -1,0 +1,74 @@
+@use "breakpoint" as *;
+
+@mixin page-header {
+  margin: 0 0 40px;
+  padding: 15px 20px 20px;
+  color: var(--white);
+  background-color: var(--bg-primary);
+  border-radius: 5px;
+
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 1fr 40%;
+  }
+
+  @include vp-1366 {
+    margin: 0 0 80px;
+    padding: 27px 21px 25px;
+  }
+
+  @include vp-1640 {
+    padding: 37px 31px 35px;
+  }
+
+  @include vp-1920 {
+    grid-template-columns: 1fr 635px;
+  }
+
+  &-title {
+    align-self: center;
+    margin: 0 0 9px;
+    font-weight: 700;
+    font-size: 30px;
+
+    @include vp-768 {
+      margin: 0 0 20px;
+      font-size: 35px;
+    }
+
+    @include vp-1024 {
+      margin: 0;
+    }
+
+    @include vp-1366 {
+      font-size: 55px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    @include vp-1640 {
+      font-size: 75px;
+    }
+
+    @include vp-1920 {
+      font-size: 82px;
+    }
+  }
+
+  p {
+    align-self: end;
+    max-width: 800px;
+    margin: 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+
+    @include vp-768 {
+      font-size: 18px;
+    }
+  }
+
+  p + p {
+    margin-top: 10px;
+  }
+}

@@ -1,56 +1,73 @@
 @use "index" as *;
 
 .breadcrumbs {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0 9px;
-  margin: 0;
+  margin: 0 0 14px;
   padding: 0;
   list-style-type: none;
-
-  @include vp-1024 {
-    gap: 12px;
-  }
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .breadcrumbs__item {
   position: relative;
+  display: inline;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
 }
 
 .breadcrumbs__item:not(:last-child) {
+  margin-right: 2px;
+
+  @include vp-768 {
+    margin-right: 3px;
+  }
+
+  @include vp-1024 {
+    margin-right: 5px;
+  }
+
   &::after {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: -4px;
-    content: "";
-    width: 1px;
-    height: calc(100% - 4px);
-    background-color: var(--grey-middle);
+    right: -2px;
+    content: "/";
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--grey);
 
-    @include vp-1024 {
-      right: -6px;
+    @include vp-768 {
+      right: -3px;
+      font-size: 18px;
+    }
+
+    @include vp-768 {
+      right: -4px;
+      font-size: 20px;
     }
   }
 }
 
 .breadcrumbs__link {
-  display: block;
+  display: inline;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: -0.01em;
   line-height: 1.2;
-  color: var(--grey-middle);
+  color: var(--grey);
 
   @include vp-768 {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   @include vp-1024 {
-    letter-spacing: 0.01em;
+    font-size: 20px;
   }
 }
 
 a.breadcrumbs__link {
   @include interactive-link-dark;
+}
+
+span.breadcrumbs__link {
+  color: var(--text-basic);
 }
