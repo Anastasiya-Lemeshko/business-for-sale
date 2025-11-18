@@ -11,6 +11,7 @@
 @use "./components/tabs";
 @use "./components/map";
 @use "./components/multiform";
+@use "./components/filters";
 
 // подключения секций страницы
 @use "./blocks/header";
@@ -26,3 +27,5 @@
 @use "./blocks/blog-preview";
 @use "./blocks/contact-us";
 @use "./blocks/payment";
+@use "./blocks/privacy";
+@use "./blocks/catalog";

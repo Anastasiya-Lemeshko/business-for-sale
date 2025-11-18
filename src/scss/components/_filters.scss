@@ -1,0 +1,15 @@
+@use "index" as *;
+
+.filters__range {
+  @include range;
+
+  &-value {
+    color: var(--black);
+  }
+
+  &-current-value {
+    padding: 0 3px;
+    background-color: var(--white);
+    box-shadow: -12px 0 9px -2px var(--white), 12px 0 9px -2px var(--white);
+  }
+}

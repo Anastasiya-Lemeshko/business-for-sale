@@ -1,0 +1,54 @@
+@use "index" as *;
+
+.catalog__header {
+  @include page-header-title;
+}
+
+.catalog__view {
+  display: none;
+}
+
+.catalog__results {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.catalog__filter-button {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 5px;
+  padding: 0;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--black);
+  border: none;
+  background-color: var(--transparent);
+
+  &::after {
+    grid-area: 1 / 2 / 2 / 3;
+    content: "";
+    width: 15px;
+    height: 14px;
+    background-image: url("../img/sprite.svg#filter");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+}
+
+.catalog__objects {
+  margin: 0;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--grey);
+}
+
+.catalog__filters {
+  width: 260px;
+}
+
+.catalog__card {
+  @include card;
+}

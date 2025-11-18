@@ -1,0 +1,294 @@
+<section class="catalog">
+  <div class="container">
+    <ol class="catalog__breadcrumbs breadcrumbs">
+      <li class="breadcrumbs__item">
+        <a class="breadcrumbs__link" href="index.html">Home</a>
+      </li>
+      <li class="breadcrumbs__item">
+        <span class="breadcrumbs__link">Catalog</span>
+      </li>
+    </ol>
+    <div class="catalog__header">
+      <div class="catalog__header-title">
+        <p>Home/</p>
+        <h1>Catalog</h1>
+      </div>
+    </div>
+    <div class="catalog__wrapper">
+      <div class="catalog__controls">
+        <div class="catalog__selects">
+          <!-- Поиск -->
+          <!-- Селекты -->
+        </div>
+        <div class="catalog__view">
+          <button class="catalog__view-toggle catalog__view-toggle--grid catalog__view-toggle--active" type="button">
+            <span class="visually-hidden">Grid view.</span>
+          </button>
+          <button class="catalog__view-toggle catalog__view-toggle--list" type="button">
+            <span class="visually-hidden">List view.</span>
+          </button>
+        </div>
+        <div class="catalog__results">
+          <button class="catalog__filter-button" type="button">Search by&nbsp;filters</button>
+          <p class="catalog__objects"><span>Found&nbsp;</span><span class="catalog__objects-count">99</span>&nbsp;objects<span></span></p>
+        </div>
+      </div>
+      <form class="catalog__filters filters" action="" method="get">
+        <button class="filters__reset" type="reset">Reset filter</button>
+        <div class="filters__container">
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Business Type / Investment Type</legend>
+            <ul class="filters__list">
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Options such as For Sale</span>
+                  <input class="visually-hidden" type="checkbox" name="for_sale">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Investment Opportunity</span>
+                  <input class="visually-hidden" type="checkbox" name="investment">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Franchise</span>
+                  <input class="visually-hidden" type="checkbox" name="franchise">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Partnership</span>
+                  <input class="visually-hidden" type="checkbox" name="partnership">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Loan Request</span>
+                  <input class="visually-hidden" type="checkbox" name="loan_request">
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Price Range</legend>
+            <div class="filters__range range" data-range="price">
+              <p class="filters__range-title">AED</p>
+              <ul class="filters__range-inputs range__inputs">
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--min">0</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--min" type="number" name="min_price">
+                  </label>
+                </li>
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--max">1</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--max" type="number" name="max_price">
+                  </label>
+                </li>
+              </ul>
+              <div class="filters__range-container range__container"></div>
+              <div class="filters__range-values">
+                <p class="filters__range-value">350&nbsp;000</p>
+                <p class="filters__range-value">700&nbsp;000</p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Revenue / Turnover Range</legend>
+            <div class="filters__range range" data-range="years">
+              <p class="filters__range-title">Years</p>
+              <ul class="filters__range-inputs range__inputs">
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--min">0</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--min" type="number" name="min_price">
+                  </label>
+                </li>
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--max">1</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--max" type="number" name="max_price">
+                  </label>
+                </li>
+              </ul>
+              <div class="filters__range-container range__container"></div>
+              <div class="filters__range-values">
+                <p class="filters__range-value">1</p>
+                <p class="filters__range-value">24</p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Profit Range</legend>
+            <div class="filters__range range" data-range="years">
+              <p class="filters__range-title">Years</p>
+              <ul class="filters__range-inputs range__inputs">
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--min">0</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--min" type="number" name="min_price">
+                  </label>
+                </li>
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--max">1</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--max" type="number" name="max_price">
+                  </label>
+                </li>
+              </ul>
+              <div class="filters__range-container range__container"></div>
+              <div class="filters__range-values">
+                <p class="filters__range-value">1</p>
+                <p class="filters__range-value">24</p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Business Age</legend>
+            <ul class="filters__list">
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">2&nbsp;years</span>
+                  <input class="visually-hidden" type="checkbox" name="years_2">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">5&nbsp;years</span>
+                  <input class="visually-hidden" type="checkbox" name="years_5">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">10&nbsp;years</span>
+                  <input class="visually-hidden" type="checkbox" name="years_10">
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Number of Employees</legend>
+            <div class="filters__range range" data-range="people">
+              <p class="filters__range-title">Peoples</p>
+              <ul class="filters__range-inputs range__inputs">
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--min">0</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--min" type="number" name="min_price">
+                  </label>
+                </li>
+                <li>
+                  <div class="filters__range-current range__current">
+                    <span class="filters__range-current-value range__current-value range__current-value--max">1</span>
+                  </div>
+                  <label class="range__label" aria-label="minimum value">
+                    <input class="visually-hidden range__input range__input--max" type="number" name="max_price">
+                  </label>
+                </li>
+              </ul>
+              <div class="filters__range-container range__container"></div>
+              <div class="filters__range-values">
+                <p class="filters__range-value">1</p>
+                <p class="filters__range-value">24</p>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="filters__group">
+            <legend class="filters__legend">Status or Listing Type</legend>
+            <ul class="filters__list">
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">New</span>
+                  <input class="visually-hidden" type="checkbox" name="new">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Exclusive</span>
+                  <input class="visually-hidden" type="checkbox" name="exclusive">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Verified</span>
+                  <input class="visually-hidden" type="checkbox" name="verified">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Active</span>
+                  <input class="visually-hidden" type="checkbox" name="active">
+                </label>
+              </li>
+              <li class="filters__item">
+                <label class="filters__checkbox">
+                  <span class="filters__label">Urgent catalog</span>
+                  <input class="visually-hidden" type="checkbox" name="urgent_catalog">
+                </label>
+              </li>
+            </ul>
+          </fieldset>
+        </div>
+        <button class="filters__reset" type="reset">Reset filter</button>
+      </form>
+      <ul class="catalog__list">
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/catalog-2-tablet@1x.webp 1x, ../img/catalog/catalog-2-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/catalog-2-mobile@1x.webp 1x, ../img/catalog/catalog-2-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/catalog-2-tablet@1x.jpg 1x, ../img/catalog/catalog-2-tablet@2x.jpg 2x">
+              <img src="../img/catalog/catalog-2-mobile@1x.jpg" srcset="../img/catalog/catalog-2-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-content">
+            <div class="catalog__card-info">
+              <a class="catalog__card-title" href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </div>
+            <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+            <div class="catalog__card-details">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+            <div class="catalog__card-footer">
+              <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+              <div class="catalog__card-links">
+                <a class="catalog__card-link button" href="#">Register</a>
+                <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                  <span class="visually-hidden">Whatsapp.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

@@ -40,16 +40,37 @@ export const RANGE_VALUES = {
     'end': 100,
   },
   'min-price': {
-    'min': 300000,
-    'max': 450000,
+    'min': 350000,
+    'max': 500000,
     'step': 10000,
     'start': 300000,
   },
   'max-price': {
-    'min': 450000,
+    'min': 500000,
     'max': 700000,
     'step': 10000,
     'start': 450000,
+  },
+  'price': {
+    'min': 350000,
+    'max': 700000,
+    'step': 10000,
+    'start': 300000,
+    'end': 700000,
+  },
+  'years': {
+    'min': 1,
+    'max': 24,
+    'step': 1,
+    'start': 1,
+    'end': 24,
+  },
+  'people': {
+    'min': 1,
+    'max': 24,
+    'step': 1,
+    'start': 1,
+    'end': 24,
   },
 };
 

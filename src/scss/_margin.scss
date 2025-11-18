@@ -93,9 +93,29 @@
 
   &__contact-us {
     margin: 0 0 20px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// privacy
+
+.privacy {
+  &__privacy-policy {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 75px;
+    }
   }
 
-  @include vp-1024 {
-    margin: 0 0 10px;
+  &__contact-us {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
   }
 }

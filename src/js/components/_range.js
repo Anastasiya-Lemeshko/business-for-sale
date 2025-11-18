@@ -9,6 +9,7 @@ const setRanges = () => {
 
   forms.forEach((form) => {
     const ranges = form.querySelectorAll('.range');
+    const singleRanges = form.querySelectorAll('.range--single');
 
     if (!ranges || !ranges.length) return;
 
@@ -28,7 +29,7 @@ const setRanges = () => {
       resetButton.addEventListener('click', resetAllSliders);
     }
 
-    ranges.forEach((range) => {
+    singleRanges.forEach((range) => {
       const sliderElement = range.querySelector('.range__container');
       const valueElement = range.querySelector('.range__input--min');
       const currentElement = range.querySelector('.range__current');
@@ -78,6 +79,72 @@ const setRanges = () => {
         filterConfig.max,
         filterConfig.step,
         filterConfig.start
+      );
+    });
+
+    ranges.forEach((range) => {
+      if (range.classList.contains('range--single')) return;
+
+      const sliderElement = range.querySelector('.range__container');
+      const valueElement = range.querySelectorAll('.range__input');
+      const valueMinElement = range.querySelector('.range__input--min');
+      const valueMaxElement = range.querySelector('.range__input--max');
+
+      const currentElements = range.querySelectorAll('.range__current');
+      const currentValueMin = range.querySelector('.range__current-value--min');
+      const currentValueMax = range.querySelector('.range__current-value--max');
+
+      const filterType = range.dataset.range;
+      let filterConfig = RANGE_VALUES[filterType];
+
+      if (!filterConfig) {
+        filterConfig = RANGE_VALUES['default'];
+      }
+
+      valueMinElement.setAttribute('value', filterConfig.start);
+      valueMaxElement.setAttribute('value', filterConfig.end);
+
+      const onSliderUpdate = () => {
+        const valueArray = sliderElement.noUiSlider.get();
+        valueMinElement.value = valueArray[0];
+        valueMaxElement.value = valueArray[1];
+
+        currentValueMin.textContent = new Intl.NumberFormat('ru-RU').format(valueMinElement.value);
+        currentValueMax.textContent = new Intl.NumberFormat('ru-RU').format(valueMaxElement.value);
+        setRangeCurrentElement(range, currentElements);
+      };
+
+      const createRange = (min, max, step, start, end) => {
+        noUiSlider.create(sliderElement, {
+          range: { min, max },
+          start: [start, end],
+          step,
+          connect: [false, true, false],
+          format: {
+            to: (value) => Number(Math.round(value)),
+            from: (value) => Number(Math.round(value)),
+          },
+        });
+
+        sliderElement.noUiSlider.on('update', onSliderUpdate);
+
+        sliderElement.noUiSlider.on('slide', () => {
+          currentElements.forEach(element => element.style.display = 'block');
+        }, { once: true });
+      };
+
+      valueElement.forEach((element) => {
+        element.addEventListener('change', () => {
+          sliderElement.noUiSlider.set([valueMinElement.value, valueMaxElement.value]);
+        });
+      });
+
+      createRange(
+        filterConfig.min,
+        filterConfig.max,
+        filterConfig.step,
+        filterConfig.start,
+        filterConfig.end
       );
     });
   });

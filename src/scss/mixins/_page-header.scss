@@ -10,6 +10,7 @@
   @include vp-1024 {
     display: grid;
     grid-template-columns: 1fr 40%;
+    gap: 20px;
   }
 
   @include vp-1366 {
@@ -22,14 +23,15 @@
   }
 
   @include vp-1920 {
-    grid-template-columns: 1fr 635px;
+    grid-template-columns: 1fr minmax(395px, 635px);
   }
 
   &-title {
     align-self: center;
-    margin: 0 0 9px;
+    margin: 0 0 6px;
     font-weight: 700;
     font-size: 30px;
+    line-height: 1.2;
 
     @include vp-768 {
       margin: 0 0 20px;
@@ -55,6 +57,12 @@
     }
   }
 
+  div {
+    @include vp-1024 {
+      align-self: end;
+    }
+  }
+
   p {
     align-self: end;
     max-width: 800px;
@@ -70,5 +78,50 @@
 
   p + p {
     margin-top: 10px;
+  }
+}
+
+@mixin page-header-title {
+  @include page-header;
+
+  padding: 15px;
+
+  &-title {
+    margin: 0;
+  }
+
+  &-title h1,
+  &-title p {
+    display: inline-block;
+    margin: 0;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 1.2;
+
+    @include vp-768 {
+      font-size: 35px;
+    }
+
+    @include vp-1366 {
+      font-size: 55px;
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+    }
+
+    @include vp-1640 {
+      font-size: 75px;
+    }
+
+    @include vp-1920 {
+      font-size: 82px;
+    }
+  }
+
+  &-title h1 {
+    margin-left: -5px;
+  }
+
+  &-title p {
+    color: var(--grey);
   }
 }

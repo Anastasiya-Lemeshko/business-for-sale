@@ -117,27 +117,52 @@ const checkVisibleSlides = (block) => {
   }
 };
 
-const setRangeCurrentElement = (range, element) => {
-  const slider = range.querySelector('.noUi-origin');
-  const computedStyle = window.getComputedStyle(slider);
-  const matrix = computedStyle.transform;
+const setRangeCurrentElement = (range, elements) => {
+  const sliders = range.querySelectorAll('.noUi-origin');
+  const elementsArray = elements instanceof NodeList ? Array.from(elements) : [elements];
 
-  // Получает translateX из matrix
-  const matrixValues = matrix.match(/matrix\((.+)\)/)[1].split(', ');
-  const translateXPixels = parseFloat(matrixValues[4]);
+  sliders.forEach((slider, index) => {
+    const computedStyle = window.getComputedStyle(slider);
+    const matrix = computedStyle.transform;
+    const value = parseInt(elementsArray[index].textContent.replace(/\s/g, ''), 10);
 
-  // Пересчитывает в проценты относительно ширины слайдера
-  const sliderWidth = slider.offsetWidth;
-  const translateXPercent = (translateXPixels / sliderWidth) * 100 + 100;
+    // Получает translateX из matrix
+    const matrixValues = matrix.match(/matrix\((.+)\)/)[1].split(', ');
+    const translateXPixels = parseFloat(matrixValues[4]);
 
-  if (translateXPercent < 5) {
-    element.style.transform = "translateX(5%)";
-  }
-  else if (translateXPercent > 96) {
-    element.style.transform = "translateX(96%)";
-  } else {
-    element.style.transform = `translateX(${translateXPercent}%)`;
-  }
+    // Пересчитывает в проценты относительно ширины слайдера
+    const sliderWidth = slider.offsetWidth;
+    const translateXPercent = (translateXPixels / sliderWidth) * 100 + 100;
+
+    if (range.classList.contains('hero__range')) {
+      if (translateXPercent < 5) {
+        elementsArray[index].style.transform = "translateX(5%)";
+      }
+      else if (translateXPercent > 96) {
+        elementsArray[index].style.transform = "translateX(96%)";
+      } else {
+        elementsArray[index].style.transform = `translateX(${translateXPercent}%)`;
+      }
+    } else if (value > 1000) {
+      if (translateXPercent < 10) {
+        elementsArray[index].style.transform = "translateX(10%)";
+      }
+      else if (translateXPercent > 90) {
+        elementsArray[index].style.transform = "translateX(90%)";
+      } else {
+        elementsArray[index].style.transform = `translateX(${translateXPercent}%)`;
+      }
+    } else {
+      if (translateXPercent < 2) {
+        elementsArray[index].style.transform = "translateX(2%)";
+      }
+      else if (translateXPercent > 98) {
+        elementsArray[index].style.transform = "translateX(98%)";
+      } else {
+        elementsArray[index].style.transform = `translateX(${translateXPercent}%)`;
+      }
+    }
+  });
 };
 
 const debounce = (callback, timeoutDelay = 500) => {
