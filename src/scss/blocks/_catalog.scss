@@ -2,6 +2,63 @@
 
 .catalog__header {
   @include page-header-title;
+
+  margin: 0 0 11px;
+}
+
+.catalog__wrapper {
+  @include vp-1024 {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0 10px;
+  }
+}
+
+.catalog__selects {
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+}
+
+.catalog__search {
+  @include search-form;
+
+  margin: 0 0 10px;
+
+  @include vp-768 {
+    grid-column: 1 / 4;
+    margin: 0;
+  }
+
+  input,
+  span {
+    @include vp-768 {
+      padding: 11px 56px 9px 20px;
+    }
+  }
+}
+
+.catalog__select {
+  @include select-standard;
+
+  margin: 0 0 10px;
+  border: 2px solid var(--bg-primary);
+  border-radius: 5px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  &-button {
+    padding: 12px 15px 9px 60px;
+    color: var(--text-basic);
+
+    @include vp-768 {
+      padding: 12px 15px 9px 20px;
+    }
+  }
 }
 
 .catalog__view {
@@ -13,11 +70,22 @@
   justify-content: space-between;
   align-items: center;
   gap: 20px;
+  margin: 28px 0 16px;
+
+  @include vp-768 {
+    grid-column: 1 / 4;
+    margin: 28px 0 22px;
+  }
+
+  @include vp-1024 {
+    margin: 25px 0 10px;
+  }
 }
 
 .catalog__filter-button {
   display: grid;
   grid-template-columns: 1fr auto;
+  align-items: center;
   gap: 5px;
   padding: 0;
   font-weight: 400;
@@ -25,6 +93,10 @@
   color: var(--black);
   border: none;
   background-color: var(--transparent);
+
+  @include vp-1024 {
+    display: none;
+  }
 
   &::after {
     grid-area: 1 / 2 / 2 / 3;
@@ -43,12 +115,60 @@
   font-weight: 400;
   font-size: 18px;
   color: var(--grey);
+
+  @include vp-1024 {
+    margin-left: auto;
+  }
+}
+
+.catalog__filter-title {
+  @include visually-hidden;
+
+  @include vp-1024 {
+    @include removed-visually-hidden;
+  }
 }
 
 .catalog__filters {
-  width: 260px;
+  position: absolute;
+  transform: scaleY(0);
+
+  @include vp-1024 {
+    position: static;
+    transform: scale(1);
+  }
+}
+
+.catalog__list {
+  margin: 0 0 22px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 }
 
 .catalog__card {
-  @include card;
+  @include catalog-card;
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+}
+
+.catalog__pagination {
+  @include pagination;
+
+  margin-right: 13px;
+
+  @include vp-1024 {
+    grid-column: 2 / 3;
+  }
 }

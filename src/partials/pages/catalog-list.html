@@ -15,10 +15,96 @@
       </div>
     </div>
     <div class="catalog__wrapper">
+      <p class="catalog__filter-title">Filter</p>
       <div class="catalog__controls">
         <div class="catalog__selects">
-          <!-- Поиск -->
-          <!-- Селекты -->
+          <form class="catalog__search">
+            <label class="catalog__search-field">
+              <span class="catalog__search-label">Search</span>
+              <input class="catalog__search-input" type="text" name="search" required>
+            </label>
+            <button class="catalog__search-button" type="submit">
+              <span class="visually-hidden">Search.</span>
+            </button>
+          </form>
+          <div class="catalog__select select">
+            <label class="visually-hidden" for="select-location">Location.</label>
+            <button class="catalog__select-button select__button" type="button" aria-label="Select location.">Location</button>
+            <select class="select__original" id="select-location" name="location" aria-label="Location options.">
+              <option value="al-wasl-eoad">Al Wasl Eoad</option>
+              <option value="dip">DIP</option>
+              <option value="jumeirah-road">Jumeirah Road</option>
+              <option value="al-warqa">Al Warqa</option>
+              <option value="business-bay">Business Bay</option>
+              <option value="sheik-zayed-road">Sheik Zayed Road</option>
+              <option value="jeddaf">Jeddaf</option>
+              <option value="dubai-investment-park-1">Dubai Investment Park&nbsp;1 (DIP&nbsp;1)</option>
+              <option value="world-trade-center">World Trade Center</option>
+              <option value="deira">Deira</option>
+              <option value="trade-center">Trade Center</option>
+              <option value="jlt">JLT</option>
+              <option value="jumeirah">Jumeirah</option>
+              <option value="karama">Karama</option>
+              <option value="dubai">Dubai</option>
+              <option value="dubai-marina">Dubai Marina</option>
+              <option value="palm-jumeirah">Palm Jumeirah</option>
+              <option value="al-wasl">Al Wasl</option>
+              <option value="creek-harbour">Creek Harbour</option>
+              <option value="bur-dubai">Bur Dubai</option>
+              <option value="jumeirah-park">Jumeirah Park</option>
+              <option value="difc">DIFC</option>
+              <option value="sharjah">Sharjah</option>
+              <option value="umm-hurair-2">Umm Hurair 2</option>
+              <option value="al-barsha">Al Barsha</option>
+              <option value="jbr">JBR</option>
+              <option value="internet-city">Internet City</option>
+              <option value="diera">Diera</option>
+              <option value="al-mankhool">Al Mankhool</option>
+              <option value="sports-city">Sports City</option>
+              <option value="warsan">Warsan</option>
+              <option value="mirdiff">Mirdiff</option>
+              <option value="al-nanda">Al Nanda</option>
+              <option value="majan">Majan</option>
+              <option value="tecom">Tecom</option>
+              <option value="barsha">Barsha</option>
+            </select>
+          </div>
+          <div class="catalog__select select">
+            <label class="visually-hidden" for="select-property-type">Property type.</label>
+            <button class="catalog__select-button select__button" type="button" aria-label="Select property type.">Property Type</button>
+            <select class="select__original" id="select-property-type" name="property_type" aria-label="Property type options.">
+              <option value="villa">Villa</option>
+              <option value="retail">Sho/Retail</option>
+              <option value="office">Office</option>
+              <option value="building">Building</option>
+              <option value="warehouse">Warehouse</option>
+            </select>
+          </div>
+          <div class="catalog__select select">
+            <label class="visually-hidden" for="select-business-type">Type of business.</label>
+            <button class="catalog__select-button select__button" type="button" aria-label="Select type of business.">Type of business</button>
+            <select class="select__original" id="select-business-type" name="business_type" aria-label="Type of business options.">
+              <option value="restaurants">Restaurants</option>
+              <option value="cafe">Cafe</option>
+              <option value="bakeries">Bakeries</option>
+              <option value="education">Education</option>
+              <option value="childcare">Childcare</option>
+              <option value="retail-stores">Retail Stores</option>
+              <option value="beaty">Beaty & Wellness</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="hospitality">Hospitality & Leisure</option>
+              <option value="services">Professional Services</option>
+              <option value="industrial">Industrial & Manufacturing</option>
+              <option value="workshop">Workshop</option>
+              <option value="automotive">Automotive</option>
+              <option value="transporation">Transporation</option>
+              <option value="fb-trading">F&B Trading</option>
+            </select>
+          </div>
+          <div class="catalog__results">
+            <button class="catalog__filter-button" type="button">Search by&nbsp;filters</button>
+            <p class="catalog__objects"><span>Found&nbsp;</span><span class="catalog__objects-count">99</span>&nbsp;objects<span></span></p>
+          </div>
         </div>
         <div class="catalog__view">
           <button class="catalog__view-toggle catalog__view-toggle--grid catalog__view-toggle--active" type="button">
@@ -27,10 +113,6 @@
           <button class="catalog__view-toggle catalog__view-toggle--list" type="button">
             <span class="visually-hidden">List view.</span>
           </button>
-        </div>
-        <div class="catalog__results">
-          <button class="catalog__filter-button" type="button">Search by&nbsp;filters</button>
-          <p class="catalog__objects"><span>Found&nbsp;</span><span class="catalog__objects-count">99</span>&nbsp;objects<span></span></p>
         </div>
       </div>
       <form class="catalog__filters filters" action="" method="get">
@@ -250,25 +332,27 @@
       </form>
       <ul class="catalog__list">
         <li class="catalog__card">
-          <div class="catalog__card-header">
-            <div class="catalog__card-header-left">
-              <p>Retail Stories</p>
+          <div class="catalog__card-visual">
+            <div class="catalog__card-header">
+              <div class="catalog__card-header-left">
+                <p>Retail Stories</p>
+              </div>
+              <div class="catalog__card-header-right">
+                <p>Sharjan</p>
+              </div>
             </div>
-            <div class="catalog__card-header-right">
-              <p>Sharjan</p>
+            <div class="catalog__card-image">
+              <picture>
+                <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+                <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+                <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+                <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+              </picture>
             </div>
-          </div>
-          <div class="catalog__card-image">
-            <picture>
-              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/catalog-2-tablet@1x.webp 1x, ../img/catalog/catalog-2-tablet@2x.webp 2x">
-              <source width="362" height="352" type="image/webp" srcset="../img/catalog/catalog-2-mobile@1x.webp 1x, ../img/catalog/catalog-2-mobile@2x.webp 2x">
-              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/catalog-2-tablet@1x.jpg 1x, ../img/catalog/catalog-2-tablet@2x.jpg 2x">
-              <img src="../img/catalog/catalog-2-mobile@1x.jpg" srcset="../img/catalog/catalog-2-mobile@2x.jpg 2x" width="362" height="352" alt="House">
-            </picture>
           </div>
           <div class="catalog__card-content">
             <div class="catalog__card-info">
-              <a class="catalog__card-title" href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
             </div>
             <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
             <div class="catalog__card-details">
@@ -280,7 +364,89 @@
             <div class="catalog__card-footer">
               <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
               <div class="catalog__card-links">
-                <a class="catalog__card-link button" href="#">Register</a>
+                <a class="catalog__card-link button button--dark" href="#">Register</a>
+                <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                  <span class="visually-hidden">Whatsapp.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-visual">
+            <div class="catalog__card-header">
+              <div class="catalog__card-header-left">
+                <p>Retail Stories</p>
+              </div>
+              <div class="catalog__card-header-right">
+                <p>Sharjan</p>
+              </div>
+            </div>
+            <div class="catalog__card-image">
+              <picture>
+                <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+                <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+                <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+                <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+              </picture>
+            </div>
+          </div>
+          <div class="catalog__card-content">
+            <div class="catalog__card-info">
+              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
+            </div>
+            <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+            <div class="catalog__card-details">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+            <div class="catalog__card-footer">
+              <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+              <div class="catalog__card-links">
+                <a class="catalog__card-link button button--dark" href="#">Register</a>
+                <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                  <span class="visually-hidden">Whatsapp.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-visual">
+            <div class="catalog__card-header">
+              <div class="catalog__card-header-left">
+                <p>Retail Stories</p>
+              </div>
+              <div class="catalog__card-header-right">
+                <p>Sharjan</p>
+              </div>
+            </div>
+            <div class="catalog__card-image">
+              <picture>
+                <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+                <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+                <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+                <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+              </picture>
+            </div>
+          </div>
+          <div class="catalog__card-content">
+            <div class="catalog__card-info">
+              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
+            </div>
+            <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+            <div class="catalog__card-details">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+            <div class="catalog__card-footer">
+              <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+              <div class="catalog__card-links">
+                <a class="catalog__card-link button button--dark" href="#">Register</a>
                 <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
                   <span class="visually-hidden">Whatsapp.</span>
                 </a>
@@ -289,6 +455,29 @@
           </div>
         </li>
       </ul>
+      <section class="catalog__pagination">
+        <h3 class="visually-hidden">Pagination.</h3>
+        <a class="catalog__pagination-button catalog__pagination-button--first hidden" href="#">
+          <span class="visually-hidden">First page.</span>
+        </a>
+        <a class="catalog__pagination-button catalog__pagination-button--prev hidden" href="#">
+          <span class="visually-hidden">Previous page.</span>
+        </a>
+        <ul class="catalog__pagination-list">
+          <li class="catalog__pagination-item">
+            <span class="catalog__pagination-link catalog__pagination-link--current">1</span>
+          </li>
+          <li class="catalog__pagination-item">
+            <a class="catalog__pagination-link" href="#">2</a>
+          </li>
+        </ul>
+        <a class="catalog__pagination-button catalog__pagination-button--next" href="#">
+          <span class="visually-hidden">Next page.</span>
+        </a>
+        <a class="catalog__pagination-button catalog__pagination-button--last" href="#">
+          <span class="visually-hidden">Last page.</span>
+        </a>
+      </section>
     </div>
   </div>
 </section>

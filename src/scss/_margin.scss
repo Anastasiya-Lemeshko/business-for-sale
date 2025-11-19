@@ -119,3 +119,23 @@
     }
   }
 }
+
+// catalog
+
+.catalog {
+  &__catalog-list {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 75px;
+    }
+  }
+
+  // &__contact-us {
+  //   margin: 0 0 18px;
+
+  //   @include vp-1024 {
+  //     margin: 0 0 30px;
+  //   }
+  // }
+}

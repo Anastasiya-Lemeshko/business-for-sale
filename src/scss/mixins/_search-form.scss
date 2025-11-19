@@ -1,0 +1,47 @@
+@use "form-elements" as *;
+@use "interactive-states" as *;
+
+@mixin search-form {
+  display: grid;
+  align-self: center;
+
+  &-field {
+    @include input;
+
+    --color: var(--text-basic);
+
+    grid-area: 1 / 1 / 2 / 2;
+    border: 2px solid var(--bg-primary);
+    border-radius: 5px;
+
+    span,
+    input {
+      padding: 11px 56px 9px 60px;
+    }
+  }
+
+  &-button {
+    --icon-color: var(--text-basic);
+
+    grid-area: 1 / 1 / 2 / 2;
+    align-self: center;
+    justify-self: end;
+    width: 21px;
+    height: 21px;
+    margin: 4px 20px 4px 4px;
+    background-color: var(--icon-color);
+    mask-image: url("../img/sprite.svg#search");
+    mask-position: center center;
+    mask-size: 100% 100%;
+    mask-repeat: no-repeat;
+    transition: background-color 0.3s;
+
+    @include hover-focus {
+      --icon-color: var(--bg-accent);
+    }
+
+    @include active {
+      --icon-color: var(--bg-accent-opacity);
+    }
+  }
+}
