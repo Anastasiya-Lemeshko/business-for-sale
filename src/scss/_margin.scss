@@ -131,11 +131,19 @@
     }
   }
 
-  // &__contact-us {
-  //   margin: 0 0 18px;
+  &__faq {
+    margin: 0 0 40px;
 
-  //   @include vp-1024 {
-  //     margin: 0 0 30px;
-  //   }
-  // }
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
 }

@@ -8,6 +8,7 @@
   --color: var(--grey-middle);
 
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: center;
   cursor: pointer;
 

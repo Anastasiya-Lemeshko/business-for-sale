@@ -7,12 +7,13 @@
 @mixin card-header {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 20px;
 
   &-left,
   &-right {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
     justify-content: flex-start;
     gap: 5px;
   }
@@ -328,10 +329,22 @@
   background-color: var(--bg-primary);
   border-radius: 5px;
 
+  @include vp-768 {
+    padding: 20px;
+  }
+
+  @include vp-1920 {
+    padding: 30px;
+  }
+
   &-visual {
     display: grid;
     align-items: start;
     margin: 0 0 19px;
+
+    @include vp-768 {
+      margin: 0 0 16px;
+    }
   }
 
   &-header {
@@ -345,6 +358,15 @@
       @include tag;
 
       min-width: 97px;
+      padding: 5px 16px 2px;
+
+      @include vp-1366 {
+        font-size: 14px;
+      }
+
+      @include vp-1640 {
+        font-size: 18px;
+      }
     }
   }
 
@@ -356,14 +378,75 @@
       aspect-ratio: 500 / 331;
       height: unset;
     }
+
+    @include vp-1366 {
+      aspect-ratio: 470 / 394;
+    }
   }
 
   &-info {
     display: block;
   }
 
+  &-title {
+    justify-self: unset;
+
+    @include vp-1366 {
+      font-size: 20px;
+      letter-spacing: 0.01em;
+    }
+
+    @include vp-1640 {
+      font-size: 25px;
+    }
+
+    @include vp-1920 {
+      font-size: 30px;
+    }
+  }
+
+  &-description {
+    @include vp-1366 {
+      margin: 0 0 16px;
+    }
+
+    @include vp-1640 {
+      font-size: 16px;
+    }
+
+    @include vp-1920 {
+      font-size: 18px;
+    }
+  }
+
   &-details {
+    display: block;
     margin: 0 0 20px;
+
+    @include vp-1366 {
+      grid-row: 2 / 3;
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    @include vp-1640 {
+      font-size: 20px;
+    }
+  }
+
+  &-details-item {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+
+    &:not(:last-child) {
+      margin: 0 0 12px;
+    }
+
+    @include vp-1366 {
+      display: flex;
+      gap: 22px;
+    }
   }
 
   &-footer {
@@ -374,6 +457,14 @@
     @include vp-768 {
       padding: 10px;
     }
+
+    @include vp-1640 {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      align-items: center;
+      gap: 10px;
+      padding: 22px 9px 22px;
+    }
   }
 
   &-price {
@@ -383,6 +474,15 @@
     @include vp-768 {
       margin: 0 0 10px;
       font-size: 20px;
+    }
+
+    @include vp-1640 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    @include vp-1920 {
+      font-size: 30px;
     }
   }
 
@@ -395,6 +495,16 @@
     height: 40px;
 
     @include vp-1024 {
+      width: 50px;
+      height: 50px;
+    }
+
+    @include vp-1366 {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include vp-1640 {
       width: 50px;
       height: 50px;
     }

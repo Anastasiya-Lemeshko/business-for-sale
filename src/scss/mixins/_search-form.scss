@@ -2,37 +2,44 @@
 @use "interactive-states" as *;
 
 @mixin search-form {
-  display: grid;
-  align-self: center;
+  position: relative;
+  overflow-x: hidden;
 
   &-field {
     @include input;
 
     --color: var(--text-basic);
 
-    grid-area: 1 / 1 / 2 / 2;
-    border: 2px solid var(--bg-primary);
+    align-items: stretch;
     border-radius: 5px;
 
     span,
     input {
+      height: unset;
       padding: 11px 56px 9px 60px;
+    }
+
+    input {
+      border: 2px solid var(--bg-primary);
     }
   }
 
   &-button {
     --icon-color: var(--text-basic);
 
-    grid-area: 1 / 1 / 2 / 2;
-    align-self: center;
-    justify-self: end;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
     width: 21px;
     height: 21px;
-    margin: 4px 20px 4px 4px;
+    padding: 5px;
     background-color: var(--icon-color);
+    border-radius: 5px;
+    border: none;
     mask-image: url("../img/sprite.svg#search");
     mask-position: center center;
-    mask-size: 100% 100%;
+    mask-size: 21px 21px;
     mask-repeat: no-repeat;
     transition: background-color 0.3s;
 

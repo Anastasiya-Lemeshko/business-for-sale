@@ -86,6 +86,10 @@
 
   padding: 14px 19px 11px;
 
+  @include vp-1366 {
+    padding: 14px 29px 11px;
+  }
+
   &-title {
     margin: 0;
   }
@@ -105,7 +109,7 @@
     @include vp-1366 {
       font-size: 55px;
       line-height: 0.9;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.06em;
     }
 
     @include vp-1640 {
@@ -119,6 +123,10 @@
 
   &-title h1 {
     margin-left: -5px;
+
+    @include vp-1366 {
+      margin-left: -16px;
+    }
   }
 
   &-title p {

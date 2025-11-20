@@ -27,6 +27,14 @@
               <span class="visually-hidden">Search.</span>
             </button>
           </form>
+          <div class="catalog__view">
+            <button class="catalog__view-toggle catalog__view-toggle--grid catalog__view-toggle--active" type="button">
+              <span class="visually-hidden">Grid view.</span>
+            </button>
+            <button class="catalog__view-toggle catalog__view-toggle--list" type="button">
+              <span class="visually-hidden">List view.</span>
+            </button>
+          </div>
           <div class="catalog__select select">
             <label class="visually-hidden" for="select-location">Location.</label>
             <button class="catalog__select-button select__button" type="button" aria-label="Select location.">Location</button>
@@ -106,20 +114,13 @@
             <p class="catalog__objects"><span>Found&nbsp;</span><span class="catalog__objects-count">99</span>&nbsp;objects<span></span></p>
           </div>
         </div>
-        <div class="catalog__view">
-          <button class="catalog__view-toggle catalog__view-toggle--grid catalog__view-toggle--active" type="button">
-            <span class="visually-hidden">Grid view.</span>
-          </button>
-          <button class="catalog__view-toggle catalog__view-toggle--list" type="button">
-            <span class="visually-hidden">List view.</span>
-          </button>
-        </div>
       </div>
       <form class="catalog__filters filters" action="" method="get">
-        <button class="filters__reset" type="reset">Reset filter</button>
+        <!-- <button class="filters__reset" type="reset">Reset filter</button> -->
         <div class="filters__container">
           <fieldset class="filters__group">
-            <legend class="filters__legend">Business Type / Investment Type</legend>
+            <legend class="visually-hidden">Business Type / Investment Type</legend>
+            <p class="filters__legend" aria-hidden="true">Business Type / Investment Type</p>
             <ul class="filters__list">
               <li class="filters__item">
                 <label class="filters__checkbox">
@@ -154,7 +155,8 @@
             </ul>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Price Range</legend>
+            <legend class="visually-hidden">Price Range</legend>
+            <p class="filters__legend" aria-hidden="true">Price Range</p>
             <div class="filters__range range" data-range="price">
               <p class="filters__range-title">AED</p>
               <ul class="filters__range-inputs range__inputs">
@@ -183,7 +185,8 @@
             </div>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Revenue / Turnover Range</legend>
+            <legend class="visually-hidden">Revenue / Turnover Range</legend>
+            <p class="filters__legend" aria-hidden="true">Revenue / Turnover Range</p>
             <div class="filters__range range" data-range="years">
               <p class="filters__range-title">Years</p>
               <ul class="filters__range-inputs range__inputs">
@@ -212,7 +215,8 @@
             </div>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Profit Range</legend>
+            <legend class="visually-hidden">Profit Range</legend>
+            <p class="filters__legend" aria-hidden="true">Profit Range</p>
             <div class="filters__range range" data-range="years">
               <p class="filters__range-title">Years</p>
               <ul class="filters__range-inputs range__inputs">
@@ -241,7 +245,8 @@
             </div>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Business Age</legend>
+            <legend class="visually-hidden">Business Age</legend>
+            <p class="filters__legend" aria-hidden="true">Business Age</p>
             <ul class="filters__list">
               <li class="filters__item">
                 <label class="filters__checkbox">
@@ -264,7 +269,8 @@
             </ul>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Number of Employees</legend>
+            <legend class="visually-hidden">Number of Employees</legend>
+            <p class="filters__legend" aria-hidden="true">Number of Employees</p>
             <div class="filters__range range" data-range="people">
               <p class="filters__range-title">Peoples</p>
               <ul class="filters__range-inputs range__inputs">
@@ -293,7 +299,8 @@
             </div>
           </fieldset>
           <fieldset class="filters__group">
-            <legend class="filters__legend">Status or Listing Type</legend>
+            <legend class="visually-hidden">Status or Listing Type</legend>
+            <p class="filters__legend" aria-hidden="true">Status or Listing Type</p>
             <ul class="filters__list">
               <li class="filters__item">
                 <label class="filters__checkbox">
@@ -352,14 +359,20 @@
           </div>
           <div class="catalog__card-content">
             <div class="catalog__card-info">
-              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
+              <h2 class="catalog__card-title">
+                <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+              </h2>
             </div>
             <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
             <div class="catalog__card-details">
-              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
-              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
-              <p class="catalog__card-area">SQFT</p>
-              <p class="catalog__card-area-value">15&nbsp;000</p>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+                <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              </div>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-area">SQFT</p>
+                <p class="catalog__card-area-value">15&nbsp;000</p>
+              </div>
             </div>
             <div class="catalog__card-footer">
               <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
@@ -393,14 +406,20 @@
           </div>
           <div class="catalog__card-content">
             <div class="catalog__card-info">
-              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
+              <h2 class="catalog__card-title">
+                <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+              </h2>
             </div>
             <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
             <div class="catalog__card-details">
-              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
-              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
-              <p class="catalog__card-area">SQFT</p>
-              <p class="catalog__card-area-value">15&nbsp;000</p>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+                <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              </div>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-area">SQFT</p>
+                <p class="catalog__card-area-value">15&nbsp;000</p>
+              </div>
             </div>
             <div class="catalog__card-footer">
               <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
@@ -434,14 +453,20 @@
           </div>
           <div class="catalog__card-content">
             <div class="catalog__card-info">
-              <a class="catalog__card-title" href="#">A&nbsp;running and <br>profitable Hypermarket</a>
+              <h2 class="catalog__card-title">
+                <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+              </h2>
             </div>
             <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
             <div class="catalog__card-details">
-              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
-              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
-              <p class="catalog__card-area">SQFT</p>
-              <p class="catalog__card-area-value">15&nbsp;000</p>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+                <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+              </div>
+              <div class="catalog__card-details-item">
+                <p class="catalog__card-area">SQFT</p>
+                <p class="catalog__card-area-value">15&nbsp;000</p>
+              </div>
             </div>
             <div class="catalog__card-footer">
               <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
