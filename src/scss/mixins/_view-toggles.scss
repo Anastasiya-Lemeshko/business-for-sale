@@ -18,17 +18,17 @@
     border-radius: 5px;
 
     @include hover-focus {
-      --icon-color: var(--grey);
+      --icon-color: var(--bg-accent);
 
       outline: none;
     }
 
     @include active {
-      background-color: var(--bg-accent);
+      --icon-color: var(--bg-accent-opacity);
     }
 
     &--active {
-      --icon-color: var(--bg-accent-opacity);
+      --icon-color: var(--bg-accent);
     }
 
     &--list {

@@ -325,7 +325,9 @@
 @mixin catalog-card {
   @include card;
 
+  display: grid;
   padding: 20px 20px 10px;
+  color: var(--grey-middle);
   background-color: var(--bg-primary);
   border-radius: 5px;
 
@@ -335,16 +337,6 @@
 
   @include vp-1920 {
     padding: 30px;
-  }
-
-  &-visual {
-    display: grid;
-    align-items: start;
-    margin: 0 0 19px;
-
-    @include vp-768 {
-      margin: 0 0 16px;
-    }
   }
 
   &-header {
@@ -358,7 +350,7 @@
       @include tag;
 
       min-width: 97px;
-      padding: 5px 16px 2px;
+      padding: 5px 16px 3px;
 
       @include vp-1366 {
         font-size: 14px;
@@ -373,10 +365,13 @@
   &-image {
     grid-area: 1 / 1 / 2 / 2;
     height: 331px;
+    margin: 0 0 19px;
+    border-radius: 5px;
 
     @include vp-500 {
       aspect-ratio: 500 / 331;
       height: unset;
+      margin: 0 0 16px;
     }
 
     @include vp-1366 {
@@ -424,7 +419,7 @@
     margin: 0 0 20px;
 
     @include vp-1366 {
-      grid-row: 2 / 3;
+      grid-row: 3 / 4;
       margin: 0 0 8px;
       font-size: 18px;
     }
@@ -508,5 +503,50 @@
       width: 50px;
       height: 50px;
     }
+  }
+}
+
+@mixin catalog-card-small {
+  @include catalog-card;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0 34px;
+  grid-template-areas:
+    "img tags content"
+    "img title content"
+    "img details footer";
+
+  &-header {
+    grid-area: tags;
+  }
+
+  &-image {
+    grid-area: img;
+    aspect-ratio: unset;
+    position: relative;
+    height: 100%;
+    margin: 0;
+
+    img {
+      @include img-bg;
+
+      z-index: 0;
+    }
+  }
+
+  &-info {
+    grid-area: title;
+  }
+
+  &-details {
+    grid-area: details;
+  }
+
+  &-description {
+    grid-area: content;
+  }
+
+  &-footer {
+    grid-area: footer;
   }
 }

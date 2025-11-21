@@ -18,7 +18,7 @@
   }
 }
 
-.catalog__selects {
+.catalog__controls {
   @include vp-768 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -93,6 +93,18 @@
     @include vp-768 {
       padding: 12px 15px 9px 20px;
     }
+
+    @include hover-focus {
+      color: var(--bg-accent);
+    }
+  }
+
+  .select__list {
+    padding-left: 60px;
+
+    @include vp-768 {
+      padding-left: 20px;
+    }
   }
 }
 
@@ -128,12 +140,19 @@
   padding: 0;
   font-weight: 400;
   font-size: 18px;
+  text-align: left;
   color: var(--black);
   border: none;
   background-color: var(--transparent);
+  transition: color 0.3s;
 
   @include vp-1024 {
     display: none;
+  }
+
+  @include hover-focus {
+    outline: none;
+    color: var(--bg-accent);
   }
 
   &::after {
@@ -177,12 +196,45 @@
 }
 
 .catalog__filters {
+  --filter-transform: scaleY(0);
+  --filter-opacity: 0;
+
+  position: relative;
+
+  &--opened {
+    --filter-transform: scaleY(1);
+    --filter-opacity: 1;
+  }
+}
+
+.catalog__filters-form {
   position: absolute;
-  transform: scaleY(0);
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 30px 0;
+  transform: var(--filter-transform);
+  opacity: var(--filter-opacity);
+  transform-origin: top;
+  transition: transform 0.4s, opacity 0.2s;
+  background-color: var(--white);
+  border-radius: 0 0 5px 5px;
+  z-index: 5;
+
+  @include vp-500 {
+    max-width: 450px;
+    padding: 20px 20px 20px 0;
+  }
 
   @include vp-1024 {
-    position: static;
-    transform: scale(1);
+    position: relative;
+    top: unset;
+    left: unset;
+    width: unset;
+    max-height: unset;
+    padding: 0;
+    background-color: var(--transparent);
+    border-radius: 0;
   }
 }
 
@@ -198,20 +250,48 @@
     gap: 10px;
   }
 
-  @include vp-1366 {
-    grid-template-columns: repeat(3, 1fr);
+  &--grid {
+    grid-template-columns: repeat(2, 1fr);
+
+    @include vp-1366 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &--list {
+    @include vp-1366 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+  }
+
+  &--animated {
+    transition: opacity 0.3s;
+  }
+
+  &--hidden {
+    opacity: 0;
   }
 }
 
 .catalog__card {
-  @include catalog-card;
-
   &:not(:last-child) {
     margin: 0 0 20px;
 
     @include vp-768 {
       margin: 0;
     }
+  }
+}
+
+.catalog__list--grid .catalog__card {
+  @include catalog-card;
+}
+
+.catalog__list--list .catalog__card {
+  @include catalog-card;
+
+  @include vp-1366 {
+    @include catalog-card-small;
   }
 }
 

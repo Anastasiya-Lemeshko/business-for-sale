@@ -15,7 +15,8 @@
   &:has(input:focus),
   &:has(input:focus-visible),
   &:has(textarea:focus),
-  &:has(textarea:focus-visible) {
+  &:has(textarea:focus-visible),
+  &:has(input:not(:placeholder-shown)) {
     --transform: scaleY(0) translateY(-5px);
     --opacity: 0;
   }
@@ -66,15 +67,16 @@
 
   input {
     height: 40px;
+
+    &::placeholder {
+      font-weight: 400;
+      font-size: 18px;
+      color: var(--transparent);
+    }
   }
 
   textarea {
     resize: none;
-  }
-
-  &::placeholder {
-    font-weight: 400;
-    font-size: 18px;
   }
 
   &:has(input:disabled) {
@@ -238,9 +240,12 @@
   span {
     display: flex;
     align-items: center;
+    margin: 2px 0 0;
     font-weight: 400;
     font-size: 14px;
     letter-spacing: -0.01em;
+    color: var(--color);
+    transition: color 0.3s;
   }
 
   &:has(input:focus),
@@ -420,6 +425,7 @@
   }
 
   span {
+    margin: 0;
     padding: 3px 25px 2px;
     color: var(--bg-primary);
     background-color: var(--color);

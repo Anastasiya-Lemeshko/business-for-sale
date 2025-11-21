@@ -13,20 +13,24 @@ const setRanges = () => {
 
     if (!ranges || !ranges.length) return;
 
-    const resetButton = form.querySelector('button[type="reset"]');
+    const resetButtons = form.querySelectorAll('button[type="reset"]');
 
     const resetAllSliders = () => {
       ranges.forEach((range) => {
         const sliderElement = range.querySelector('.range__container');
+        const rangeLabels = form.querySelectorAll('.range__current');
 
         if (sliderElement.noUiSlider) {
           sliderElement.noUiSlider.reset();
+          rangeLabels.forEach(label => label.style.display = 'none');
         }
       });
     };
 
-    if (resetButton) {
-      resetButton.addEventListener('click', resetAllSliders);
+    if (resetButtons && resetButtons.length) {
+      resetButtons.forEach((button) => {
+        button.addEventListener('click', resetAllSliders);
+      });
     }
 
     singleRanges.forEach((range) => {

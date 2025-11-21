@@ -22,6 +22,13 @@
     input {
       border: 2px solid var(--bg-primary);
     }
+
+    &:has(span:focus-visible) span,
+    &:has(input:focus-visible) span,
+    &:has(span:hover) span,
+    &:has(input:hover) span {
+      --color: var(--bg-accent);
+    }
   }
 
   &-button {
@@ -42,6 +49,7 @@
     mask-size: 21px 21px;
     mask-repeat: no-repeat;
     transition: background-color 0.3s;
+    z-index: 1;
 
     @include hover-focus {
       --icon-color: var(--bg-accent);

@@ -2,10 +2,11 @@
 
 .filters__reset {
   @include close-button;
+  @include interactive-button-light;
 
   width: 100%;
   height: unset;
-  padding: 10px;
+  padding: 8px 41px 6px 20px;
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.01em;
@@ -17,13 +18,14 @@
   &::before,
   &::after {
     left: unset;
-    right: 20px;
+    right: 15px;
+    width: 14px;
+    height: 1px;
   }
 }
 
 .filters__container {
-  // margin: 20px 0;
-  margin: 0 0 20px;
+  margin: 20px 0;
 }
 
 .filters__group {
