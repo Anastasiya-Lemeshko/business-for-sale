@@ -14,6 +14,7 @@ const setRanges = () => {
     if (!ranges || !ranges.length) return;
 
     const resetButtons = form.querySelectorAll('button[type="reset"]');
+    const showButton = form ? form.querySelector('.filters__show') : null;
 
     const resetAllSliders = () => {
       ranges.forEach((range) => {
@@ -25,6 +26,11 @@ const setRanges = () => {
           rangeLabels.forEach(label => label.style.display = 'none');
         }
       });
+
+      if (showButton) {
+        showButton.classList.remove('filters__show--animated');
+        showButton.classList.add('filters__show--hidden');
+      }
     };
 
     if (resetButtons && resetButtons.length) {

@@ -247,7 +247,7 @@
     align-self: start;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 20px 10px;
   }
 
   &--grid {
@@ -302,5 +302,6 @@
 
   @include vp-1024 {
     grid-column: 2 / 3;
+    margin-right: 8px;
   }
 }

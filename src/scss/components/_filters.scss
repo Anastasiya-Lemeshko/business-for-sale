@@ -54,8 +54,77 @@
   list-style-type: none;
 }
 
-.filters__item:not(:last-child) {
-  margin: 0 0 10px;
+.filters__item {
+  position: relative;
+  width: 100%;
+
+  @include vp-1024 {
+    width: fit-content;
+  }
+
+  &:not(:last-child) {
+    margin: 0 0 10px;
+  }
+
+  &.range {
+    width: 100%;
+  }
+}
+
+.filters__show {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: block;
+  width: max-content;
+  padding: 5px 5px 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: var(--text-basic);
+  background-color: var(--white);
+  border-radius: 5px;
+  border: 1px solid var(--text-basic);
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0.3s, background-color 0.3s, color 0.3s;
+  z-index: 100;
+
+  @include vp-1024 {
+    right: unset;
+    left: calc(100% + 20px);
+  }
+
+  &--animated {
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s, color 0.3s;
+  }
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  @include hover-focus {
+    color: var(--white);
+    background-color: var(--text-light);
+  }
+}
+
+.filters__show-accent {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  color: var(--bg-accent);
+}
+
+.filters__item.range .filters__show {
+  top: 0;
+  transform: translateY(-20%);
+
+  @include vp-1024 {
+    right: -50%;
+    left: unset;
+  }
 }
 
 .filters__checkbox {

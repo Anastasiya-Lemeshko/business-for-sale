@@ -138,6 +138,7 @@
                     <span class="filters__label">Franchise</span>
                     <input class="visually-hidden" type="checkbox" name="franchise">
                   </label>
+                  <a class="filters__show" href="#">Found <span class="filters__count">99</span> objects <span class="filters__show-accent">show</span></a>
                 </li>
                 <li class="filters__item">
                   <label class="filters__checkbox">
@@ -156,7 +157,7 @@
             <fieldset class="filters__group">
               <legend class="visually-hidden">Price Range</legend>
               <p class="filters__legend" aria-hidden="true">Price Range</p>
-              <div class="filters__range range" data-range="price">
+              <div class="filters__range range filters__item" data-range="price">
                 <p class="filters__range-title">AED</p>
                 <ul class="filters__range-inputs range__inputs">
                   <li>
@@ -186,7 +187,7 @@
             <fieldset class="filters__group">
               <legend class="visually-hidden">Revenue / Turnover Range</legend>
               <p class="filters__legend" aria-hidden="true">Revenue / Turnover Range</p>
-              <div class="filters__range range" data-range="years">
+              <div class="filters__range range filters__item" data-range="years">
                 <p class="filters__range-title">Years</p>
                 <ul class="filters__range-inputs range__inputs">
                   <li>
@@ -216,7 +217,7 @@
             <fieldset class="filters__group">
               <legend class="visually-hidden">Profit Range</legend>
               <p class="filters__legend" aria-hidden="true">Profit Range</p>
-              <div class="filters__range range" data-range="years">
+              <div class="filters__range range filters__item" data-range="years">
                 <p class="filters__range-title">Years</p>
                 <ul class="filters__range-inputs range__inputs">
                   <li>
@@ -270,7 +271,7 @@
             <fieldset class="filters__group">
               <legend class="visually-hidden">Number of Employees</legend>
               <p class="filters__legend" aria-hidden="true">Number of Employees</p>
-              <div class="filters__range range" data-range="people">
+              <div class="filters__range range filters__item" data-range="people">
                 <p class="filters__range-title">Peoples</p>
                 <ul class="filters__range-inputs range__inputs">
                   <li>
@@ -337,7 +338,351 @@
           <button class="filters__reset" type="reset">Reset filter</button>
         </form>
       </div>
-      <ul class="catalog__list catalog__list--grid">
+      <ul class="catalog__list catalog__list--grid" data-cards-clickable>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="catalog__card">
+          <div class="catalog__card-header">
+            <div class="catalog__card-header-left">
+              <p>Retail Stories</p>
+            </div>
+            <div class="catalog__card-header-right">
+              <p>Sharjan</p>
+            </div>
+          </div>
+          <div class="catalog__card-image">
+            <picture>
+              <source width="1250" height="679" type="image/webp" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.webp 1x, ../img/catalog/hypermarket-tablet@2x.webp 2x">
+              <source width="362" height="352" type="image/webp" srcset="../img/catalog/hypermarket-mobile@1x.webp 1x, ../img/catalog/hypermarket-mobile@2x.webp 2x">
+              <source width="1250" height="679" type="image/jpg" media="(min-width: 768px)" srcset="../img/catalog/hypermarket-tablet@1x.jpg 1x, ../img/catalog/hypermarket-tablet@2x.jpg 2x">
+              <img src="../img/catalog/hypermarket-mobile@1x.jpg" srcset="../img/catalog/hypermarket-mobile@2x.jpg 2x" width="362" height="352" alt="House">
+            </picture>
+          </div>
+          <div class="catalog__card-info">
+            <h2 class="catalog__card-title">
+              <a href="#">A&nbsp;running and profitable <br>Hypermarket</a>
+            </h2>
+          </div>
+          <p class="catalog__card-description">For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.For institutional and private investors, the UAE market offers unparalleled capital growth.</p>
+          <div class="catalog__card-details">
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-rent">RENT PER&nbsp;YEAR</p>
+              <p class="catalog__card-rent-value">1&nbsp;200&nbsp;000&nbsp;AED</p>
+            </div>
+            <div class="catalog__card-details-item">
+              <p class="catalog__card-area">SQFT</p>
+              <p class="catalog__card-area-value">15&nbsp;000</p>
+            </div>
+          </div>
+          <div class="catalog__card-footer">
+            <p class="catalog__card-price">7&nbsp;500&nbsp;000&nbsp;AED</p>
+            <div class="catalog__card-links">
+              <a class="catalog__card-link button button--dark" href="#">Register</a>
+              <a class="catalog__card-social catalog__card-social--whatsapp" href="#">
+                <span class="visually-hidden">Whatsapp.</span>
+              </a>
+            </div>
+          </div>
+        </li>
         <li class="catalog__card">
           <div class="catalog__card-header">
             <div class="catalog__card-header-left">

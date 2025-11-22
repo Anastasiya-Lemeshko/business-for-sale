@@ -8,7 +8,7 @@ import { setMultiform } from './components/_multistep-form.js';
 import { setGridColumnLayout } from './components/_grid-layout-columns.js';
 import { openVisibleFontCardContent, setAccordeonToggles } from './components/_accordion.js';
 import { makeCardClickable } from './components/_clickable-cards.js';
-import { moveFilters } from './components/_filters.js';
+import { moveFilters, moveShowButton } from './components/_filters.js';
 import { setViewToggles } from './components/_catalog-view.js';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -24,5 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   setAccordeonToggles();
   makeCardClickable();
   moveFilters();
+  moveShowButton();
   setViewToggles();
 });
