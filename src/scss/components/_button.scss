@@ -32,6 +32,13 @@
     pointer-events: none;
   }
 
+  &--light {
+    @include interactive-button-light;
+
+    color: var(--text-basic);
+    background-color: var(--white);
+  }
+
   &--dark {
     @include interactive-button-dark;
 

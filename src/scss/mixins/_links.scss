@@ -8,6 +8,7 @@
   display: block;
   width: 42px;
   height: 42px;
+  padding: 8px;
   background-color: var(--bg-color);
   border-radius: 5px;
   transition: background-color 0.3s;
@@ -24,6 +25,14 @@
     --icon: url("../img/sprite.svg#instagram");
   }
 
+  &--linkedin {
+    --icon: url("../img/sprite.svg#linkedin");
+  }
+
+  &--facebook {
+    --icon: url("../img/sprite.svg#facebook");
+  }
+
   &::after {
     position: absolute;
     top: 0;
@@ -34,7 +43,7 @@
     mask-image: var(--icon);
     mask-position: center;
     mask-repeat: no-repeat;
-    mask-size: 100% 100%;
+    mask-size: 60% 60%;
     background-color: var(--icon-color);
     transition: background-color 0.3s;
   }

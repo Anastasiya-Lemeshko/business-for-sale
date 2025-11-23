@@ -84,6 +84,7 @@
 @mixin page-header-title {
   @include page-header;
 
+  display: block;
   padding: 14px 19px 11px;
 
   @include vp-1366 {
