@@ -1,0 +1,33 @@
+@use "index" as *;
+
+.tags__title {
+  margin: 0 0 17px;
+
+  @include vp-1024 {
+    margin: 0 0 30px;
+  }
+}
+
+.tags__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-1640 {
+    gap: 10px 15px;
+  }
+}
+
+.tags__link {
+  @include tag-dark;
+
+  padding: 7px 23px 5px;
+  font-size: 18px;
+
+  @include vp-1640 {
+    padding: 7px 25px 5px;
+  }
+}

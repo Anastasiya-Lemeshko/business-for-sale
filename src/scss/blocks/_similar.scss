@@ -1,0 +1,56 @@
+@use "index" as *;
+
+.similar__title {
+  margin: 0 0 15px;
+
+  @include vp-1024 {
+    margin: 0 0 30px;
+  }
+}
+
+.similar__swiper-wrapper {
+  display: flex;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 9px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  &.swiper-wrapper {
+    display: flex;
+    gap: unset;
+  }
+}
+
+.similar__card {
+  @include slide-container;
+  @include offer-card;
+
+  @include vp-768 {
+    height: 100%;
+  }
+
+  &:not(:last-child) {
+    margin: 0 0 20px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+}
+
+.similar__swiper-button-container {
+  @include swiper-button-position;
+
+  &.hidden {
+    display: none;
+  }
+}

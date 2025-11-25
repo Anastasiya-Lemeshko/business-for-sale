@@ -11,6 +11,14 @@
     }
   }
 
+  &__tags {
+    margin: 0 0 41px;
+
+    @include vp-1024 {
+      margin: 0 0 20px;
+    }
+  }
+
   &__offers {
     margin: 0 0 32px;
 
@@ -144,6 +152,50 @@
 
     @include vp-1024 {
       margin: 0 0 20px;
+    }
+  }
+}
+
+// project-page
+
+.project-page {
+  &__project {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 32px;
+    }
+  }
+
+  &__tags {
+    margin: 0 0 34px;
+
+    @include vp-1024 {
+      margin: 0 0 67px;
+    }
+  }
+
+  &__similar {
+    margin: 0 0 16px;
+
+    @include vp-1024 {
+      margin: 0 0 77px;
+    }
+  }
+
+  &__disclamer {
+    margin: 0 0 39px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
     }
   }
 }

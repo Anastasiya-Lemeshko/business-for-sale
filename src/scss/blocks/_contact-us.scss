@@ -181,9 +181,15 @@
 .contact-us__accept {
   @include accept;
 
-  margin: 0 0 20px;
+  margin: 0 0 14px;
 }
 
 .contact-us__form-button {
   width: 100%;
+  padding: 10px 20px 9px;
+  font-size: 18px;
+
+  @include vp-1024 {
+    padding: 14px 20px 13px;
+  }
 }

@@ -127,12 +127,33 @@
   }
 }
 
-@mixin interactive-button-light {
+@mixin interactive-button {
   opacity: 1;
   transition: background-color 0.3s, opacity 0.3s;
 
   @include hover-focus {
     background-color: var(--bg-accent-opacity);
+    outline: none;
+  }
+
+  @include active {
+    opacity: 0.7;
+  }
+
+  @include disabled {
+    background-color: var(--grey);
+    color: var(--text-light);
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+@mixin interactive-button-light {
+  opacity: 1;
+  transition: background-color 0.3s, opacity 0.3s;
+
+  @include hover-focus {
+    background-color: var(--grey);
     outline: none;
   }
 

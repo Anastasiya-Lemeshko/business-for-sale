@@ -25,6 +25,7 @@ const setNavigationSwiper = () => {
     const sectionName = getBlockClass(section);
     const swiperButtons = section.querySelector(`.${sectionClass}swiper-button-container`);
     const slidesCount = SLIDES_COUNT[sectionName] || SLIDES_COUNT.default;
+    const desktopBreakpoint = slidesCount.desktop_width ?? DESKTOP_WIDTH;
     let swiperContainer = null;
     let autoplayDelay = 7000 + index * 1000;
 
@@ -90,8 +91,8 @@ const setNavigationSwiper = () => {
 
     const checkNavigationSwiper = () => {
       const isNeedMobile = !TABLET_WIDTH.matches && (getSlidesCount(section) > slidesCount.mobile);
-      const isNeedTablet = TABLET_WIDTH.matches && !DESKTOP_WIDTH.matches && (getSlidesCount(section) > slidesCount.tablet);
-      const isNeedDesktop = DESKTOP_WIDTH.matches && (getSlidesCount(section) > slidesCount.desktop);
+      const isNeedTablet = TABLET_WIDTH.matches && !desktopBreakpoint.matches && (getSlidesCount(section) > slidesCount.tablet);
+      const isNeedDesktop = desktopBreakpoint.matches && (getSlidesCount(section) > slidesCount.desktop);
 
       if (!swiperContainer && (isNeedMobile || isNeedTablet || isNeedDesktop)) {
         initNavigationSwiper();
@@ -105,7 +106,7 @@ const setNavigationSwiper = () => {
 
     checkNavigationSwiper();
     TABLET_WIDTH.addEventListener('change', checkNavigationSwiper);
-    DESKTOP_WIDTH.addEventListener('change', checkNavigationSwiper);
+    desktopBreakpoint.addEventListener('change', checkNavigationSwiper);
   });
 };
 

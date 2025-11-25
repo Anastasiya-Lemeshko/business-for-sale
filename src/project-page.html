@@ -9,12 +9,18 @@
     <div class="project-page__project">
       @include('partials/pages/project.html')
     </div>
-    <!-- <div class="project-page__faq">
-      @include('partials/faq.html')
+    <div class="project-page__tags">
+      @include('partials/tags.html', {"isTitle": true})
+    </div>
+    <div class="project-page__similar">
+      @include('partials/similar.html')
+    </div>
+    <div class="project-page__disclamer">
+      @include('partials/disclamer.html')
     </div>
     <div class="project-page__contact-us">
       @include('partials/contact-us.html')
-    </div> -->
+    </div>
   </main>
   @include('partials/footer.html')
 </body>

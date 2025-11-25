@@ -2,7 +2,7 @@
 
 .filters__reset {
   @include close-button;
-  @include interactive-button-light;
+  @include interactive-button;
 
   width: 100%;
   height: unset;

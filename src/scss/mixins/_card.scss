@@ -185,7 +185,7 @@
   }
 
   &-price {
-    margin: 0 0 35px;
+    margin: 0 0 26px;
     font-weight: 500;
     font-size: 20px;
     color: var(--white);
@@ -213,8 +213,8 @@
   &-social {
     @include social-link;
 
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 
     @include vp-1024 {
       width: 50px;

@@ -29,6 +29,12 @@ export const SLIDES_COUNT = {
     'mobile': 1,
     'tablet': 2,
     'desktop': 3
+  },
+  'similar': {
+    'mobile': 1,
+    'tablet': 2,
+    'desktop': 3,
+    'desktop_width': SMALL_DESKTOP_WIDTH,
   }
 };
 

@@ -1,7 +1,7 @@
 @use "index" as *;
 
 .button {
-  @include interactive-button-light;
+  @include interactive-button;
 
   box-sizing: border-box;
   display: inline-block;

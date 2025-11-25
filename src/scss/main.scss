@@ -12,6 +12,7 @@
 @use "./components/map";
 @use "./components/multiform";
 @use "./components/filters";
+@use "./components/tags";
 
 // подключения секций страницы
 @use "./blocks/header";
@@ -30,3 +31,5 @@
 @use "./blocks/privacy";
 @use "./blocks/catalog";
 @use "./blocks/project";
+@use "./blocks/similar";
+@use "./blocks/disclamer";
