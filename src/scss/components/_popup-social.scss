@@ -1,0 +1,66 @@
+@use "index" as *;
+
+.popup-social {
+  @include popup;
+}
+
+.popup-social__title {
+  margin: 0 0 20px;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-align: center;
+
+  @include vp-1366 {
+    margin: 0 0 40px;
+    font-size: 40px;
+  }
+
+  @include vp-1920 {
+    font-size: 62px;
+  }
+}
+
+.popup-social__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.popup-social__link {
+  @include social-link;
+
+  --bg-color: var(--bg-primary);
+  --icon-color: var(--white);
+
+  width: 32px;
+  height: 32px;
+
+  @include vp-1366 {
+    width: 42px;
+    height: 42px;
+  }
+
+  @include hover-focus {
+    --bg-color: var(--bg-accent);
+  }
+
+  @include active {
+    --bg-color: var(--bg-accent-opacity);
+  }
+}
+
+.popup-social__number {
+  margin: 3px 0 0;
+  font-weight: 700;
+  font-size: 18px;
+
+  @include vp-1366 {
+    font-size: 25px;
+  }
+
+  @include vp-1920 {
+    font-size: 30px;
+  }
+}

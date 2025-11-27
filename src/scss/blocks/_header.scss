@@ -13,36 +13,42 @@
 }
 
 .header__top {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
-  align-items: center;
-  gap: 20px;
   padding: 13px 20px 11px;
   color: var(--white);
   background-color: var(--bg-primary);
   border-radius: 0 0 5px 5px;
 
   @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+    gap: 20px;
     border-radius: 5px;
   }
 
   @include vp-1024 {
-    grid-template-columns: 2fr 1fr;
-    padding: 11px 0 9px;
+    grid-template-columns: 1fr auto;
+    padding: 11px 34px 9px 30px;
   }
 }
 
 .header__address {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
   font-style: normal;
 
   @include vp-768 {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 10px;
+    align-items: center;
+    gap: 10px 50px;
   }
 
   @include vp-1024 {
-    padding: 0 10px 0 30px;
+    width: fit-content;
+    padding: 0 10px 0 0;
   }
 
   @include vp-1366 {
@@ -61,17 +67,13 @@
   font-size: 14px;
   letter-spacing: -0.01em;
 
-  @include vp-768 {
-    letter-spacing: 0;
-  }
-
   @include vp-1024 {
     font-size: 18px;
   }
 
   &:not(:last-child) {
     @include vp-1366 {
-      margin-right: 15px;
+      margin-right: 30px;
     }
   }
 
@@ -86,6 +88,12 @@
   &--link {
     @include interactive-link-underline-light
   }
+
+  &--time {
+    @include vp-1366 {
+      text-align: center;
+    }
+  }
 }
 
 .header__tel {
@@ -96,7 +104,6 @@
 
   @include vp-1366 {
     grid-area: unset;
-    text-align: center;
   }
 }
 
@@ -317,6 +324,19 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+
+  @include vp-768 {
+    justify-self: end;
+  }
+}
+
+.header__socials-item {
+  --popup-top: calc(100% + 5px);
+  --popup-bottom: unset;
+
+  @include vp-1920 {
+    --popup-top: calc(100% + 25px);
+  }
 }
 
 .header__socials-link {
@@ -348,6 +368,7 @@
 
 .header__register {
   min-width: 125px;
+  font-weight: 400;
 
   @include vp-1024 {
     min-width: 180px

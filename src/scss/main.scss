@@ -13,6 +13,9 @@
 @use "./components/multiform";
 @use "./components/filters";
 @use "./components/tags";
+@use "./components/form";
+@use "./components/popup-social";
+@use "./components/modal";
 
 // подключения секций страницы
 @use "./blocks/header";

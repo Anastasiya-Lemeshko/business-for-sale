@@ -205,6 +205,11 @@
   }
 }
 
+.team__socials-item {
+  --popup-right: unset;
+  --popup-left: 0;
+}
+
 .team__socials-link {
   @include social-link;
 

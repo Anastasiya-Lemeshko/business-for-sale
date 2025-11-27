@@ -3,7 +3,7 @@
 
 @mixin search-form {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 
   &-field {
     @include input;

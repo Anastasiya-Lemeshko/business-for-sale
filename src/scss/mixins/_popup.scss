@@ -1,0 +1,45 @@
+@use "close-button" as *;
+@use "interactive-states" as *;
+
+@mixin popup {
+  --popup-top: unset;
+  --popup-left: unset;
+  --popup-right: 0;
+  --popup-bottom: calc(100% + 5px);
+
+  position: relative;
+
+  &__content {
+    position: absolute;
+    top: var(--popup-top);
+    left: var(--popup-left);
+    right: var(--popup-right);
+    bottom: var(--popup-bottom);
+    padding: 30px;
+    color: var(--text-basic);
+    background-color: var(--grey-extra-light);
+    border-radius: 5px;
+    animation: appear 0.4s;
+    z-index: 200;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &__close {
+    @include close-button;
+    @include interactive-opacity;
+
+    &::before,
+    &::after {
+      background-color: var(--text-basic);
+    }
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+}

@@ -323,7 +323,7 @@
   }
 }
 
-.project__info-social {
+.project__info-socials-link {
   @include social-link;
 
   width: 40px;
@@ -332,6 +332,14 @@
   @include vp-1024 {
     width: 50px;
     height: 50px;
+  }
+
+  @include hover-focus {
+    --bg-color: var(--bg-primary);
+  }
+
+  @include active {
+    --bg-color: var(--bg-primary-opacity);
   }
 }
 

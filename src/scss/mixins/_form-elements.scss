@@ -6,11 +6,16 @@
   --opacity: 1;
   --field-color: var(--white);
   --color: var(--grey-middle);
+  --placeholder-color: var(--transparent);
 
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   align-items: center;
   cursor: pointer;
+
+  &:has(span.visually-hidden) {
+    --placeholder-color: var(--grey-middle);
+  }
 
   &:has(input:focus),
   &:has(input:focus-visible),
@@ -63,16 +68,16 @@
     @include vp-1366 {
       padding: 20px 40px 18px;
     }
-  }
-
-  input {
-    height: 40px;
 
     &::placeholder {
       font-weight: 400;
       font-size: 18px;
-      color: var(--transparent);
+      color: var(--placeholder-color);
     }
+  }
+
+  input {
+    height: 40px;
   }
 
   textarea {
@@ -120,8 +125,7 @@
     }
   }
 
-  input,
-  textarea {
+  input {
     padding: 16px 15px 15px;
 
     @include vp-1024 {
@@ -131,6 +135,10 @@
     @include vp-1366 {
       height: 60px;
     }
+  }
+
+  textarea {
+    padding: 20px 15px 15px;
   }
 }
 

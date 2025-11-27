@@ -1,0 +1,53 @@
+@use "index" as *;
+
+.modal {
+  position: fixed;
+  box-sizing: border-box;
+  overflow-y: auto;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 20px 0;
+  background-color: var(--overlay);
+  backdrop-filter: blur(8px);
+  z-index: 300;
+}
+
+.modal--close {
+  display: none;
+}
+
+.modal__container {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(100% - 20px);
+  max-width: 500px;
+  padding: 20px;
+  margin: auto;
+  color: var(--white);
+  background-color: var(--bg-accent);
+  border-radius: 5px;
+
+  @include vp-768 {
+    max-width: 680px;
+    padding: 30px;
+  }
+}
+
+.modal__close-button {
+  @include interactive-opacity;
+  @include close-button;
+
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 30px;
+  height: 30px;
+
+  @include vp-1024 {
+    width: 40px;
+    height: 40px;
+  }
+}

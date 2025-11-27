@@ -10,7 +10,7 @@
               <a class="footer__link" href="index.html">Home</a>
             </li>
             <li class="footer__item">
-              <a class="footer__link" href="#">Catalog</a>
+              <a class="footer__link" href="catalog.html">Catalog</a>
             </li>
             <li class="footer__item">
               <a class="footer__link" href="payment.html">Payment Methods</a>
@@ -30,7 +30,7 @@
               <a class="footer__link" href="index.html">Home</a>
             </li>
             <li class="footer__item">
-              <a class="footer__link" href="#">Catalog</a>
+              <a class="footer__link" href="catalog.html">Catalog</a>
             </li>
             <li class="footer__item">
               <a class="footer__link" href="payment.html">Payment Methods</a>
@@ -43,12 +43,12 @@
             </li>
           </ul>
           <ul class="footer__socials">
-            <li class="footer__socials-item">
+            <li class="footer__socials-item popup-social" data-popup="whatsapp">
               <a class="footer__socials-link footer__socials-link--whatsapp" href="#" target="_blank" rel="noreferrer noopener">
                 <span class="visually-hidden">Whatsapp.</span>
               </a>
             </li>
-            <li class="footer__socials-item">
+            <li class="footer__socials-item popup-social" data-popup="tg">
               <a class="footer__socials-link footer__socials-link--tg" href="#" target="_blank" rel="noreferrer noopener">
                 <span class="visually-hidden">Telegram.</span>
               </a>
@@ -68,3 +68,27 @@
     </div>
   </div>
 </footer>
+<div class="popup-social__content hidden" data-popup-content="whatsapp">
+  <button class="popup-social__close popup__button" type="button">
+    <span class="visually-hidden">Close.</span>
+  </button>
+  <p class="popup-social__title">Go&nbsp;to</p>
+  <div class="popup-social__wrapper">
+    <a class="popup-social__link popup-social__link--whatsapp" href="#" target="_blank" rel="noreferrer noopener">
+      <span class="visually-hidden">Whatsapp.</span>
+    </a>
+    <p class="popup-social__number">+971&nbsp;58&nbsp;638&nbsp;6980</p>
+  </div>
+</div>
+<div class="popup-social__content hidden" data-popup-content="tg">
+  <button class="popup-social__close popup__button" type="button">
+    <span class="visually-hidden">Close.</span>
+  </button>
+  <p class="popup-social__title">Go&nbsp;to</p>
+  <div class="popup-social__wrapper">
+    <a class="popup-social__link popup-social__link--tg" href="#" target="_blank" rel="noreferrer noopener">
+      <span class="visually-hidden">Telegram.</span>
+    </a>
+    <p class="popup-social__number">+971&nbsp;58&nbsp;638&nbsp;6980</p>
+  </div>
+</div>

@@ -10,6 +10,8 @@ import { openVisibleFontCardContent, setAccordeonToggles } from './components/_a
 import { makeCardClickable } from './components/_clickable-cards.js';
 import { moveFilters, moveShowButton } from './components/_filters.js';
 import { setViewToggles } from './components/_catalog-view.js';
+import { setSocialPopup } from './components/_popup-social.js';
+import { setModals } from './components/_modal.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -26,4 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
   moveFilters();
   moveShowButton();
   setViewToggles();
+  setSocialPopup();
+  setModals();
 });

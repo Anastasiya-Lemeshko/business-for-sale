@@ -2,14 +2,14 @@ import { TABLET_WIDTH } from "./../_vars.js";
 
 const header = document.querySelector('.header');
 const menu = header ? header.querySelector('.header__menu-wrapper') : null;
-const user = header ? header.querySelector('.header__user') : null;
+const headerTop = header ? header.querySelector('.header__top') : null;
 const socials = header ? header.querySelector('.header__socials') : null;
 
 let isUserHeaderMoved = false;
 
 const moveHeader = () => {
   if (header && TABLET_WIDTH.matches && !isUserHeaderMoved) {
-    user.prepend(socials);
+    headerTop.appendChild(socials);
 
     isUserHeaderMoved = true;
   }
