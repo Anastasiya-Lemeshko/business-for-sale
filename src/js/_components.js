@@ -12,6 +12,7 @@ import { moveFilters, moveShowButton } from './components/_filters.js';
 import { setViewToggles } from './components/_catalog-view.js';
 import { setSocialPopup } from './components/_popup-social.js';
 import { setModals } from './components/_modal.js';
+import { moveBlog } from './components/_move-blog.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -30,4 +31,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setViewToggles();
   setSocialPopup();
   setModals();
+  moveBlog();
 });

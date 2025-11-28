@@ -1,5 +1,6 @@
 @use "form-elements" as *;
 @use "interactive-states" as *;
+@use "breakpoint" as *;
 
 @mixin search-form {
   position: relative;
@@ -57,6 +58,87 @@
 
     @include active {
       --icon-color: var(--bg-accent-opacity);
+    }
+  }
+}
+
+@mixin search-form-separated {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: stretch;
+
+  &-field {
+    @include input;
+
+    --color: var(--text-basic);
+
+    align-items: stretch;
+    width: calc(100% + 10px);
+    border-radius: 5px;
+
+    span,
+    input {
+      height: unset;
+      padding: 18px 21px 17px;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+
+      @include vp-500 {
+        font-size: 18px;
+      }
+    }
+
+    input {
+      background-color: var(--grey-extra-light);
+
+      @include hover-focus {
+        outline: none;
+        background-color: var(--grey-light);
+      }
+    }
+
+    &:has(span:focus-visible) span,
+    &:has(input:focus-visible) span,
+    &:has(span:hover) span,
+    &:has(input:hover) span {
+      --color: var(--bg-accent);
+    }
+  }
+
+  &-button {
+    position: relative;
+    width: 61px;
+    height: 100%;
+    padding: 5px;
+    background-color: var(--bg-primary);
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s;
+    z-index: 1;
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      content: "";
+      width: 21px;
+      height: 21px;
+      background-color: var(--white);
+      mask-image: url("../img/sprite.svg#search");
+      mask-position: center center;
+      mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+    }
+
+    @include hover-focus {
+      outline: none;
+      background-color: var(--bg-accent);
+    }
+
+    @include active {
+      background-color: var(--bg-accent-opacity);
     }
   }
 }

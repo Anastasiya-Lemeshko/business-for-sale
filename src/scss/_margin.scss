@@ -199,3 +199,23 @@
     }
   }
 }
+
+// blog
+
+.blog {
+  &__blog-list {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}

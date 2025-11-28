@@ -243,6 +243,10 @@
       font-size: 30px;
     }
   }
+
+  a {
+    @include interactive-link-underline-dark;
+  }
 }
 
 .project__info-footer {
@@ -492,5 +496,9 @@
     @include vp-1920 {
       font-size: 30px;
     }
+  }
+
+  a {
+    @include interactive-link-underline-light;
   }
 }

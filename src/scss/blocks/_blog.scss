@@ -1,0 +1,131 @@
+@use "index" as *;
+
+.blog__header {
+  @include page-header;
+
+  margin: 0 0 20px;
+
+  @include vp-1024 {
+    margin: 0 0 77px;
+  }
+
+  @include vp-1920 {
+    grid-template-columns: 1fr 395px;
+  }
+
+  &-title {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0;
+    }
+  }
+}
+
+.blog__nav {
+  margin: 0 0 20px;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: 62fr 125fr;
+    margin: 0 0 30px;
+  }
+}
+
+.blog__search {
+  @include search-form-separated;
+
+  margin: 0 0 10px;
+
+  @include vp-768 {
+    margin: 0;
+  }
+
+  @include vp-1366 {
+    gap: 10px;
+  }
+
+  &-field {
+    @include vp-1366 {
+      width: 100%;
+    }
+
+    span,
+    input {
+      @include vp-1366 {
+        padding: 12px 39px 11px;
+      }
+    }
+
+    span {
+      @include vp-1366 {
+        letter-spacing: 0.03em;
+      }
+    }
+  }
+
+  &-button {
+    @include vp-1366 {
+      width: 173px;
+    }
+  }
+
+}
+
+.blog__select {
+  @include select-dark;
+
+  &-button {
+    padding: 18px 19px 15px 23px;
+
+    @include vp-768 {
+      height: 100%;
+    }
+
+    @include vp-1366 {
+      padding: 13px 35px 12px 39px;
+      font-size: 19px;
+    }
+  }
+}
+
+.blog__list {
+  margin: 0 0 19px;
+  padding: 0;
+  list-style-type: none;
+
+  @include vp-768 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  @include vp-1024 {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px 10px;
+    margin: 0 0 40px;
+  }
+}
+
+.blog__card {
+  @include blog-card;
+
+  &:not(:last-child) {
+    margin: 0 0 11px;
+
+    @include vp-768 {
+      margin: 0;
+    }
+  }
+}
+
+.blog__pagination {
+  @include pagination;
+
+  margin-right: 13px;
+}

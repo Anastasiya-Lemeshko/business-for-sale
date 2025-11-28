@@ -111,3 +111,31 @@
     opacity: 1;
   }
 }
+
+@mixin select-dark {
+  @include select-standard;
+
+  &-button {
+    --color: var(--text-basic);
+
+    background-color: var(--grey-extra-light);
+
+    @include hover-focus {
+      --color: var(--bg-accent);
+    }
+
+    @include active {
+      --color: var(--bg-accent-opacity);
+    }
+  }
+
+  .select__list {
+    background-color: var(--grey-extra-light);
+  }
+
+  .select__item {
+    @include interactive-link-accent;
+
+    color: var(--text-basic);
+  }
+}
