@@ -143,6 +143,12 @@
     @include focus {
       outline: none;
     }
+
+    a {
+      @include focus {
+        outline: none;
+      }
+    }
   }
 
   &-description {

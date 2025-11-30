@@ -1,14 +1,17 @@
 @use "index" as *;
 
-.map {
+.map__wrapper {
   display: grid;
-  height: 320px;
-  padding: 10px;
-  background-color: var(--bg-light);
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
 
   @include vp-768 {
-    height: 527px;
-    padding: 20px;
+    height: 520px;
+  }
+
+  @include vp-1366 {
+    height: 741px;
   }
 }
 
@@ -17,13 +20,14 @@
   margin: auto;
   width: 100%;
   height: 100%;
+  background-color: var(--grey);
 }
 
 .map__image img {
   display: block;
   object-fit: cover;
   width: 100%;
-  max-height: 100%;
+  height: 100%;
 }
 
 .map__iframe {

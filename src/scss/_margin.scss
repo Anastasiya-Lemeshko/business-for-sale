@@ -90,7 +90,7 @@
 
 // payment
 
-.payment {
+.payment-page {
   &__payment-methods {
     margin: 0 0 40px;
 
@@ -110,7 +110,7 @@
 
 // privacy
 
-.privacy {
+.privacy-page {
   &__privacy-policy {
     margin: 0 0 34px;
 
@@ -130,7 +130,7 @@
 
 // catalog
 
-.catalog {
+.catalog-page {
   &__catalog-list {
     margin: 0 0 34px;
 
@@ -202,12 +202,53 @@
 
 // blog
 
-.blog {
+.blog-page {
   &__blog-list {
     margin: 0 0 40px;
 
     @include vp-1024 {
       margin: 0 0 80px;
+    }
+  }
+
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 30px;
+    }
+  }
+}
+
+// contacts
+
+.contacts-page {
+  &__contact-us {
+    margin: 0 0 10px;
+
+    @include vp-1024 {
+      margin: 0 0 40px;
+    }
+  }
+
+  &__map {
+    margin: 0 0 20px;
+
+    @include vp-1024 {
+      margin: 0 0 40px;
+    }
+  }
+}
+
+
+// article
+
+.article-page {
+  &__article {
+    margin: 0 0 40px;
+
+    @include vp-1024 {
+      margin: 0 0 73px;
     }
   }
 

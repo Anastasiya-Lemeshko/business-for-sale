@@ -28,7 +28,7 @@ const makeCardClickable = () => {
       const linkUrl = getLinkUrl(card);
 
       card.addEventListener('click', (evt) => {
-        if (!Array.from(otherLinks).includes(evt.target)) {
+        if (!Array.from(otherLinks).includes(evt.target) && !evt.target.matches('.popup, [class*="popup"]')) {
           window.location.href = linkUrl;
         }
       });

@@ -1,0 +1,23 @@
+@use "index" as *;
+
+.contacts__header {
+  @include page-header;
+
+  margin: 0 0 20px;
+
+  @include vp-1024 {
+    margin: 0 0 77px;
+  }
+
+  @include vp-1920 {
+    grid-template-columns: 1fr 447px;
+  }
+
+  &-title {
+    margin: 0 0 18px;
+
+    @include vp-1024 {
+      margin: 0;
+    }
+  }
+}
