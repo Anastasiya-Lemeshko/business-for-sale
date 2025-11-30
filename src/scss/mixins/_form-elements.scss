@@ -20,8 +20,7 @@
   &:has(input:focus),
   &:has(input:focus-visible),
   &:has(textarea:focus),
-  &:has(textarea:focus-visible),
-  &:has(input:not(:placeholder-shown)) {
+  &:has(textarea:focus-visible) {
     --transform: scaleY(0) translateY(-5px);
     --opacity: 0;
   }
@@ -186,7 +185,6 @@
 }
 
 @mixin input-number-reset {
-
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;

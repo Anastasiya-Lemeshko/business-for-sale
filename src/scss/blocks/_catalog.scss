@@ -63,6 +63,10 @@
     @include vp-768 {
       padding: 11px 56px 7px 14px;
     }
+
+    @include vp-1024 {
+      padding: 12px 56px 6px 14px;
+    }
   }
 }
 
@@ -71,6 +75,7 @@
 
   @include vp-1366 {
     @include view-toggles;
+
     display: block;
   }
 }

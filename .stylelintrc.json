@@ -7,6 +7,7 @@
     "order/order": null,
     "order/properties-alphabetical-order": null,
     "order/properties-order": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "at-rule-empty-line-before": [
       "always",
       {
