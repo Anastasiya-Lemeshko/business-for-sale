@@ -36,6 +36,8 @@ jobs:
 
       - name: Build project
         run: |
+          npx gulp build
+          ls -la app/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
