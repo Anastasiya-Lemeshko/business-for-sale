@@ -1,0 +1,4 @@
+{
+  "exclude": ["node_modules", "app", "vendor", "gulpfile.js", "package.json", ".stylelintrc", "\\.md$", "\\.php$"],
+  "ignore": ["bash.exe.stackdump"]
+}
