@@ -11,14 +11,32 @@
 }
 
 .catalog__wrapper {
+  --filter-width: 260px;
+  --filter-gap: 10px;
+  --select-width: 280px;
+  --select-gap: 10px;
+  --select-height: 42px;
+  --select-border: 2px;
+  --selects-total-height: calc((var(--select-height) + var(--select-border) * 2) * 3 + var(--select-gap) * 2);
+
+  @include vp-768 {
+    --selects-total-height: calc(var(--select-height) + var(--select-border) * 2);
+  }
+
   @include vp-1024 {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 0 10px;
+    grid-template-columns: var(--filter-width) 1fr;
+    gap: 0 var(--filter-gap);
+  }
+
+  @include vp-1920 {
+    --select-width: 375px;
   }
 }
 
 .catalog__controls {
+  padding: 0 0 calc(var(--selects-total-height) + var(--select-gap));
+
   @include vp-768 {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -26,30 +44,32 @@
     margin: 0 0 10px;
   }
 
-  @include vp-1366 {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto auto;
-    gap: 5px 11px;
-    margin: 0 0 13px;
+  @include vp-1024 {
+    padding: 0;
   }
 
-  @include vp-1920 {
-    grid-template-columns: minmax(0, 375px) minmax(0, 375px) minmax(0, 375px) 1fr auto;
+  @include vp-1366 {
+    grid-template-columns: minmax(0, var(--select-width)) minmax(0, var(--select-width)) minmax(0, var(--select-width)) 1fr auto;
+    gap: 5px var(--select-gap);
+    margin: 0 0 13px;
   }
 }
 
 .catalog__search {
   @include search-form;
 
-  margin: 0 0 10px;
-
   @include vp-768 {
     grid-column: 1 / 4;
-    margin: 0;
+  }
+
+  @include vp-1024 {
+    margin: 0 0 var(--selects-total-height);
   }
 
   @include vp-1366 {
     grid-column: 1 / 5;
     height: 46px;
+    margin: 0;
   }
 
   &-field {
@@ -83,8 +103,8 @@
 .catalog__select {
   @include select-standard;
 
-  margin: 0 0 10px;
-  border: 2px solid var(--bg-primary);
+  margin: 0 0 var(--select-gap);
+  border: var(--select-border) solid var(--bg-primary);
   border-radius: 5px;
 
   @include vp-768 {
@@ -92,6 +112,7 @@
   }
 
   &-button {
+    height: var(--select-height);
     padding: 12px 15px 9px 60px;
     color: var(--text-basic);
 
@@ -131,9 +152,9 @@
   }
 
   @include vp-1920 {
-    grid-column: unset;
+    grid-column: 4 / 5;
     align-self: end;
-    margin: 0 12px 6px 0;
+    margin: 0 12px 0 0;
   }
 }
 
@@ -174,12 +195,19 @@
 
 .catalog__objects {
   margin: 0;
+  padding: 0 0 6px;
   font-weight: 400;
   font-size: 18px;
   color: var(--grey);
 
   @include vp-1024 {
     margin-left: auto;
+  }
+
+  @include vp-1366 {
+    display: flex;
+    align-items: flex-end;
+    min-height: var(--selects-total-height);
   }
 
   @include vp-1640 {
@@ -209,6 +237,66 @@
   &--opened {
     --filter-transform: scaleY(1);
     --filter-opacity: 1;
+  }
+}
+
+.catalog__filters-form {
+  position: relative;
+}
+
+.catalog__filters-form-selects {
+  position: absolute;
+  bottom: calc(100% + 26px);
+  width: 100%;
+  height: var(--selects-total-height);
+
+  @include vp-768 {
+    bottom: calc(100% + 9px);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 var(--select-gap);
+    align-items: end;
+  }
+
+  @include vp-1024 {
+    bottom: calc(100% + 50px);
+    left: calc(var(--filter-width) + var(--filter-gap));
+    width: calc(100vw - var(--container-offset) * 2 - var(--filter-width) - var(--filter-gap));
+  }
+
+  @include vp-1366 {
+    bottom: calc(100% + 12px);
+    width: calc(var(--select-width) * 3 + var(--select-gap) * 2);
+  }
+}
+
+.catalog__filters-form-selects--tablet {
+  @include vp-768 {
+    bottom: calc(100% + 9px);
+  }
+
+  @include vp-1024 {
+    bottom: calc(100% + 50px);
+  }
+
+  @include vp-1366 {
+    bottom: calc(100% + 12px);
+  }
+}
+
+.catalog__filters-form-selects--small-desktop {
+  @include vp-1024 {
+    bottom: calc(100% + 50px);
+  }
+
+  @include vp-1366 {
+    bottom: calc(100% + 12px);
+  }
+}
+
+.catalog__filters-form-selects--desktop {
+  @include vp-1366 {
+    bottom: calc(100% + 12px);
   }
 }
 

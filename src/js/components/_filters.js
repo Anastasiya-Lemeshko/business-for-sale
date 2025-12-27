@@ -7,8 +7,7 @@ const results = catalog ? catalog.querySelector('.catalog__results') : null;
 const filterButton = catalog ? catalog.querySelector('.catalog__filter-button') : null;
 const filterItems = filterWrapper ? filterWrapper.querySelectorAll('.filters__item') : null;
 const showButton = filterWrapper ? filterWrapper.querySelector('.filters__show') : null;
-
-let isResultsMoved = false;
+const selects = catalog ? catalog.querySelector('.catalog__filters-form-selects') : null;
 
 const openFilters = () => {
   filterWrapper.classList.add('catalog__filters--opened');
@@ -32,12 +31,23 @@ const moveFilters = () => {
     filterWrapper.classList.add('catalog__filters--opened');
   }
 
-  if (SMALL_DESKTOP_WIDTH.matches && !isResultsMoved) {
+  if (SMALL_DESKTOP_WIDTH.matches) {
     controls.appendChild(results);
+
+    setTimeout(() => {
+      selects.classList.remove('catalog__filters-form-selects--tablet');
+      selects.classList.add('catalog__filters-form-selects--small-desktop');
+    }, 100);
+
   }
 
-  if (!SMALL_DESKTOP_WIDTH.matches && isResultsMoved) {
+  if (!SMALL_DESKTOP_WIDTH.matches) {
     filterWrapper.prepend(results);
+
+    setTimeout(() => {
+      selects.classList.remove('catalog__filters-form-selects--small-desktop');
+      selects.classList.add('catalog__filters-form-selects--tablet');
+    }, 100);
   }
 
   if (filterButton) {
