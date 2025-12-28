@@ -11930,19 +11930,6 @@ const setRanges = () => {
         const label = document.createElement('span');
         label.classList.add('range-label');
         handle.appendChild(label);
-
-        // это потом удалить
-        var listener = function (e) {
-          handle.style.left = (e.pageX - 50) / 260 * 100 + "%";
-        };
-        handle.addEventListener('mousedown', e => {
-          document.addEventListener('mousemove', listener);
-        });
-        handle.addEventListener('mouseup', e => {
-          document.removeEventListener('mousemove', listener);
-        });
-        // до сюда
-
         const observer = new MutationObserver(mutations => {
           const isResetButtonFocused = document.activeElement && document.activeElement.matches('button[type="reset"]');
           if (isResetButtonFocused) return;
