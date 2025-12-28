@@ -310,6 +310,10 @@
   @include range;
 
   padding: 7px 0;
+
+  &-title {
+    color: var(--text-light);
+  }
 }
 
 .hero__form-button {

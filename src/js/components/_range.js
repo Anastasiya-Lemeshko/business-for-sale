@@ -1,7 +1,3 @@
-import noUiSlider from 'nouislider';
-import { RANGE_VALUES } from './../_vars.js';
-import { setRangeCurrentElement } from './../_utils.js';
-
 const forms = document.querySelectorAll('form');
 
 const setRanges = () => {
@@ -9,22 +5,19 @@ const setRanges = () => {
 
   forms.forEach((form) => {
     const ranges = form.querySelectorAll('.range');
-    const singleRanges = form.querySelectorAll('.range--single');
 
     if (!ranges || !ranges.length) return;
 
     const resetButtons = form.querySelectorAll('button[type="reset"]');
-    const showButton = form ? form.querySelector('.filters__show') : null;
+    const showButton = form.querySelector('.filters__show');
+
+    // функция для сброса формы (удаление пописей ползунков и скрытие кнопки show)
 
     const resetAllSliders = () => {
-      ranges.forEach((range) => {
-        const sliderElement = range.querySelector('.range__container');
-        const rangeLabels = form.querySelectorAll('.range__current');
+      const rangeHandles = form.querySelectorAll('.ui-slider-handle');
 
-        if (sliderElement.noUiSlider) {
-          sliderElement.noUiSlider.reset();
-          rangeLabels.forEach(label => label.style.display = 'none');
-        }
+      rangeHandles.forEach((handle) => {
+        handle.style.setProperty('--label-display', 'none');
       });
 
       if (showButton) {
@@ -33,129 +26,68 @@ const setRanges = () => {
       }
     };
 
+    // обработка кнопки сброса
+
     if (resetButtons && resetButtons.length) {
       resetButtons.forEach((button) => {
         button.addEventListener('click', resetAllSliders);
       });
     }
 
-    singleRanges.forEach((range) => {
-      const sliderElement = range.querySelector('.range__container');
-      const valueElement = range.querySelector('.range__input--min');
-      const currentElement = range.querySelector('.range__current');
-      const currentValue = range.querySelector('.range__current-value');
+    // функция позиционирования подписи относительно ползунка
 
-      const filterType = range.dataset.range;
-      let filterConfig = RANGE_VALUES[filterType];
+    const labelPosition = (handle, handlePosition) => {
+      handlePosition = parseFloat(handlePosition);
 
-      if (!filterConfig) {
-        filterConfig = RANGE_VALUES['default'];
+      if (handlePosition > 93) {
+        handle.style.setProperty('--label-position', 'translateX(-85%)');
+      } else if (handlePosition < 7) {
+        handle.style.setProperty('--label-position', 'translateX(-15%)');
+      } else {
+        handle.style.setProperty('--label-position', 'translateX(-50%)');
       }
+    };
 
-      valueElement.setAttribute('value', filterConfig.start);
+    // функция показа подписи
 
-      const onSliderUpdate = () => {
-        const value = sliderElement.noUiSlider.get();
-        valueElement.value = value;
-        currentValue.textContent = new Intl.NumberFormat('ru-RU').format(valueElement.value);
-        setRangeCurrentElement(range, currentElement);
-      };
+    const showRangeLabel = (handle) => {
+      handle.style.setProperty('--label-display', 'block');
+    };
 
-      const createRange = (min, max, step, start) => {
-        noUiSlider.create(sliderElement, {
-          range: { min, max },
-          start: [start],
-          step,
-          connect: [true, false],
-          format: {
-            to: (value) => Number(Math.round(value)),
-            from: (value) => Number(Math.round(value)),
-          },
-        });
-
-        sliderElement.noUiSlider.on('update', onSliderUpdate);
-
-        sliderElement.noUiSlider.on('slide', () => {
-          currentElement.style.display = 'block';
-        }, { once: true });
-      };
-
-      valueElement.addEventListener('change', () => {
-        sliderElement.noUiSlider.set([valueElement.value]);
-      });
-
-      createRange(
-        filterConfig.min,
-        filterConfig.max,
-        filterConfig.step,
-        filterConfig.start
-      );
-    });
+    // наблюдение за изменением позиции ползунка
 
     ranges.forEach((range) => {
-      if (range.classList.contains('range--single')) return;
+      const handlers = range.querySelectorAll('.ui-slider-handle');
 
-      const sliderElement = range.querySelector('.range__container');
-      const valueElement = range.querySelectorAll('.range__input');
-      const valueMinElement = range.querySelector('.range__input--min');
-      const valueMaxElement = range.querySelector('.range__input--max');
+      if (!handlers || !handlers.length) return;
 
-      const currentElements = range.querySelectorAll('.range__current');
-      const currentValueMin = range.querySelector('.range__current-value--min');
-      const currentValueMax = range.querySelector('.range__current-value--max');
+      handlers.forEach((handle) => {
 
-      const filterType = range.dataset.range;
-      let filterConfig = RANGE_VALUES[filterType];
+        // добавление подписи в ползунок
+        const label = document.createElement('span');
+        label.classList.add('range-label');
+        handle.appendChild(label);
 
-      if (!filterConfig) {
-        filterConfig = RANGE_VALUES['default'];
-      }
+        const observer = new MutationObserver((mutations) => {
+          const isResetButtonFocused = document.activeElement && document.activeElement.matches('button[type="reset"]');
+          if (isResetButtonFocused) return;
 
-      valueMinElement.setAttribute('value', filterConfig.start);
-      valueMaxElement.setAttribute('value', filterConfig.end);
+          // если была нажата кнопка сброса формы, дальнейший код не выполнится
 
-      const onSliderUpdate = () => {
-        const valueArray = sliderElement.noUiSlider.get();
-        valueMinElement.value = valueArray[0];
-        valueMaxElement.value = valueArray[1];
-
-        currentValueMin.textContent = new Intl.NumberFormat('ru-RU').format(valueMinElement.value);
-        currentValueMax.textContent = new Intl.NumberFormat('ru-RU').format(valueMaxElement.value);
-        setRangeCurrentElement(range, currentElements);
-      };
-
-      const createRange = (min, max, step, start, end) => {
-        noUiSlider.create(sliderElement, {
-          range: { min, max },
-          start: [start, end],
-          step,
-          connect: [false, true, false],
-          format: {
-            to: (value) => Number(Math.round(value)),
-            from: (value) => Number(Math.round(value)),
-          },
+          mutations.forEach((mutation) => {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+              const leftPosition = handle.style.left;
+              labelPosition(handle, leftPosition);
+              showRangeLabel(handle);
+            }
+          });
         });
 
-        sliderElement.noUiSlider.on('update', onSliderUpdate);
-
-        sliderElement.noUiSlider.on('slide', () => {
-          currentElements.forEach(element => element.style.display = 'block');
-        }, { once: true });
-      };
-
-      valueElement.forEach((element) => {
-        element.addEventListener('change', () => {
-          sliderElement.noUiSlider.set([valueMinElement.value, valueMaxElement.value]);
+        observer.observe(handle, {
+          attributes: true,
+          attributeFilter: ['style']
         });
       });
-
-      createRange(
-        filterConfig.min,
-        filterConfig.max,
-        filterConfig.step,
-        filterConfig.start,
-        filterConfig.end
-      );
     });
   });
 };

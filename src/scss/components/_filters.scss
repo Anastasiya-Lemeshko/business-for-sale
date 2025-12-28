@@ -141,15 +141,15 @@
     color: var(--text-secondary);
   }
 
-  &-current-value {
-    padding: 0 3px;
-    background-color: var(--grey-extra-light);
-    box-shadow: -12px 0 9px -2px var(--grey-extra-light), 12px 0 9px -2px var(--grey-extra-light);
-  }
-
   &-title {
     font-size: 18px;
     text-transform: uppercase;
     color: var(--text-secondary);
+  }
+
+  .range-label {
+    padding: 0 3px;
+    background-color: var(--grey-extra-light);
+    box-shadow: -12px 0 9px -2px var(--grey-extra-light), 12px 0 9px -2px var(--grey-extra-light);
   }
 }

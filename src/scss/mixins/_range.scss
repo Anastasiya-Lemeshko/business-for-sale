@@ -5,7 +5,7 @@
   position: relative;
 
   &-title {
-    margin: 0 0 10px;
+    margin: 0 0 22px;
     font-weight: 400;
     font-size: 18px;
     color: var(--grey);
@@ -18,48 +18,64 @@
     list-style-type: none;
   }
 
-  &-current {
-    display: none;
-    position: absolute;
-    width: 100%;
-    top: 28px;
-    transform: translateX(0%);
-    animation: appear 0.3s;
-  }
-
-  &-current-value {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 12px;
-    transform: translateX(-50%);
-    color: var(--bg-accent);
-  }
-
   &-container {
     margin: 16px 0 14px;
   }
 
-  .noUi-target {
-    background: var(--white);
-    height: 2px;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
+  .ui-slider {
+    position: relative;
   }
 
-  .noUi-connects {
+  .ui-widget.ui-widget-content {
     height: 2px;
+    margin-bottom: 10px;
     background-color: var(--grey-range);
     border-radius: 0;
+    border: none;
   }
 
-  .noUi-connect {
+  .ui-slider-horizontal .ui-slider-range {
     height: 2px;
     background: var(--text-light);
   }
 
-  .noUi-handle {
+  .ui-slider-handle {
+    --label-position: translateX(-50%);
+    --label-display: none;
+  }
+
+  .range-label {
+    display: var(--label-display);
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: var(--label-position);
+    font-size: 12px;
+    color: var(--bg-accent);
+    transition: transform 0.3s;
+    animation: appear 0.3s;
+  }
+
+  .ui-slider .ui-slider-handle {
+    position: absolute;
+    z-index: 2;
+  }
+
+  .ui-slider-horizontal .ui-slider-handle {
+    top: -4px;
+    left: 100%;
+    margin-left: -6px;
+  }
+
+  .ui-slider-horizontal .ui-slider-handle:last-child {
+    left: 1%;
+  }
+
+  .ui-state-default,
+  .ui-widget-content .ui-state-default {
+    display: block;
+    width: 10px;
+    height: 10px;
     border: none;
     border-radius: 50%;
     background-color: var(--bg-accent);
@@ -75,35 +91,6 @@
     @include active {
       background-color: var(--bg-accent);
     }
-  }
-
-  [disabled] .noUi-connect {
-    background-color: var(--grey);
-  }
-
-  [disabled].noUi-handle,
-  [disabled] .noUi-handle {
-    background-color: var(--grey);
-  }
-
-  .noUi-horizontal .noUi-handle {
-    width: 10px;
-    height: 10px;
-    right: -8px;
-    top: -4px;
-  }
-
-  .noUi-horizontal .noUi-handle-upper {
-    right: 0;
-  }
-
-  .noUi-handle::before,
-  .noUi-handle::after {
-    display: none;
-  }
-
-  .noUi-active {
-    box-shadow: none;
   }
 
   &-values {
