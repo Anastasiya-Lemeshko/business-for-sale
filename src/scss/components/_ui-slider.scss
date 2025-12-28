@@ -1,0 +1,72 @@
+@use "index" as *;
+
+.ui-slider {
+  position: relative;
+}
+
+.ui-widget.ui-widget-content {
+  height: 2px;
+  margin-bottom: 10px;
+  background-color: var(--grey-range);
+  border-radius: 0;
+  border: none;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+  height: 2px;
+  background: var(--text-light);
+}
+
+.ui-slider-handle {
+  --label-position: translateX(-50%);
+  --label-display: none;
+}
+
+.range-label {
+  display: var(--label-display);
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: var(--label-position);
+  font-size: 12px;
+  color: var(--bg-accent);
+  transition: transform 0.3s;
+  animation: appear 0.3s;
+}
+
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -4px;
+  left: 100%;
+  margin-left: -6px;
+}
+
+.ui-slider-horizontal .ui-slider-handle:last-child {
+  left: 1%;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-accent);
+  box-shadow: none;
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  @include hover-focus {
+    outline: none;
+    background-color: var(--bg-accent-opacity);
+  }
+
+  @include active {
+    background-color: var(--bg-accent);
+  }
+}

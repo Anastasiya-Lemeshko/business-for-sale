@@ -68,6 +68,18 @@ const setRanges = () => {
         label.classList.add('range-label');
         handle.appendChild(label);
 
+        // это потом удалить
+        var listener = function (e) {
+          handle.style.left = (e.pageX - 50) / 260 * 100 + "%";
+        };
+        handle.addEventListener('mousedown', e => {
+          document.addEventListener('mousemove', listener);
+        });
+        handle.addEventListener('mouseup', e => {
+          document.removeEventListener('mousemove', listener);
+        });
+        // до сюда
+
         const observer = new MutationObserver((mutations) => {
           const isResetButtonFocused = document.activeElement && document.activeElement.matches('button[type="reset"]');
           if (isResetButtonFocused) return;
@@ -79,6 +91,7 @@ const setRanges = () => {
               const leftPosition = handle.style.left;
               labelPosition(handle, leftPosition);
               showRangeLabel(handle);
+              range.dispatchEvent(new CustomEvent('sliderChanged')); // генерация события для перемещения кнопки found objects
             }
           });
         });

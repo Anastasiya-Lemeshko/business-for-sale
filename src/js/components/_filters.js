@@ -87,9 +87,8 @@ const moveShowButton = () => {
       }
     });
 
-    const rangeSlider = item.querySelector('.noUi-target');
-    if (rangeSlider && rangeSlider.noUiSlider) {
-      rangeSlider.noUiSlider.on('slide', () => {
+    if (item.classList.contains('range')) {
+      item.addEventListener('sliderChanged', () => {
         addShowButton(item, showButton);
       });
     }
