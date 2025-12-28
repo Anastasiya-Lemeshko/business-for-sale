@@ -1255,83 +1255,6 @@ span.breadcrumbs__link {
 .filters__range-container {
   margin: 16px 0 14px;
 }
-.filters__range .ui-slider {
-  position: relative;
-}
-.filters__range .ui-widget.ui-widget-content {
-  height: 2px;
-  margin-bottom: 10px;
-  background-color: var(--grey-range);
-  border-radius: 0;
-  border: none;
-}
-.filters__range .ui-slider-horizontal .ui-slider-range {
-  height: 2px;
-  background: var(--text-light);
-}
-.filters__range .ui-slider-handle {
-  --label-position: translateX(-50%);
-  --label-display: none;
-}
-.filters__range .range-label {
-  display: var(--label-display);
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  -webkit-transform: var(--label-position);
-  -ms-transform: var(--label-position);
-  transform: var(--label-position);
-  font-size: 12px;
-  color: var(--bg-accent);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  -webkit-animation: appear 0.3s;
-  animation: appear 0.3s;
-}
-.filters__range .ui-slider .ui-slider-handle {
-  position: absolute;
-  z-index: 2;
-}
-.filters__range .ui-slider-horizontal .ui-slider-handle {
-  top: -4px;
-  left: 100%;
-  margin-left: -6px;
-}
-.filters__range .ui-slider-horizontal .ui-slider-handle:last-child {
-  left: 1%;
-}
-.filters__range .ui-state-default,
-.filters__range .ui-widget-content .ui-state-default {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: var(--bg-accent);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .filters__range .ui-state-default:hover,
-  .filters__range .ui-widget-content .ui-state-default:hover {
-    outline: none;
-    background-color: var(--bg-accent-opacity);
-  }
-}
-.filters__range .ui-state-default:focus-visible,
-.filters__range .ui-widget-content .ui-state-default:focus-visible {
-  outline: none;
-  background-color: var(--bg-accent-opacity);
-}
-.filters__range .ui-state-default:active,
-.filters__range .ui-widget-content .ui-state-default:active {
-  background-color: var(--bg-accent);
-}
 .filters__range-values {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1818,6 +1741,92 @@ span.breadcrumbs__link {
   .form__form-button {
     padding: 14px 20px 13px;
   }
+}
+
+.ui-slider {
+  position: relative;
+}
+
+.ui-widget.ui-widget-content {
+  height: 2px;
+  margin-bottom: 10px;
+  background-color: var(--grey-range);
+  border-radius: 0;
+  border: none;
+}
+
+.ui-slider-horizontal .ui-slider-range {
+  height: 2px;
+  background: var(--text-light);
+}
+
+.ui-slider-handle {
+  --label-position: translateX(-50%);
+  --label-display: none;
+}
+
+.range-label {
+  display: var(--label-display);
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  -webkit-transform: var(--label-position);
+  -ms-transform: var(--label-position);
+  transform: var(--label-position);
+  font-size: 12px;
+  color: var(--bg-accent);
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-animation: appear 0.3s;
+  animation: appear 0.3s;
+}
+
+.ui-slider .ui-slider-handle {
+  position: absolute;
+  z-index: 2;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  top: -4px;
+  left: 100%;
+  margin-left: -6px;
+}
+
+.ui-slider-horizontal .ui-slider-handle:last-child {
+  left: 1%;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-accent);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .ui-state-default:hover,
+  .ui-widget-content .ui-state-default:hover {
+    outline: none;
+    background-color: var(--bg-accent-opacity);
+  }
+}
+.ui-state-default:focus-visible,
+.ui-widget-content .ui-state-default:focus-visible {
+  outline: none;
+  background-color: var(--bg-accent-opacity);
+}
+.ui-state-default:active,
+.ui-widget-content .ui-state-default:active {
+  background-color: var(--bg-accent);
 }
 
 .popup-social {
@@ -4017,83 +4026,6 @@ span.breadcrumbs__link {
 }
 .hero__range-container {
   margin: 16px 0 14px;
-}
-.hero__range .ui-slider {
-  position: relative;
-}
-.hero__range .ui-widget.ui-widget-content {
-  height: 2px;
-  margin-bottom: 10px;
-  background-color: var(--grey-range);
-  border-radius: 0;
-  border: none;
-}
-.hero__range .ui-slider-horizontal .ui-slider-range {
-  height: 2px;
-  background: var(--text-light);
-}
-.hero__range .ui-slider-handle {
-  --label-position: translateX(-50%);
-  --label-display: none;
-}
-.hero__range .range-label {
-  display: var(--label-display);
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  -webkit-transform: var(--label-position);
-  -ms-transform: var(--label-position);
-  transform: var(--label-position);
-  font-size: 12px;
-  color: var(--bg-accent);
-  -webkit-transition: -webkit-transform 0.3s;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-  -webkit-animation: appear 0.3s;
-  animation: appear 0.3s;
-}
-.hero__range .ui-slider .ui-slider-handle {
-  position: absolute;
-  z-index: 2;
-}
-.hero__range .ui-slider-horizontal .ui-slider-handle {
-  top: -4px;
-  left: 100%;
-  margin-left: -6px;
-}
-.hero__range .ui-slider-horizontal .ui-slider-handle:last-child {
-  left: 1%;
-}
-.hero__range .ui-state-default,
-.hero__range .ui-widget-content .ui-state-default {
-  display: block;
-  width: 10px;
-  height: 10px;
-  border: none;
-  border-radius: 50%;
-  background-color: var(--bg-accent);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-  cursor: pointer;
-}
-@media (hover: hover) {
-  .hero__range .ui-state-default:hover,
-  .hero__range .ui-widget-content .ui-state-default:hover {
-    outline: none;
-    background-color: var(--bg-accent-opacity);
-  }
-}
-.hero__range .ui-state-default:focus-visible,
-.hero__range .ui-widget-content .ui-state-default:focus-visible {
-  outline: none;
-  background-color: var(--bg-accent-opacity);
-}
-.hero__range .ui-state-default:active,
-.hero__range .ui-widget-content .ui-state-default:active {
-  background-color: var(--bg-accent);
 }
 .hero__range-values {
   display: -webkit-box;
