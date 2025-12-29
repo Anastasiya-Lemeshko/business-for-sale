@@ -2,94 +2,180 @@ import {
   isEscapeKey,
   isTabKey,
   getScrollWidth
-} from './../_utils.js';
+} from '../_utils.js';
 
-const modalButtons = document.querySelectorAll('[data-modal-button]');
+let scrollSize = 0;
 
-const setModals = () => {
-  if (!modalButtons.length) return;
+class ModalWindow {
+  constructor(buttons) {
+    this.html = document.querySelector('html');
+    this.buttons = buttons || [];
+    this.firstFocusableElement = null;
+    this.lastFocusableElement = null;
+  }
 
-  modalButtons.forEach((button) => {
-    const modalName = button.dataset.modalButton;
-    const modal = document.querySelector(`[data-modal="${modalName}"]`);
+  handleOpen() {
+    if (this.buttons.length === 0) return;
 
+    this.buttons.forEach(button => {
+
+      button.addEventListener('click', () => {
+        const modalName = button.getAttribute('data-modal-button');
+        if (!modalName) return;
+
+        this.modal = document.querySelector(`[data-modal="${modalName}"]`);
+        if (!this.modal) return;
+
+        this.modalWindow = this.modal.querySelector('.modal__container');
+        this.closeBtn = this.modal.querySelector('.modal__close-button');
+
+        const focusableElements = Array.from(this.modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+        this.firstFocusableElement = focusableElements[0];
+        this.lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+        this.addEventListeners();
+        this.openModal(this.modal);
+      });
+    });
+  }
+
+  addEventListeners() {
+    if (!this.modal || !this.modalWindow || !this.closeBtn) return;
+
+    // Закрытие по кнопке
+    this.closeBtn.addEventListener('click', this.handleClose);
+
+    // Закрытие по Escape
+    this.escapeHandler = evt => {
+      if (isEscapeKey(evt)) this.closeModal(this.modal);
+    };
+
+    window.addEventListener('keydown', this.escapeHandler);
+
+    // Закрытие по клику вне модального окна
+    this.modalWindow.addEventListener('click', evt => {
+      evt.stopPropagation();
+    });
+
+    this.modal.addEventListener('click', this.handleOverlayClick);
+
+    // Зацикливание фокуса
+    this.modal.addEventListener('keydown', this.loopFocus);
+  }
+
+  removeEventListeners() {
+    if (this.closeBtn) {
+      this.closeBtn.removeEventListener('click', this.handleClose);
+    }
+
+    window.removeEventListener('keydown', this.escapeHandler);
+
+    if (this.modal) {
+      this.modal.removeEventListener('click', this.handleOverlayClick);
+      this.modal.removeEventListener('keydown', this.loopFocus);
+    }
+  }
+
+  handleClose = () => {
+    this.closeModal(this.modal);
+  };
+
+  handleOverlayClick = evt => {
+    if (evt.target === this.modal) {
+      this.closeModal(this.modal);
+    }
+  };
+
+  loopFocus = evt => {
+    if (!isTabKey(evt)) {
+      return;
+    }
+
+    if (isTabKey(evt) && evt.shiftKey && document.activeElement === this.firstFocusableElement) {
+      evt.preventDefault();
+      this.lastFocusableElement.focus();
+    } else if (isTabKey(evt) && !evt.shiftKey && document.activeElement === this.lastFocusableElement) {
+      evt.preventDefault();
+      this.firstFocusableElement.focus();
+    }
+  }
+
+  openModal(modal) {
     if (!modal) return;
 
-    const modalContainer = modal.querySelector('.modal__container');
-    const modalCloseButton = modal.querySelector('.modal__close-button');
+    // нивелирует скачок из-за полосы прокрутки
+    scrollSize = getScrollWidth();
+    this.html.style.paddingRight = `${scrollSize}px`;
 
-    const focusableElements = Array.from(modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
-    const firstFocusableElement = focusableElements[0];
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    this.html.classList.add('dis-scroll');
+    modal.classList.add('open');
+    this.closeBtn.focus();
+  }
 
-    let scrollSize = 0;
+  openModalSuccess(modalSuccess) {
+    if (!modalSuccess) return;
 
-    const openModal = () => {
-      modal.classList.remove('modal--close');
-      modalCloseButton.addEventListener('click', onModalCloseButtonClick);
-      document.addEventListener('click', onDocumentClick);
-      document.addEventListener('keydown', onDocumentKeydown);
-      document.body.style.overflow = 'hidden';
-      modalCloseButton.focus();
-      modal.addEventListener('keydown', loopFocus);
+    this.closeAllModal();
 
-      scrollSize = getScrollWidth();
-      document.body.style.paddingRight = `${scrollSize}px`;
+    this.modal = modalSuccess;
 
-    };
+    this.modalWindow = this.modal.querySelector('.modal__container');
+    this.closeBtn = this.modal.querySelector('.modal__close-button');
 
-    const closeModal = () => {
-      modal.classList.add('modal--close');
-      document.body.style.overflow = 'visible';
-      document.body.style.paddingRight = 0;
-      modalCloseButton.removeEventListener('click', onModalCloseButtonClick);
-      modal.removeEventListener('keydown', loopFocus);
-      document.removeEventListener('click', onDocumentClick);
-      document.removeEventListener('keydown', onDocumentKeydown);
-      button.focus();
-    };
+    const focusableElements = Array.from(this.modal.querySelectorAll('a[href], button, input, select, textarea, [tabindex]:not([tabindex="-1"])'));
+    this.firstFocusableElement = focusableElements[0];
+    this.lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-    const toggleModal = () => {
-      if (button) {
-        button.addEventListener('click', (evt) => {
-          evt.preventDefault();
-          openModal();
-        });
+    this.addEventListeners();
+    this.openModal(this.modal);
+  }
+
+  closeModal(modal) {
+    if (!modal) return;
+
+    this.html.classList.remove('dis-scroll');
+    modal.classList.remove('open');
+    this.removeEventListeners();
+    this.html.style.paddingRight = 0;
+  }
+
+  closeAllModal() {
+    const allModal = document.querySelectorAll('.modal');
+
+    if (!allModal) return;
+
+    allModal.forEach(el => {
+      if (el.classList.contains('open')) {
+        el.classList.remove('open');
       }
-    };
-
-    function onDocumentKeydown(evt) {
-      if (isEscapeKey(evt)) {
-        evt.preventDefault();
-        closeModal();
+      if (this.html.classList.contains('dis-scroll')) {
+        this.html.classList.remove('dis-scroll');
       }
-    }
+    });
 
-    function onModalCloseButtonClick() {
-      closeModal();
-    }
+    this.removeEventListeners();
+    this.html.style.paddingRight = 0;
+  }
 
-    function onDocumentClick(evt) {
-      if ((document.activeElement !== button) && (document.activeElement !== modalCloseButton) && !modalContainer.contains(evt.target)) {
-        closeModal();
-      }
-    }
+  init() {
+    this.handleOpen();
+  }
+}
 
-    function loopFocus(evt) {
-      if (!isTabKey(evt)) {
-        return;
-      }
+const setModals = () => {
+  const openButtons = document.querySelectorAll('[data-modal-button]');
+  const modalWindow = new ModalWindow(openButtons);
+  const modalSuccess = document.querySelector('[modal-success]');
+  modalWindow.init();
 
-      if (isTabKey(evt) && evt.shiftKey && document.activeElement === firstFocusableElement) {
-        evt.preventDefault();
-        lastFocusableElement.focus();
-      } else if (isTabKey(evt) && !evt.shiftKey && document.activeElement === lastFocusableElement) {
-        evt.preventDefault();
-        firstFocusableElement.focus();
-      }
-    }
+  // Проверка наличия jQuery
+  if (typeof jQuery === 'undefined' && typeof $ === 'undefined') {
+    console.warn('jQuery is not loaded.');
+    return;
+  }
 
-    toggleModal();
+  $(document).on('af_complete', (evt, res) => {
+    if (modalSuccess) if (res.success) modalWindow.openModalSuccess(modalSuccess);
   });
 };
 
