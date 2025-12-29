@@ -10636,7 +10636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_filters_js__WEBPACK_IMPORTED_MODULE_10__.moveShowButton)();
   (0,_components_catalog_view_js__WEBPACK_IMPORTED_MODULE_11__.setViewToggles)();
   (0,_components_popup_social_js__WEBPACK_IMPORTED_MODULE_12__.setSocialPopup)();
-  //setModals();
+  (0,_components_modal_js__WEBPACK_IMPORTED_MODULE_13__.setModals)();
   (0,_components_move_blog_js__WEBPACK_IMPORTED_MODULE_14__.moveBlog)();
   (0,_components_hide_label_js__WEBPACK_IMPORTED_MODULE_15__.hideLabel)();
 });
