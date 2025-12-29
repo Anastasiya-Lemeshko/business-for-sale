@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   moveShowButton();
   setViewToggles();
   setSocialPopup();
-  //setModals();
+  setModals();
   moveBlog();
   hideLabel();
 });
