@@ -11190,16 +11190,16 @@ const moveFilters = () => {
       selects.classList.add('catalog__filters-form-selects--tablet');
     }, 100);
   }
-  if (filterButton) {
-    filterButton.addEventListener('click', () => {
-      if (filterWrapper.classList.contains('catalog__filters--opened')) {
-        closeFilters();
-      } else {
-        openFilters();
-      }
-    });
-  }
 };
+if (filterButton) {
+  filterButton.addEventListener('click', () => {
+    if (filterWrapper.classList.contains('catalog__filters--opened')) {
+      closeFilters();
+    } else {
+      openFilters();
+    }
+  });
+}
 const addShowButton = (item, button) => {
   if (!item.contains(button)) {
     button.classList.add('filters__show--hidden');
