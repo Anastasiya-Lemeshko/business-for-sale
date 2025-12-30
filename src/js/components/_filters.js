@@ -38,7 +38,6 @@ const moveFilters = () => {
       selects.classList.remove('catalog__filters-form-selects--tablet');
       selects.classList.add('catalog__filters-form-selects--small-desktop');
     }, 100);
-
   }
 
   if (!SMALL_DESKTOP_WIDTH.matches) {
@@ -49,17 +48,17 @@ const moveFilters = () => {
       selects.classList.add('catalog__filters-form-selects--tablet');
     }, 100);
   }
-
-  if (filterButton) {
-    filterButton.addEventListener('click', () => {
-      if (filterWrapper.classList.contains('catalog__filters--opened')) {
-        closeFilters();
-      } else {
-        openFilters();
-      }
-    });
-  }
 };
+
+if (filterButton) {
+  filterButton.addEventListener('click', () => {
+    if (filterWrapper.classList.contains('catalog__filters--opened')) {
+      closeFilters();
+    } else {
+      openFilters();
+    }
+  });
+}
 
 const addShowButton = (item, button) => {
   if (!item.contains(button)) {
