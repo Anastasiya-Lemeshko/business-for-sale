@@ -9363,10 +9363,6 @@ span.breadcrumbs__link {
   --filter-opacity: 1;
 }
 
-.catalog__filters-form {
-  position: relative;
-}
-
 .catalog__filters-form-selects {
   position: absolute;
   bottom: calc(100% + 26px);
