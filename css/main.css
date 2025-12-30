@@ -1410,7 +1410,7 @@ span.breadcrumbs__link {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
   display: -ms-grid;
   display: grid;
@@ -1422,16 +1422,19 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 .form__field:has(span.visually-hidden) {
-  --placeholder-color: var(--grey-middle);
+  --placeholder-color: var(--text-secondary);
 }
 .form__field:has(input:focus), .form__field:has(input:focus-visible), .form__field:has(textarea:focus), .form__field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
   --opacity: 0;
 }
-.form__field:has(input:hover) span, .form__field:has(textarea:hover) span {
-  --color: var(--text-basic);
+.form__field:has(input:hover), .form__field:has(textarea:hover) {
+  --placeholder-color: var(--grey-middle);
 }
-.form__field span {
+.form__field:has(input:hover) span, .form__field:has(textarea:hover) span {
+  --color: var(--grey-middle);
+}
+.form__field span:not(.visually-hidden) {
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -1460,11 +1463,11 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .form__field span:hover {
+  .form__field span:not(.visually-hidden):hover {
     --color: var(--text-basic);
   }
 }
-.form__field span:focus-visible {
+.form__field span:not(.visually-hidden):focus-visible {
   --color: var(--text-basic);
 }
 .form__field input,
@@ -1494,27 +1497,66 @@ span.breadcrumbs__link {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .form__field input::-moz-placeholder, .form__field textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  transform-origin: top;
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -moz-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .form__field input:-ms-input-placeholder, .form__field textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .form__field input::-ms-input-placeholder, .form__field textarea::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .form__field input::placeholder,
 .form__field textarea::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .form__field input {
   height: 40px;
@@ -1525,6 +1567,7 @@ span.breadcrumbs__link {
 .form__field:has(input:disabled) {
   --field-color: var(--grey-light);
   --color: var(--grey-middle);
+  --placeholder-color: var(--grey-middle);
   pointer-events: none;
   cursor: default;
 }
@@ -5574,7 +5617,7 @@ span.breadcrumbs__link {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
   display: -ms-grid;
   display: grid;
@@ -5586,16 +5629,19 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 .calculation__form-field:has(span.visually-hidden) {
-  --placeholder-color: var(--grey-middle);
+  --placeholder-color: var(--text-secondary);
 }
 .calculation__form-field:has(input:focus), .calculation__form-field:has(input:focus-visible), .calculation__form-field:has(textarea:focus), .calculation__form-field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
   --opacity: 0;
 }
-.calculation__form-field:has(input:hover) span, .calculation__form-field:has(textarea:hover) span {
-  --color: var(--text-basic);
+.calculation__form-field:has(input:hover), .calculation__form-field:has(textarea:hover) {
+  --placeholder-color: var(--grey-middle);
 }
-.calculation__form-field span {
+.calculation__form-field:has(input:hover) span, .calculation__form-field:has(textarea:hover) span {
+  --color: var(--grey-middle);
+}
+.calculation__form-field span:not(.visually-hidden) {
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -5624,11 +5670,11 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .calculation__form-field span:hover {
+  .calculation__form-field span:not(.visually-hidden):hover {
     --color: var(--text-basic);
   }
 }
-.calculation__form-field span:focus-visible {
+.calculation__form-field span:not(.visually-hidden):focus-visible {
   --color: var(--text-basic);
 }
 .calculation__form-field input,
@@ -5658,27 +5704,66 @@ span.breadcrumbs__link {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .calculation__form-field input::-moz-placeholder, .calculation__form-field textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  transform-origin: top;
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -moz-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .calculation__form-field input:-ms-input-placeholder, .calculation__form-field textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .calculation__form-field input::-ms-input-placeholder, .calculation__form-field textarea::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .calculation__form-field input::placeholder,
 .calculation__form-field textarea::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .calculation__form-field input {
   height: 40px;
@@ -5689,6 +5774,7 @@ span.breadcrumbs__link {
 .calculation__form-field:has(input:disabled) {
   --field-color: var(--grey-light);
   --color: var(--grey-middle);
+  --placeholder-color: var(--grey-middle);
   pointer-events: none;
   cursor: default;
 }
@@ -7765,7 +7851,7 @@ span.breadcrumbs__link {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
   display: -ms-grid;
   display: grid;
@@ -7777,16 +7863,19 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 .payment__field:has(span.visually-hidden) {
-  --placeholder-color: var(--grey-middle);
+  --placeholder-color: var(--text-secondary);
 }
 .payment__field:has(input:focus), .payment__field:has(input:focus-visible), .payment__field:has(textarea:focus), .payment__field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
   --opacity: 0;
 }
-.payment__field:has(input:hover) span, .payment__field:has(textarea:hover) span {
-  --color: var(--text-basic);
+.payment__field:has(input:hover), .payment__field:has(textarea:hover) {
+  --placeholder-color: var(--grey-middle);
 }
-.payment__field span {
+.payment__field:has(input:hover) span, .payment__field:has(textarea:hover) span {
+  --color: var(--grey-middle);
+}
+.payment__field span:not(.visually-hidden) {
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -7815,11 +7904,11 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .payment__field span:hover {
+  .payment__field span:not(.visually-hidden):hover {
     --color: var(--text-basic);
   }
 }
-.payment__field span:focus-visible {
+.payment__field span:not(.visually-hidden):focus-visible {
   --color: var(--text-basic);
 }
 .payment__field input,
@@ -7849,27 +7938,66 @@ span.breadcrumbs__link {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .payment__field input::-moz-placeholder, .payment__field textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  transform-origin: top;
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -moz-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .payment__field input:-ms-input-placeholder, .payment__field textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .payment__field input::-ms-input-placeholder, .payment__field textarea::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .payment__field input::placeholder,
 .payment__field textarea::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .payment__field input {
   height: 40px;
@@ -7880,6 +8008,7 @@ span.breadcrumbs__link {
 .payment__field:has(input:disabled) {
   --field-color: var(--grey-light);
   --color: var(--grey-middle);
+  --placeholder-color: var(--grey-middle);
   pointer-events: none;
   cursor: default;
 }
@@ -8557,7 +8686,7 @@ span.breadcrumbs__link {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
   display: -ms-grid;
   display: grid;
@@ -8569,16 +8698,19 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 .catalog__search-field:has(span.visually-hidden) {
-  --placeholder-color: var(--grey-middle);
+  --placeholder-color: var(--text-secondary);
 }
 .catalog__search-field:has(input:focus), .catalog__search-field:has(input:focus-visible), .catalog__search-field:has(textarea:focus), .catalog__search-field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
   --opacity: 0;
 }
-.catalog__search-field:has(input:hover) span, .catalog__search-field:has(textarea:hover) span {
-  --color: var(--text-basic);
+.catalog__search-field:has(input:hover), .catalog__search-field:has(textarea:hover) {
+  --placeholder-color: var(--grey-middle);
 }
-.catalog__search-field span {
+.catalog__search-field:has(input:hover) span, .catalog__search-field:has(textarea:hover) span {
+  --color: var(--grey-middle);
+}
+.catalog__search-field span:not(.visually-hidden) {
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -8607,11 +8739,11 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .catalog__search-field span:hover {
+  .catalog__search-field span:not(.visually-hidden):hover {
     --color: var(--text-basic);
   }
 }
-.catalog__search-field span:focus-visible {
+.catalog__search-field span:not(.visually-hidden):focus-visible {
   --color: var(--text-basic);
 }
 .catalog__search-field input,
@@ -8641,27 +8773,66 @@ span.breadcrumbs__link {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .catalog__search-field input::-moz-placeholder, .catalog__search-field textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  transform-origin: top;
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -moz-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .catalog__search-field input:-ms-input-placeholder, .catalog__search-field textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .catalog__search-field input::-ms-input-placeholder, .catalog__search-field textarea::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .catalog__search-field input::placeholder,
 .catalog__search-field textarea::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .catalog__search-field input {
   height: 40px;
@@ -8672,6 +8843,7 @@ span.breadcrumbs__link {
 .catalog__search-field:has(input:disabled) {
   --field-color: var(--grey-light);
   --color: var(--grey-middle);
+  --placeholder-color: var(--grey-middle);
   pointer-events: none;
   cursor: default;
 }
@@ -13269,7 +13441,7 @@ span.breadcrumbs__link {
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
   display: -ms-grid;
   display: grid;
@@ -13281,16 +13453,19 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 .blog__search-field:has(span.visually-hidden) {
-  --placeholder-color: var(--grey-middle);
+  --placeholder-color: var(--text-secondary);
 }
 .blog__search-field:has(input:focus), .blog__search-field:has(input:focus-visible), .blog__search-field:has(textarea:focus), .blog__search-field:has(textarea:focus-visible) {
   --transform: scaleY(0) translateY(-5px);
   --opacity: 0;
 }
-.blog__search-field:has(input:hover) span, .blog__search-field:has(textarea:hover) span {
-  --color: var(--text-basic);
+.blog__search-field:has(input:hover), .blog__search-field:has(textarea:hover) {
+  --placeholder-color: var(--grey-middle);
 }
-.blog__search-field span {
+.blog__search-field:has(input:hover) span, .blog__search-field:has(textarea:hover) span {
+  --color: var(--grey-middle);
+}
+.blog__search-field span:not(.visually-hidden) {
   position: relative;
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -13319,11 +13494,11 @@ span.breadcrumbs__link {
   cursor: pointer;
 }
 @media (hover: hover) {
-  .blog__search-field span:hover {
+  .blog__search-field span:not(.visually-hidden):hover {
     --color: var(--text-basic);
   }
 }
-.blog__search-field span:focus-visible {
+.blog__search-field span:not(.visually-hidden):focus-visible {
   --color: var(--text-basic);
 }
 .blog__search-field input,
@@ -13353,27 +13528,66 @@ span.breadcrumbs__link {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .blog__search-field input::-moz-placeholder, .blog__search-field textarea::-moz-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  transform-origin: top;
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -moz-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .blog__search-field input:-ms-input-placeholder, .blog__search-field textarea:-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .blog__search-field input::-ms-input-placeholder, .blog__search-field textarea::-ms-input-placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -ms-transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
 }
 .blog__search-field input::placeholder,
 .blog__search-field textarea::placeholder {
   font-weight: 400;
   font-size: 18px;
   color: var(--placeholder-color);
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-transform: var(--transform);
+  -ms-transform: var(--transform);
+  transform: var(--transform);
+  opacity: var(--opacity);
+  -webkit-transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s;
+  transition: transform 0.3s, opacity 0.3s, color 0.3s, -webkit-transform 0.3s;
 }
 .blog__search-field input {
   height: 40px;
@@ -13384,6 +13598,7 @@ span.breadcrumbs__link {
 .blog__search-field:has(input:disabled) {
   --field-color: var(--grey-light);
   --color: var(--grey-middle);
+  --placeholder-color: var(--grey-middle);
   pointer-events: none;
   cursor: default;
 }

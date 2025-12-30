@@ -10603,8 +10603,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_popup_social_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/_popup-social.js */ "./src/js/components/_popup-social.js");
 /* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/_modal.js */ "./src/js/components/_modal.js");
 /* harmony import */ var _components_move_blog_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/_move-blog.js */ "./src/js/components/_move-blog.js");
-/* harmony import */ var _components_hide_label_js__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/_hide-label.js */ "./src/js/components/_hide-label.js");
-
 
 
 
@@ -10638,7 +10636,6 @@ document.addEventListener('DOMContentLoaded', () => {
   (0,_components_popup_social_js__WEBPACK_IMPORTED_MODULE_12__.setSocialPopup)();
   (0,_components_modal_js__WEBPACK_IMPORTED_MODULE_13__.setModals)();
   (0,_components_move_blog_js__WEBPACK_IMPORTED_MODULE_14__.moveBlog)();
-  (0,_components_hide_label_js__WEBPACK_IMPORTED_MODULE_15__.hideLabel)();
 });
 
 /***/ }),
@@ -11288,50 +11285,6 @@ const setGridColumnLayout = () => {
   });
   _vars_js__WEBPACK_IMPORTED_MODULE_0__.TABLET_WIDTH.addEventListener('change', setGridColumnLayout);
   _vars_js__WEBPACK_IMPORTED_MODULE_0__.DESKTOP_WIDTH.addEventListener('change', setGridColumnLayout);
-};
-
-
-/***/ }),
-
-/***/ "./src/js/components/_hide-label.js":
-/*!******************************************!*\
-  !*** ./src/js/components/_hide-label.js ***!
-  \******************************************/
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   hideLabel: () => (/* binding */ hideLabel)
-/* harmony export */ });
-const textInputs = document.querySelectorAll(`
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="password"],
-    input[type="url"],
-    input[type="search"],
-    textarea
-`);
-const hideLabel = () => {
-  if (!textInputs || !textInputs.length) return;
-  textInputs.forEach(input => {
-    const field = input.parentElement;
-    const label = field.querySelector('span');
-    if (label && label.classList.contains('visually-hidden')) return;
-    if (input.value.trim() !== '') {
-      field.style.setProperty('--transform', 'scaleY(0) translateY(-5px)');
-      field.style.setProperty('--opacity', '0');
-    }
-    input.addEventListener('input', () => {
-      if (input.value.trim() !== '') {
-        field.style.setProperty('--transform', 'scaleY(0) translateY(-5px)');
-        field.style.setProperty('--opacity', '0');
-      } else {
-        field.style.setProperty('--transform', 'scaleY(1) translateY(0)');
-        field.style.setProperty('--opacity', '1');
-      }
-    });
-  });
 };
 
 
