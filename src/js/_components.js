@@ -13,7 +13,6 @@ import { setViewToggles } from './components/_catalog-view.js';
 import { setSocialPopup } from './components/_popup-social.js';
 import { setModals } from './components/_modal.js';
 import { moveBlog } from './components/_move-blog.js';
-import { hideLabel } from './components/_hide-label.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -33,5 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
   setSocialPopup();
   setModals();
   moveBlog();
-  hideLabel();
 });

@@ -5,7 +5,7 @@
   --transform: scaleY(1) translateY(0);
   --opacity: 1;
   --field-color: var(--white);
-  --color: var(--grey-middle);
+  --color: var(--text-secondary);
   --placeholder-color: var(--transparent);
 
   display: grid;
@@ -14,7 +14,7 @@
   cursor: pointer;
 
   &:has(span.visually-hidden) {
-    --placeholder-color: var(--grey-middle);
+    --placeholder-color: var(--text-secondary);
   }
 
   &:has(input:focus),
@@ -25,12 +25,17 @@
     --opacity: 0;
   }
 
-  &:has(input:hover) span,
-  &:has(textarea:hover) span {
-    --color: var(--text-basic);
+  &:has(input:hover),
+  &:has(textarea:hover) {
+    --placeholder-color: var(--grey-middle);
   }
 
-  span {
+  &:has(input:hover) span,
+  &:has(textarea:hover) span {
+    --color: var(--grey-middle);
+  }
+
+  span:not(.visually-hidden) {
     position: relative;
     grid-area: 1 / 1 / 2 / 2;
     display: inline-block;
@@ -72,6 +77,10 @@
       font-weight: 400;
       font-size: 18px;
       color: var(--placeholder-color);
+      transform-origin: top;
+      transform: var(--transform);
+      opacity: var(--opacity);
+      transition: transform 0.3s, opacity 0.3s, color 0.3s;
     }
   }
 
@@ -86,6 +95,7 @@
   &:has(input:disabled) {
     --field-color: var(--grey-light);
     --color: var(--grey-middle);
+    --placeholder-color: var(--grey-middle);
 
     pointer-events: none;
     cursor: default;
@@ -185,6 +195,7 @@
 }
 
 @mixin input-number-reset {
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     appearance: none;
