@@ -73,6 +73,18 @@ const renderCustomSelect = () => {
 
       selectButton.textContent = selectedText;
       originalSelect.value = selectedValue;
+
+      Array.from(originalSelect.options).forEach((option) => {
+        option.removeAttribute('selected');
+        option.selected = false;
+      });
+
+      const originalOption = Array.from(originalSelect.options).find((option) => option.value === selectedValue);
+      if (originalOption) {
+        originalOption.setAttribute('selected', '');
+        originalOption.selected = true;
+      }
+
       originalSelect.dispatchEvent(new Event('change'));
       closeSelect();
     };
@@ -162,7 +174,6 @@ const renderCustomSelect = () => {
     createCustomSelect();
     toggleSelect();
   });
-
 };
 
 export { renderCustomSelect };
