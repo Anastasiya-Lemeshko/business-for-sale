@@ -397,7 +397,7 @@
   }
 }
 
-.project__project {
+.project__details {
   padding: 17px 20px 13px;
   color: var(--white);
   background-color: var(--bg-primary);
@@ -417,7 +417,7 @@
   }
 }
 
-.project__project-subtitle {
+.project__details-subtitle {
   margin: 0 0 22px;
   font-weight: 500;
   font-size: 20px;
@@ -429,7 +429,7 @@
   }
 }
 
-.project__project-chars {
+.project__details-chars {
   margin: 0;
 
   @include vp-768 {
