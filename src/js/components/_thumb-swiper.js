@@ -1,5 +1,5 @@
 import Swiper from 'swiper';
-import { Scrollbar, Thumbs } from 'swiper/modules';
+import { Thumbs, EffectFade } from 'swiper/modules';
 import { getSwiperClass } from '../_utils.js';
 
 const sections = document.querySelectorAll('[data-swiper="thumb"]');
@@ -12,41 +12,38 @@ const setThumbSwiper = () => {
     const thumbSwiper = section.querySelector('.thumb-swiper');
     let mainSwiperContainer = null;
 
-    const sectionClass = getSwiperClass(mainSwiper);
-
     const thumbSwiperContainer = new Swiper(thumbSwiper, {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 10,
       watchSlidesProgress: true,
       centeredSlidesBounds: true,
 
       breakpoints: {
-        780: {
-          slidesPerView: 6,
+        1366: {
+          spaceBetween: 18,
         },
-      }
+      },
     });
 
     const initMainSwiper = () => {
       if (!mainSwiper) return;
 
       mainSwiperContainer = new Swiper(mainSwiper, {
-        modules: [Scrollbar, Thumbs],
+        modules: [Thumbs, EffectFade],
         direction: 'horizontal',
         speed: 500,
         allowTouchMove: true,
         slidesPerView: 1,
         spaceBetween: 10,
 
-        scrollbar: {
-          el: `.${sectionClass}scrollbar`,
-          draggable: true,
-          dragClass: `${sectionClass}scrollbar-drag`,
+        effect: 'fade',
+        fadeEffect: {
+          crossFade: true
         },
 
         thumbs: {
           swiper: thumbSwiperContainer,
-          slideThumbActiveClass: 'details__thumb-slide--active'
+          slideThumbActiveClass: 'project__thumb-slide--active'
         },
       });
     };

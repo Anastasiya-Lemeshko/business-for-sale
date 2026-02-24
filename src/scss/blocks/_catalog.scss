@@ -19,10 +19,6 @@
   --select-border: 2px;
   --selects-total-height: calc((var(--select-height) + var(--select-border) * 2) * 3 + var(--select-gap) * 2);
 
-  @include vp-768 {
-    --selects-total-height: calc(var(--select-height) + var(--select-border) * 2);
-  }
-
   @include vp-1024 {
     display: grid;
     grid-template-columns: var(--filter-width) 1fr;
@@ -31,6 +27,12 @@
 
   @include vp-1920 {
     --select-width: 375px;
+  }
+}
+
+@include vp-768 {
+  .catalog__wrapper {
+    --selects-total-height: calc(var(--select-height) + var(--select-border) * 2);
   }
 }
 
