@@ -43,25 +43,13 @@
   }
 }
 
-.project__swiper {
-  margin: 0 0 10px;
-
-  @include vp-1366 {
-    margin: 0 0 19px;
-  }
-}
-
-.project__swiper-container {
-  margin: 0 0 19px;
-
-  @include vp-500 {
-    margin: 0 0 30px;
-  }
+.project__gallery {
+  margin: 0 0 12px;
 
   @include vp-768 {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr) auto;
+    grid-template-rows: 1fr auto;
     margin: 0;
   }
 
@@ -70,23 +58,32 @@
   }
 }
 
-.project__swiper-wrapper {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
+.project__gallery .f-thumbs {
+  --f-thumb-width: calc((100% - 8px * 4) / 5);
+  --f-thumb-height: 76px;
+
+  padding: 8px 0;
+
+  @include vp-768 {
+    padding: 8px 0 0;
+  }
+
+  @include vp-1024 {
+    --f-thumb-height: 100px;
+  }
+
+  @include vp-1366 {
+    --f-thumb-height: 170px;
+  }
+
+  @include vp-1640 {
+    --f-thumb-height: 260px;
+  }
 }
 
-.project__slide {
-  @include slide-layout;
-
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-.project__slide-container {
-  @include slide-container;
-
+.project__gallery-wrapper {
   aspect-ratio: 362 / 300;
+  margin: 0 0 2px;
   border-radius: 5px;
   overflow: hidden;
 
@@ -98,6 +95,12 @@
   @include vp-1024 {
     max-height: 950px;
   }
+}
+
+.project__gallery-slide {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
 
   img {
     @include img-cover;
@@ -108,41 +111,9 @@
   }
 }
 
-.project__thumb-swiper {
-  @include vp-768 {
-    width: 100%;
-  }
-}
-
-.project__thumb-swiper-wrapper {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.project__thumb-slide {
-  animation: appear 0.6s;
-  transition: opacity 0.6s;
-  cursor: pointer;
-
-  @include hover-focus {
-    opacity: 0.8;
-  }
-}
-
-.project__thumb-slide--active {
-  display: none;
-}
-
-.project__thumb-slide-container {
-  @include slide-container;
-
+.f-panzoom__wrapper {
   border-radius: 5px;
-  aspect-ratio: 87 / 76;
-
-  img {
-    @include img-cover;
-  }
+  overflow: hidden;
 }
 
 .project__info {

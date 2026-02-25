@@ -1,6 +1,5 @@
 import Swiper from 'swiper';
 import { Thumbs, EffectFade } from 'swiper/modules';
-import { getSwiperClass } from '../_utils.js';
 
 const sections = document.querySelectorAll('[data-swiper="thumb"]');
 

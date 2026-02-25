@@ -12,6 +12,12 @@
 // стили для свайпера
 @use "../../node_modules/swiper/swiper-bundle.min";
 
+// стили для галереи
+@use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css";
+@use "../../node_modules/@fancyapps/ui/dist/carousel/carousel.css";
+@use "../../node_modules/@fancyapps/ui/dist/carousel/carousel.arrows.css" as arrow;
+@use "../../node_modules/@fancyapps/ui/dist/carousel/carousel.thumbs.css" as thumb;
+
 // стили для слайдера
 // @use "../../node_modules/nouislider/dist/nouislider.min.css";
 

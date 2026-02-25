@@ -13,7 +13,7 @@ import { setViewToggles } from './components/_catalog-view.js';
 import { setSocialPopup } from './components/_popup-social.js';
 import { setModals } from './components/_modal.js';
 import { moveBlog } from './components/_move-blog.js';
-import { setThumbSwiper } from './components/_thumb-swiper.js';
+import { setFancyboxGallery } from './components/_fancybox.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   toggleBurgerMenu();
@@ -33,5 +33,5 @@ document.addEventListener('DOMContentLoaded', () => {
   setSocialPopup();
   setModals();
   moveBlog();
-  setThumbSwiper();
+  setFancyboxGallery();
 });

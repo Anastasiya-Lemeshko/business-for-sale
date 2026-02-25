@@ -1,18 +1,11 @@
-import {
-  isEscapeKey,
-  isArrowDownKey,
-  isArrowUpKey,
-  isEnterKey,
-  setTabIndex,
-  removeTabIndex
-} from '../_utils.js';
+import { isArrowDownKey, isArrowUpKey, isEnterKey, isEscapeKey, removeTabIndex, setTabIndex } from '../_utils.js';
 
 const selects = document.querySelectorAll('.select');
 
 const renderCustomSelect = () => {
-  if (!selects) return;
+  if (!selects.length) return;
 
-  selects.forEach((select) => {
+  selects.forEach(select => {
     const selectButton = select.querySelector('.select__button');
     const originalSelect = select.querySelector('.select__original');
     const customSelect = document.createElement('div');
@@ -20,15 +13,32 @@ const renderCustomSelect = () => {
     const createCustomSelect = () => {
       customSelect.classList.add('select__list');
 
-      Array.from(originalSelect.options).forEach((option) => {
+      const currentValue = originalSelect.value;
+
+      Array.from(originalSelect.options).forEach(option => {
         const optionItem = document.createElement('button');
         optionItem.classList.add('select__item');
-        optionItem.setAttribute('type', 'button');
+        optionItem.type = 'button';
         optionItem.setAttribute('tabindex', '-1');
         optionItem.textContent = option.textContent;
         optionItem.dataset.value = option.value;
+
+        // если значение уже пришло из URL → подсветка и текст кнопки
+        if (option.value === currentValue) {
+          optionItem.classList.add('select__item--active');
+          selectButton.textContent = option.textContent;
+        }
+
         customSelect.appendChild(optionItem);
       });
+
+      // если value пустой — берём selected option
+      if (!currentValue) {
+        const selectedOption = originalSelect.options[originalSelect.selectedIndex];
+        if (selectedOption) {
+          selectButton.textContent = selectedOption.textContent;
+        }
+      }
 
       select.appendChild(customSelect);
 
@@ -60,93 +70,74 @@ const renderCustomSelect = () => {
     const closeSelect = () => {
       select.classList.remove('select--open');
       checkTabIndex();
-
       selectButton.focus();
       customSelect.removeEventListener('click', onSelectOptionClick);
       document.removeEventListener('keydown', onSelectKeydown);
       document.removeEventListener('click', onDocumentClick);
     };
 
-    const chooseOption = (option) => {
+    const chooseOption = option => {
       const selectedValue = option.dataset.value;
       const selectedText = option.textContent;
 
+      // кнопка
       selectButton.textContent = selectedText;
+
+      // оригинальный select
       originalSelect.value = selectedValue;
 
-      Array.from(originalSelect.options).forEach((option) => {
-        option.removeAttribute('selected');
-        option.selected = false;
-      });
+      // active state
+      customSelect.querySelectorAll('.select__item').forEach(item => item.classList.remove('select__item--active'));
 
-      const originalOption = Array.from(originalSelect.options).find((option) => option.value === selectedValue);
-      if (originalOption) {
-        originalOption.setAttribute('selected', '');
-        originalOption.selected = true;
+      option.classList.add('select__item--active');
+
+      // msFilter2
+      if (window.jQuery) {
+        window.jQuery(originalSelect).trigger('change');
+      } else {
+        originalSelect.dispatchEvent(new Event('change', { bubbles: true }));
       }
 
-      originalSelect.dispatchEvent(new Event('change'));
       closeSelect();
     };
 
     const toggleSelect = () => {
       selectButton.addEventListener('click', () => {
-        if (select.classList.contains('select--open')) {
-          closeSelect();
-        } else {
-          openSelect();
-        }
+        select.classList.contains('select--open') ? closeSelect() : openSelect();
       });
     };
 
     function onSelectKeydown(evt) {
       const open = select.classList.contains('select--open');
-      const options = Array.from(customSelect.querySelectorAll('button'));
+      const options = Array.from(customSelect.querySelectorAll('.select__item'));
       const currentIndex = options.indexOf(document.activeElement);
 
-      if (!open) {
-        return;
-      }
+      if (!open) return;
 
       if (isArrowDownKey(evt)) {
         evt.preventDefault();
-
-        if (currentIndex < options.length - 1) {
-          options[currentIndex + 1].focus();
-        } else {
-          options[0].focus();
-        }
-        return;
+        options[(currentIndex + 1) % options.length].focus();
       }
 
       if (isArrowUpKey(evt)) {
         evt.preventDefault();
-
-        if (currentIndex > 0) {
-          options[currentIndex - 1].focus();
-        } else {
-          options[options.length - 1].focus();
-        }
-        return;
+        options[(currentIndex - 1 + options.length) % options.length].focus();
       }
 
       if (isEnterKey(evt)) {
         evt.preventDefault();
-
-        if (currentIndex > 0) {
+        if (currentIndex >= 0) {
           chooseOption(options[currentIndex]);
         }
-        return;
       }
 
       if (isEscapeKey(evt)) {
         closeSelect();
       }
-
     }
 
     function onSelectOptionClick(evt) {
-      if (evt.target.tagName === 'BUTTON') {
+      if (evt.target.classList.contains('select__item')) {
         chooseOption(evt.target);
       }
     }
@@ -158,18 +149,10 @@ const renderCustomSelect = () => {
     }
 
     function onSelectFocusOut(evt) {
-      if (evt.relatedTarget === null || !select.contains(evt.relatedTarget)) {
+      if (!evt.relatedTarget || !select.contains(evt.relatedTarget)) {
         closeSelect();
       }
     }
-
-    originalSelect.addEventListener('keydown', (evt) => {
-      if (evt.key === 'Enter') {
-        if (document.activeElement === originalSelect) {
-          openSelect();
-        }
-      }
-    });
 
     createCustomSelect();
     toggleSelect();
@@ -177,4 +160,3 @@ const renderCustomSelect = () => {
 };
 
 export { renderCustomSelect };
-
