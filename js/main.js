@@ -11918,7 +11918,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { Arrows } from '@fancyapps/ui/dist/carousel/carousel.arrows.js';
 
 const gallery = document.querySelector('.fancybox__gallery');
 const setFancyboxGallery = () => {
@@ -11930,7 +11929,6 @@ const setFancyboxGallery = () => {
     }
   }, {
     Lazyload: _fancyapps_ui_dist_carousel_carousel_lazyload_js__WEBPACK_IMPORTED_MODULE_1__.Lazyload,
-    // Arrows,
     Thumbs: _fancyapps_ui_dist_carousel_carousel_thumbs_js__WEBPACK_IMPORTED_MODULE_2__.Thumbs
   }).init();
   _fancyapps_ui__WEBPACK_IMPORTED_MODULE_0__.Fancybox.bind("[data-fancybox]", {});
