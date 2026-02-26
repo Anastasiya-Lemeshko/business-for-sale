@@ -11764,32 +11764,6 @@ span.breadcrumbs__link {
   }
 }
 
-.project__gallery .f-thumbs {
-  --f-thumb-width: calc((100% - 8px * 4) / 5);
-  --f-thumb-height: 76px;
-  padding: 8px 0;
-}
-@media (min-width: 768px) {
-  .project__gallery .f-thumbs {
-    padding: 8px 0 0;
-  }
-}
-@media (min-width: 1024px) {
-  .project__gallery .f-thumbs {
-    --f-thumb-height: 100px;
-  }
-}
-@media (min-width: 1366px) {
-  .project__gallery .f-thumbs {
-    --f-thumb-height: 170px;
-  }
-}
-@media (min-width: 1640px) {
-  .project__gallery .f-thumbs {
-    --f-thumb-height: 260px;
-  }
-}
-
 .project__gallery-wrapper {
   aspect-ratio: 362/300;
   margin: 0 0 2px;
@@ -11849,6 +11823,73 @@ span.breadcrumbs__link {
     width: 100%;
     background-color: var(--text-light);
   }
+}
+
+.project__gallery .f-thumbs {
+  --f-thumb-width: calc((100% - 8px * 3) / 4);
+  --f-thumb-height: 76px;
+  padding: 8px 0;
+}
+@media (min-width: 768px) {
+  .project__gallery .f-thumbs {
+    padding: 8px 0 0;
+  }
+}
+@media (min-width: 1024px) {
+  .project__gallery .f-thumbs {
+    --f-thumb-height: 100px;
+  }
+}
+@media (min-width: 1366px) {
+  .project__gallery .f-thumbs {
+    --f-thumb-height: 170px;
+  }
+}
+@media (min-width: 1640px) {
+  .project__gallery .f-thumbs {
+    --f-thumb-height: 260px;
+  }
+}
+
+@media (hover: hover) {
+  .f-thumbs__slide:hover {
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
+}
+@media (hover: hover) and (hover: hover) {
+  .f-thumbs__slide:hover:hover {
+    opacity: 0.7;
+    outline: none;
+  }
+}
+@media (hover: hover) {
+  .f-thumbs__slide:hover:focus-visible {
+    opacity: 0.7;
+    outline: none;
+  }
+  .f-thumbs__slide:hover:active {
+    opacity: 0.5;
+  }
+}
+.f-thumbs__slide:focus-visible {
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  .f-thumbs__slide:focus-visible:hover {
+    opacity: 0.7;
+    outline: none;
+  }
+}
+.f-thumbs__slide:focus-visible:focus-visible {
+  opacity: 0.7;
+  outline: none;
+}
+.f-thumbs__slide:focus-visible:active {
+  opacity: 0.5;
 }
 
 .f-panzoom__wrapper {
